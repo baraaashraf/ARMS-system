@@ -1,4 +1,4 @@
-import "./ContentMain.css";
+import "./Main.css";
 import Cards from "../Cards/Cards";
 import Transactions from "../Transactions/Transactions";
 import Report from "../Report/Report";
@@ -8,7 +8,7 @@ import Savings from "../Savings/Savings";
 import Loans from "../Loans/Loans";
 import Financial from "../Financial/Financial";
 
-const ContentMain = () => {
+const Main = () => {
   return (
     <div className="main-content-holder">
         <div className="content-grid-one">
@@ -36,4 +36,4 @@ const ContentMain = () => {
   )
 }
 
-export default ContentMain
+export default Main

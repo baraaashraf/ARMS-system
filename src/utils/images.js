@@ -1,5 +1,6 @@
 // icons svg images
 import alert from "../assets/icons/alert.svg";
+import about_us from "../assets/icons/about-us.svg";
 import bell from "../assets/icons/bell.svg";
 import bills from "../assets/icons/bills.svg";
 import budget from "../assets/icons/budget.svg";
@@ -24,10 +25,29 @@ import person_three from "../assets/images/person_three.jpg";
 import person_four from "../assets/images/person_four.jpg";
 
 export const iconsImgs = {
-    alert, bell, bills, budget, card, check, empty_check, gears, home, menu, plane, plus, report, search, user, wallet, wealth
-}
-
-export const personsImgs = {
-    person_one, person_two, person_three, person_four
+  alert,
+  about_us,
+  bell,
+  bills,
+  budget,
+  card,
+  check,
+  empty_check,
+  gears,
+  home,
+  menu,
+  plane,
+  plus,
+  report,
+  search,
+  user,
+  wallet,
+  wealth,
 };
 
+export const personsImgs = {
+  person_one,
+  person_two,
+  person_three,
+  person_four,
+};
