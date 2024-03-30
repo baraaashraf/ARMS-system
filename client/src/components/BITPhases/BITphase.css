@@ -1,0 +1,23 @@
+.stage p {
+  font-size: 20px;
+  margin-top: 0;
+  display: inline-block;
+  padding: 20px 30px;
+  background-color: var(--clr-primary); 
+  width: 500px;
+  border-radius: 5px;
+}
+
+.stage {
+  text-align: center;
+}
+
+.line {
+  width: 4px;
+  height: 15px;
+  background-color: black;
+  margin: 0;
+}
+.line:last-child {
+  display: none;
+}
