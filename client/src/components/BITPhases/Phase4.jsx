@@ -12,10 +12,12 @@ const Phase4 = () => {
         {BITphase4.map((phase, index) => (
           <>
             <div key={index} className="stage">
-              <p>
-                <Link to={phase.link}>{phase.title}</Link>
-              </p>
+              <Link to={`s${index}`}>
+                <p>{phase.title}</p>
+
+              </Link>
             </div>
+
             <div className="line" />
           </>
         ))}

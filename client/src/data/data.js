@@ -155,57 +155,76 @@ export const BITphases = [
   {
     phaseName: "Phase 1",
     phaseTitle: "Establishment of New Academic Programme",
-    link: "phase1"
+    link: "phase1",
   },
   {
     phaseName: "Phase 2",
     phaseTitle: "Provisional Accreditation Process Flow (Appendix A)",
-    link: "phase2"
+    link: "phase2",
   },
   {
     phaseName: "Phase 3",
     phaseTitle: "Full Accreditation Process Flow (Appendix B)",
-    link: "phase3"
+    link: "phase3",
   },
   {
     phaseName: "Phase 4",
     phaseTitle: "Curriculum Review Process Flow (Appendix C)",
-    link: "phase4"
+    link: "phase4",
   },
   {
     phaseName: "Phase 5",
     phaseTitle: "New-cycle Accreditation/PMA Process Flwo (Appendix D)",
-    link: "phase5" 
-  }
+    link: "phase5",
+  },
 ];
 
-export const BITphase4 =[
+export const BITphase4 = [
   {
-    "title":"Internal and external assesors managment"
+    title: "Internal and external assesors managment",
   },
   {
-    "title":"Preparing self-review report"
+    title: "Preparing self-review report",
   },
   {
-    "title":"Preparing Strength, Weakness, Opportunity and Threat (SWOT) analysis"
+    title:
+      "Preparing Strength, Weakness, Opportunity and Threat (SWOT) analysis",
   },
   {
-    "title":"Conducting alumni, industry and graduates survey and analysis"
+    title: "Conducting alumni, industry and graduates survey and analysis",
   },
   {
-    "title":"Obtainging feedback from Board of Studies members"
+    title: "Obtainging feedback from Board of Studies members",
   },
   {
-    "title":"Conducting benchmarking visit(s)"
+    title: "Conducting benchmarking visit(s)",
   },
   {
-    "title":"Reviewing Programme Educatinoal Objectives (PEO), Programme Learning Outcomes (PLO) and Sejahtera Academic Framework (SAF) Elements"
+    title:
+      "Reviewing Programme Educatinoal Objectives (PEO), Programme Learning Outcomes (PLO) and Sejahtera Academic Framework (SAF) Elements",
   },
   {
-    "title":"Reviewing programme curriculum structure and course outline"
+    title: "Reviewing programme curriculum structure and course outline",
   },
   {
-    "title":"Proposal"
+    title: "Proposal",
   },
+];
 
-]
+export const TimelineData = [
+  {
+    Date: "Friday, 24 Nov",
+    Title: "Appointing Assessors",
+    Desc: "Internal and External Assessor Appointments",
+  },
+  {
+    Date: "Monday, 15 Jan",
+    Title: "Self-Review Report Preparation",
+    Desc: "Facultyy Members Prepare Self-Review Reports",
+  },
+  {
+    Date: "Friday, 24 Nov",
+    Title: "SWOT Analysis",
+    Desc: "Conduct SWOT Analysis Workshops",
+  },
+];

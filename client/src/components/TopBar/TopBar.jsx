@@ -3,8 +3,13 @@ import "./TopBar.css";
 import IIUMlogo from "../../assets/images/person_one.jpg";
 import { useContext } from "react";
 import { SidebarContext } from "../../context/sidebarContext";
+import { useLocation } from 'react-router-dom';
 
 const TopBar = () => {
+  const route = useLocation()
+  const { pathname } = route;
+  const location = pathname.split('/').slice(-1).toString().toUpperCase()
+  console.log(location)
   const { toggleSidebar } = useContext(SidebarContext);
   return (
     <div className="main-content-top">
@@ -16,7 +21,7 @@ const TopBar = () => {
         >
           <img src={iconsImgs.menu} alt="" />
         </button>
-        <h3 className="content-top-title">Home</h3>
+        <h3 className="content-top-title">{location}</h3>
       </div>
       {/* <div className="content-top-btns">
         <button type="button" className="search-btn content-top-btn">

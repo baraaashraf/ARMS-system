@@ -1,11 +1,11 @@
 import { iconsImgs } from "../../utils/images";
-import "./Cards.css";
+import "./Dashboard.css";
 
-const Cards = () => {
+const Dashboard = () => {
   return (
     <div className="grid-one-item grid-common grid-c1">
         <div className="grid-c-title">
-            <h3 className="grid-c-title-text">Cards</h3>
+            <h3 className="grid-c-title-text">Dashboard</h3>
             <button className="grid-c-title-icon">
                 <img src={ iconsImgs.plus } />
             </button>
@@ -32,4 +32,4 @@ const Cards = () => {
   )
 }
 
-export default Cards
+export default Dashboard

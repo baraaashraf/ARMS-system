@@ -2,6 +2,8 @@
 .grid-c1 {
   display: flex;
   flex-direction: column;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 .grid-c1-content {
   background: linear-gradient(
@@ -59,5 +61,6 @@
   .grid-c1 {
     grid-column-start: 1;
     grid-column-end: 3;
+    
   }
 }

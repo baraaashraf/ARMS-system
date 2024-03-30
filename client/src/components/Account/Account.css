@@ -18,7 +18,6 @@
   margin-bottom: 10px;
 }
 .personal-info-form label {
-  font-weight: bold;
   font-size: larger;
 }
 .personal-info-form input {
@@ -27,6 +26,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  border-style: none;
 }
 
 @media (min-width: 768px) {

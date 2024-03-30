@@ -1,6 +1,6 @@
 import React from "react";
 import { BITphases } from "../data/data";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 import "../layout/BIT.css";
 const BIT = () => {
   return (
@@ -10,9 +10,9 @@ const BIT = () => {
         {BITphases.map((phase, index) => (
           <div key={index} className="phase">
             <h2>{phase.phaseName}</h2>
-            <p>
-              <Link to={phase.link}>{phase.phaseTitle}</Link>
-            </p>
+            <Link to={phase.link}>
+              <p>{phase.phaseTitle}</p>
+            </Link>
           </div>
         ))}
       </div>

@@ -6,6 +6,18 @@
   box-sizing: border-box;
 }
 
+.texture {
+  background-color: #70c2c0;
+  opacity: 1;
+  background-image: linear-gradient(135deg, #6bbbb9 25%, transparent 25%),
+    linear-gradient(225deg, #6bbbb9 25%, transparent 25%),
+    linear-gradient(45deg, #6bbbb9 25%, transparent 25%),
+    linear-gradient(315deg, #6bbbb9 25%, #70c2c0 25%);
+  background-position: 4px 0, 4px 0, 0 0, 0 0;
+  background-size: 8px 8px;
+  background-repeat: repeat;
+}
+
 :root {
   --clr-primary: #00928f;
   --clr-primar-light: #473b33;
