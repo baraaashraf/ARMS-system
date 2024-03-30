@@ -151,13 +151,30 @@ export const subscriptions = [
   },
 ];
 
-export const savings = [
+export const BITphases = [
   {
-    id: 27,
-    image: personsImgs.person_one,
-    saving_amount: 250000,
-    title: "Pay kid bro’s fees",
-    date_taken: "23/12/22",
-    amount_left: 40000,
+    phaseName: "Phase 1",
+    phaseTitle: "Establishment of New Academic Programme",
+    link: "/phase1"
   },
+  {
+    phaseName: "Phase 2",
+    phaseTitle: "Provisional Accreditation Process Flow (Appendix A)",
+    link: "/phase2"
+  },
+  {
+    phaseName: "Phase 3",
+    phaseTitle: "Full Accreditation Process Flow (Appendix B)",
+    link: "/phase3"
+  },
+  {
+    phaseName: "Phase 4",
+    phaseTitle: "Curriculum Review Process Flow (Appendix C)",
+    link: "/phase4"
+  },
+  {
+    phaseName: "Phase 5",
+    phaseTitle: "New-cycle Accreditation/PMA Process Flwo (Appendix D)",
+    link: "/phase5" 
+  }
 ];

@@ -1,9 +1,13 @@
-import React from 'react'
-
+import React from "react";
+import ProgramCard from "../components/programCard/ProgramCard";
+import '../components/programCard/ProgramCard.css'
 const AcademicProgram = () => {
   return (
-    <div>AcademicProgram</div>
-  )
-}
+    <div className="program-container">
+      <ProgramCard title="BIT" route="BIT"/>
+      <ProgramCard title="BCS" route="BCS" />
+    </div>
+  );
+};
 
-export default AcademicProgram
+export default AcademicProgram;

@@ -1,11 +1,10 @@
-import { savings } from "../../data/data";
 import { iconsImgs, personsImgs } from "../../utils/images";
 import "./Savings.css";
 
 const Savings = () => {
   return (
     <div className="subgrid-two-item grid-common grid-c6">
-        <div className="grid-c-title">
+        {/* <div className="grid-c-title">
             <h3 className="grid-c-title-text">Savings</h3>
             <button className="grid-c-title-icon">
                 <img src={ iconsImgs.plus } />
@@ -40,7 +39,7 @@ const Savings = () => {
                     ))
                 }
             </div>
-        </div>
+        </div> */}
     </div>
   )
 }

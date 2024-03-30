@@ -1,0 +1,47 @@
+.profile-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.profile-img {
+  border-radius: 50%;
+}
+/* ------------------------------------------------- */
+.personal-info-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.personal-info-form label {
+  font-weight: bold;
+  font-size: larger;
+}
+.personal-info-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+@media (min-width: 768px) {
+  .personal-info-form {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .form-group {
+    flex: 0 0 calc(50% - 10px);
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .form-group {
+    flex: 0 0 100%;
+  }
+}
