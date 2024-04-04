@@ -1,5 +1,11 @@
 import React from "react";
-import "./About_us.css"
+import "./About_us.css";
+
+import phone from "../../assets/icons/call.png";
+import location from "../../assets/icons/location-pin.png";
+import mail from "../../assets/icons/mail-2569.svg";
+import fax from "../../assets/icons/fax.png";
+
 const about_us = () => {
   return (
     <div className="about_us">
@@ -17,16 +23,38 @@ const about_us = () => {
         </p>
       </div>
       <h1>Contact Us</h1>
-      <div className="contact-us-card">
-        
-        <h2>Internationl Islamic University Malaysia</h2>
-        <ul>
-          <li>Mailing Address: <span className="contact-info">P.O. Box 10, 50728 Kuala Lumpur</span> </li>
-          <li>Phone: <span className="contact-info">(+603) 6421 6421</span> </li>
-          <li>Fax: <span className="contact-info">(+603) 6421 4053</span> </li>
-          <li>Email Address: <span className="contact-info">arms.iium@gmail.com</span> </li>
-        </ul>
-      </div>
+      <table class="contact-us-table">
+        <tr>
+          <td>
+            {/* <strong>University Name</strong> */}
+          </td>
+          <td>International Islamic University Malaysia</td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Mailing Address</strong>
+          </td>
+          <td><img width={12} src={location} alt="" /> P.O. Box 10, 50728 Kuala Lumpur</td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Phone</strong>
+          </td>
+          <td><img width={12} src={phone} alt="" /> (+603) 6421 6421</td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Fax</strong>
+          </td>
+          <td><img width={12} src={fax} alt="" /> (+603) 6421 4053</td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Email Address</strong>
+          </td>
+          <td><img width={12} src={mail} alt="" /> arms.iium@gmail.com</td>
+        </tr>
+      </table>
     </div>
   );
 };

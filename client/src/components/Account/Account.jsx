@@ -20,13 +20,13 @@ const Account = () => {
           <FormInput label="Country" />
           <FormInput label="Marital Status" />
           <FormInput label="Identity Card/ Passport No" />
-          <FormInput label="Gender:" />
+          <FormInput label="Gender" />
           <FormInput label="Address" />
           <FormInput label="Birthday" />
-          <FormInput label="Email:" />
+          <FormInput label="Email" />
           <FormInput label="Religion" />
           <FormInput label="Mobile" />
-          <input type="submit" className="submit-button" />
+          <input type="submit" id="submit-button" value='Update Info' />
         </form>
       </div>
     </div>
