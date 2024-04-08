@@ -89,9 +89,20 @@
   }
   .content-grid-two .grid-two-item:nth-child(3) .subgrid-two {
     grid-template-columns: repeat(1, 1fr);
+    grid-column-start: 1;
+    grid-column-end: 3;
     height: auto;
   }
   .content-grid-two .grid-two-item:nth-child(3) .subgrid-two .subgrid-two-item {
     height: 220px;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  
+  .content-grid-two {
+    grid-template-columns: repeat(1, 1fr);
+    column-gap: 0;
+    row-gap: 12px;
   }
 }

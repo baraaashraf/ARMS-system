@@ -1,4 +1,3 @@
-import { iconsImgs } from "../../utils/images";
 import "./Dashboard.css";
 
 const Dashboard = () => {

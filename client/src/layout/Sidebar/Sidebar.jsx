@@ -5,6 +5,7 @@ import "./Sidebar.css";
 import { useContext } from "react";
 import { SidebarContext } from "../../context/sidebarContext";
 import { NavLink } from "react-router-dom";
+
 const Sidebar = () => {
   const [activeLinkIdx] = useState(1);
   const [sidebarClass, setSidebarClass] = useState("");

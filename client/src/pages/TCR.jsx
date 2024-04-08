@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
 
 const TCR = () => {
   return (
-    <div>TCR</div>
-  )
-}
+    <div className="program-container">
+      <p>hi</p>
+      <p>b</p>
+    </div>
+  );
+};
 
-export default TCR
+export default TCR;

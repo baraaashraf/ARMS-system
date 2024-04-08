@@ -8,9 +8,9 @@ const errorHandler = (err, req, res, next) => {
   let statusCode = res.statusCode === 200 ? 500 : res.statusCode;
   let message = err.message;
 
-  if (err.name === "CastError" && err.lind === "ObjectId") {
+  if (err.name === "CastError" && err.kind === "ObjectId") {
     statusCode = 404;
-    message = "Resource not found";
+    message = "Resource not Found";
   }
 
   res.status(statusCode).json({
@@ -19,4 +19,7 @@ const errorHandler = (err, req, res, next) => {
   });
 };
 
-export { notFound, errorHandler };
+export{
+    notFound,
+    errorHandler
+}

@@ -18,6 +18,8 @@ import user from "../assets/icons/user.svg";
 import wallet from "../assets/icons/wallet.svg";
 import wealth from "../assets/icons/wealth.svg";
 
+import rightArrow from "../assets/icons/right-arrow.png"
+
 // person images
 import person_one from "../assets/images/person_one.jpg";
 import person_two from "../assets/images/person_two.jpg";
@@ -39,6 +41,7 @@ export const iconsImgs = {
   plane,
   plus,
   report,
+  rightArrow,
   search,
   user,
   wallet,

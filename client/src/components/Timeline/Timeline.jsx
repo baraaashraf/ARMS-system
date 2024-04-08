@@ -1,6 +1,7 @@
-import { iconsImgs } from "../../utils/images";
 import "./Timeline.css";
 import { TimelineData } from "../../data/data";
+import { iconsImgs } from "../../utils/images";
+
 import React from "react";
 
 const Timeline = () => {
@@ -15,11 +16,16 @@ const Timeline = () => {
       <div className="grid-c3-content">
         <ul className="data-list">
           {TimelineData.map((item, index) => (
-            <React.Fragment key={index}>
+            <div className="data-list-item" key={index}>
               <h3>{item.Date}</h3>
-              <li>{item.Title}</li>
+              <li>
+                <span>
+                  <img src={iconsImgs.rightArrow} width={15} />
+                </span>
+                {item.Title}
+              </li>
               <p>{item.Desc}</p>
-            </React.Fragment>
+            </div>
           ))}
         </ul>
       </div>
