@@ -35,6 +35,13 @@
   display: flex;
   align-items: center;
 }
+.logout-icon{
+  width: 20px;
+}
+
+.logout-icon:hover{
+  cursor: pointer;
+}
 
 .user-logo {
   display: flex;

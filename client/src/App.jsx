@@ -1,7 +1,8 @@
 import "./App.css";
 // Modules
 import { Route, Routes } from "react-router-dom";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // Components
 import Sidebar from "./layout/Sidebar/Sidebar";
 import Main from "./components/Main/Main";
@@ -27,6 +28,7 @@ function App() {
   return (
     <>
       <div className="app">
+        <ToastContainer />
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />

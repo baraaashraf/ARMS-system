@@ -1,22 +1,75 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import "../register.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useLoginMutation } from "../slices/usersApiSlice";
+import { setCredentials } from "../slices/authSlice";
+import { toast } from "react-toastify";
+import Loader from "../components/Loader.jsx/Loader";
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await login({
+        email,
+        password,
+      }).unwrap();
+
+      dispatch(setCredentials({ ...res }));
+      navigate("/");
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
+    }
+  };
+
+  const [login, { isLoading }] = useLoginMutation();
+  const { userInfo } = useSelector((state) => state.auth);
+  
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/");
+    }
+  }, [navigate, userInfo]);
+
+  
   return (
     <div className="register-background">
       <div className="form-container">
         <div className="login form">
           <header>Login</header>
-          <form className="register-form" action="#">
-            <input type="text" placeholder="Enter your email" />
-            <input type="password" placeholder="Enter your password" />
-            <a href="#">Forgot password?</a>
-            <input type="button" className="button" value="Login" />
+          <form className="register-form" onSubmit={submitHandler}>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+
+            <input
+              type="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+            {isLoading && <Loader/>}
+            <input type="submit" className="button" value="Login" />
           </form>
           <div className="register-other">
             <span className="register-other">
               Don't have an account?
-              <label htmlFor="check"> <Link to="/signup">Signup</Link></label>
+              <label htmlFor="check">
+                <Link to="/signup"> Signup</Link>
+              </label>
             </span>
           </div>
         </div>
