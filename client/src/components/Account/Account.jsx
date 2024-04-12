@@ -1,32 +1,150 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import personOne from "../../assets/images/person_one.jpg";
+import { useDispatch, useSelector } from "react-redux";
+import { useUpdateUserMutation } from "../../slices/usersApiSlice";
 import "./Account.css";
 import FormInput from "./FormInput";
+import { setCredentials } from "../../slices/authSlice";
+import Loader from "../Loader.jsx/Loader";
+import { toast } from "react-toastify";
+
 const Account = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [country, setCountry] = useState("");
+  const [maritalStatus, setMaritalStatus] = useState("");
+  const [identityCardOrPassportNo, setIdentityCardOrPassportNo] = useState("");
+  const [gender, setGender] = useState("");
+  const [address, setAddress] = useState("");
+  const [birthday, setBirthday] = useState("");
+  const [religion, setReligion] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const { userInfo } = useSelector((state) => state.auth);
+
+  const dispatch = useDispatch();
+
+  const [updateProfile, { isLoading }] = useUpdateUserMutation();
+  console.log(userInfo);
+
+  useEffect(() => {
+    if (userInfo) {
+      const {
+        name,
+        email,
+        country,
+        maritalStatus,
+        identityCardOrPassportNo,
+        gender,
+        address,
+        birthday,
+        religion,
+        mobile,
+      } = userInfo;
+
+      setName(name || "");
+      setEmail(email || "");
+      setCountry(country || "");
+      setMaritalStatus(maritalStatus || "");
+      setIdentityCardOrPassportNo(identityCardOrPassportNo || "");
+      setGender(gender || "");
+      setAddress(address || "");
+      setBirthday(birthday || "");
+      setReligion(religion || "");
+      setMobile(mobile || "");
+    }
+  }, [userInfo]);
+  console.log("userInfo", userInfo._id);
+
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      toast.error('Passwords do not match');
+    } else {
+      try {
+        const res = await updateProfile({
+          _id: userInfo._id,
+          name,
+          email,
+          password,
+        }).unwrap();
+        console.log(res);
+        dispatch(setCredentials(res));
+        toast.success('Profile updated successfully');
+      } catch (err) {
+        toast.error(err?.data?.message || err.error);
+      }
+    }
+  };
+
   return (
     <div>
       <h1>Profile</h1>
       <div className="profile-info-container">
         <img className="profile-img" src={personOne} alt="" />
         <ul>
-          <li>user name</li>
-          <li>user role</li>
+          <li>Username: {name}</li>
+          <li>User role: {}</li>
         </ul>
       </div>
       <h1>Personal Info</h1>
       <div className="personal-info-container">
-        <form className="personal-info-form" action="" method="PUT">
-          <FormInput label="Name" />
-          <FormInput label="Country" />
-          <FormInput label="Marital Status" />
-          <FormInput label="Identity Card/ Passport No" />
-          <FormInput label="Gender" />
-          <FormInput label="Address" />
-          <FormInput label="Birthday" />
-          <FormInput label="Email" />
-          <FormInput label="Religion" />
-          <FormInput label="Mobile" />
-          <input type="submit" id="submit-button" value='Update Info' />
+        <form className="personal-info-form" onSubmit={submitHandler}>
+          <FormInput
+            label="Name"
+            value={name}
+            onEdit={(e) => setName(e.target.value)}
+          />{" "}
+          <FormInput
+            label="Email"
+            value={email}
+            onEdit={(e) => setEmail(e.target.value)}
+          />
+          <FormInput
+            label="Country"
+            value={country}
+            onEdit={(e) => setCountry(e.target.value)}
+          />
+          <FormInput
+            label="Marital Status"
+            value={maritalStatus}
+            onEdit={(e) => setMaritalStatus(e.target.value)}
+          />
+          <FormInput
+            label="Identity Card/ Passport No"
+            value={identityCardOrPassportNo}
+            onEdit={(e) => setIdentityCardOrPassportNo(e.target.value)}
+          />
+          <FormInput
+            label="Gender"
+            value={gender}
+            onEdit={(e) => setGender(e.target.value)}
+          />
+          <FormInput
+            label="Address"
+            value={address}
+            onEdit={(e) => setAddress(e.target.value)}
+          />
+          <FormInput
+            label="Birthday"
+            value={birthday}
+            onEdit={(e) => setBirthday(e.target.value)}
+          />
+          <FormInput
+            label="Religion"
+            value={religion}
+            onEdit={(e) => setReligion(e.target.value)}
+          />
+          <FormInput
+            label="Mobile"
+            value={mobile}
+            onEdit={(e) => setMobile(e.target.value)}
+          />
+          {isLoading && <Loader />}
+          <input type="submit" id="submit-button" value="Update Info" />
         </form>
       </div>
     </div>

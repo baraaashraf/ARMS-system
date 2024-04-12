@@ -1,12 +1,11 @@
-import { iconsImgs,personsImgs } from "../utils/images";
-
+import { iconsImgs, personsImgs } from "../utils/images";
 
 export const navigationLinks = [
   {
     id: 1,
     title: "Home",
     image: iconsImgs.home,
-    link: "/",
+    link: "/home",
   },
   {
     id: 2,
@@ -226,5 +225,16 @@ export const TimelineData = [
     Date: "Friday, 24 Nov",
     Title: "SWOT Analysis",
     Desc: "Conduct SWOT Analysis Workshops",
+  },
+];
+
+export const DashboardInfo = [
+  {
+    Title: "Internal and external assesssors management",
+    Percentage: 100,
+  },
+  {
+    Title: "Preparing self-review report",
+    Percentage: 60,
   },
 ];

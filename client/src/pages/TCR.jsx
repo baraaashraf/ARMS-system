@@ -1,11 +1,22 @@
 import React from "react";
+import "../layout/TCR.css";
 
 const TCR = () => {
   return (
-    <div className="program-container">
-      <p>hi</p>
-      <p>b</p>
-    </div>
+    <>
+      <h1>Template Curriculum Review</h1>
+      <div className="program-container">
+        <div>
+          <h5 className="tcr-title">Upload file</h5>
+          <button className="tcr-button">Upload</button>
+        </div>
+
+        <div>
+          <h5 className="tcr-title">Download file</h5>
+          <button className="tcr-button">Download</button>
+        </div>
+      </div>
+    </>
   );
 };
 

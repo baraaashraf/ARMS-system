@@ -2,15 +2,12 @@ import "./Timeline.css";
 import { TimelineData } from "../../data/data";
 import { iconsImgs } from "../../utils/images";
 
-import React from "react";
-
 const Timeline = () => {
   return (
     <div className="subgrid-two-item grid-common grid-c7">
       <div className="grid-c-title">
         <h3 className="grid-c-title-text">Timeline</h3>
         <button className="grid-c-title-icon">
-          <img src={iconsImgs.plus} />
         </button>
       </div>
       <div className="grid-c3-content">
