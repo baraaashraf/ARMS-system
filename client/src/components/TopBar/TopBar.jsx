@@ -8,10 +8,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useLogoutMutation } from "../../slices/usersApiSlice";
 import logoutIcon from "../../assets/icons/logout.png";
 import { logout } from "../../slices/authSlice";
-import { useEffect } from "react";
 const TopBar = () => {
-  const { userInfo } = useSelector((state) => state.auth);
-
+  const { userInfo } = useSelector((state) => state.auth) 
   const route = useLocation();
   const { pathname } = route;
   const location = pathname.split("/").slice(-1).toString().toUpperCase();
@@ -21,7 +19,6 @@ const TopBar = () => {
   const { toggleSidebar } = useContext(SidebarContext);
 
   const [logoutApiCall] = useLogoutMutation();
-
 
   const logoutHandler = async () => {
     try {

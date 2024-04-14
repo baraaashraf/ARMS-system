@@ -1,33 +1,27 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import IIUMlogo from "../../assets/images/IIUM-logo.png";
 import { navigationLinks } from "../../data/data";
 import "./Sidebar.css";
-import { useContext } from "react";
-import { SidebarContext } from "../../context/sidebarContext";
 import { NavLink } from "react-router-dom";
-
-import { useLogoutMutation } from "../../slices/usersApiSlice";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { logout } from "../../slices/authSlice";
+import { useLogoutMutation } from "../../slices/usersApiSlice";
 
 const Sidebar = () => {
   const [activeLinkIdx] = useState(1);
   const [sidebarClass, setSidebarClass] = useState("");
-  const { isSidebarOpen } = useContext(SidebarContext);
 
-  useEffect(() => {
-    if (isSidebarOpen) {
-      setSidebarClass("sidebar-change");
-    } else {
-      setSidebarClass("");
-    }
-  }, [isSidebarOpen]);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  const [logoutApiCall] = useLogoutMutation();
 
   const logoutHandler = async () => {
     try {
       await logoutApiCall().unwrap();
       dispatch(logout());
-      navigate('/login');
+      navigate("/login");
     } catch (err) {
       console.error(err);
     }
@@ -62,7 +56,7 @@ const Sidebar = () => {
           ))}
         </ul>
       </nav>
- 
+
       <button onClick={logoutHandler}>LOGOUT</button>
     </div>
   );
