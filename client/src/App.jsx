@@ -34,7 +34,6 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="" element={<PrivateRoute />}>
-            {" "}
             <Route
               path="/*"
               element={
@@ -45,7 +44,6 @@ function App() {
 
                     <Routes>
                       <Route path="/home" element={<Main />} />
-                      <Route path="/academic_program">
                         <Route index element={<AcademicProgram />} />
                         <Route path="bcs" element={<BCS />} />
                         <Route path="bit">
@@ -56,7 +54,6 @@ function App() {
                           <Route path="phase4" element={<Phase4 />} />
                           <Route path="phase5" element={<Phase5 />} />
                         </Route>
-                      </Route>
                       <Route path="/TCR" element={<TCR />} />
                       <Route path="/account" element={<AccountPage />} />
                       <Route path="/about_us" element={<About_us_page />} />
@@ -67,8 +64,6 @@ function App() {
               }
             />
           </Route>
-
-          <Route path="*" element={<h1>Page Not Found</h1>} />
         </Routes>
       </div>
     </>

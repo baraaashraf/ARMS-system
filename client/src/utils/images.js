@@ -17,7 +17,7 @@ import search from "../assets/icons/search.svg";
 import user from "../assets/icons/user.svg";
 import wallet from "../assets/icons/wallet.svg";
 import wealth from "../assets/icons/wealth.svg";
-
+import graduateHat from '../assets/icons/graduateHat.png'
 import rightArrow from "../assets/icons/right-arrow.png"
 
 // person images
@@ -37,6 +37,7 @@ export const iconsImgs = {
   empty_check,
   gears,
   home,
+  graduateHat,
   menu,
   plane,
   plus,
