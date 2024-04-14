@@ -15,6 +15,32 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    country: {
+      type: String,
+    },
+    maritalStatus: {
+      type: String,
+      enum: ['Single', 'Married', 'Divorced', 'Widowed', 'unspecified'],
+    },
+    identityCardOrPassportNo: {
+      type: String,
+    },
+    gender: {
+      type: String,
+      enum: ['Male', 'Female', 'unspecified'],
+    },
+    address: {
+      type: String,
+    },
+    birthday: {
+      type: Date,
+    },
+    religion: {
+      type: String,
+    },
+    mobile: {
+      type: String,
+    },
   },
   {
     timestamps: true,
