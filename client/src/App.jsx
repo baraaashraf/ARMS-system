@@ -41,7 +41,6 @@ function App() {
                   <Sidebar />
                   <div className="main-content texture">
                     <TopBar />
-
                     <Routes>
                       <Route path="/home" element={<Main />} />
                         <Route index element={<AcademicProgram />} />

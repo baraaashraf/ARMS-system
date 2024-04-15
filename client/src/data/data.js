@@ -237,7 +237,7 @@ export const TimelineData = [
 export const DashboardInfo = [
   {
     Title: "Internal and external assesssors management",
-    Percentage: 100,
+    Percentage: 90,
   },
   {
     Title: "Preparing self-review report",

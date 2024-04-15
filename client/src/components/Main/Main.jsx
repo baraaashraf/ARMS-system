@@ -1,8 +1,12 @@
 import "./Main.css";
+
 import Dashboard from "../Dashboard/Dashboard";
 import Announcement from "../Announcement/Announcement";
 import Timeline from "../Timeline/Timeline";
 import Notifcations from "../Notifcations/Notifcations";
+
+
+
 
 const Main = () => {
   return (
