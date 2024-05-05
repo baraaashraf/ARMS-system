@@ -43,7 +43,8 @@ JWT_SECRET=
 To run the application in development mode with hot reloading for both frontend and backend:
 
 ```bash
-npm run dev
+cd client && npm run dev
+cd server && npm run dev
 ```
 
 Once the servers are running, you can access the frontend at http://localhost:3000 and the backend at http://localhost:5000
