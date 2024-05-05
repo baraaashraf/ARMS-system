@@ -216,6 +216,30 @@ export const BITphase4 = [
   },
 ];
 
+export const BITphase4_1 = [
+  {
+    title: "Board of studies",
+  },
+  {
+    title: "Internal & External Assessors",
+  },
+  {
+    title: "Survey",
+  },
+  {
+    title: "Programme Curriculum",
+  },
+  {
+    title: "Self-review SWOT analysis",
+  },
+  {
+    title: "Curriculum review Proposal",
+  },
+  {
+    title: "Dokumen semakan",
+  },
+];
+
 export const TimelineData = [
   {
     Date: "Friday, 24 Nov",

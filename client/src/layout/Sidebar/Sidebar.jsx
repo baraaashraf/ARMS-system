@@ -29,7 +29,6 @@ const Sidebar = () => {
     }
   }, [isSidebarOpen]);
 
-
   const logoutHandler = async () => {
     try {
       await logoutApiCall().unwrap();
@@ -52,10 +51,14 @@ const Sidebar = () => {
       <nav className="navigation">
         <ul className="nav-list">
           {navigationLinks.map((navigationLink) => (
-            <li className="nav-item" key={navigationLink.id}>
+            <li
+              title={navigationLink.title}
+              className="nav-item"
+              key={navigationLink.id}
+            >
               <NavLink
                 to={navigationLink.link}
-                activeClassName="active"
+                activeclassname="active"
                 className="nav-link"
               >
                 <img
@@ -70,7 +73,7 @@ const Sidebar = () => {
         </ul>
       </nav>
 
-      <button  className="nav-logout-button" onClick={logoutHandler}>
+      <button className="nav-logout-button" onClick={logoutHandler}>
         <img
           className="nav-logout-icon"
           src={logoutIcon}

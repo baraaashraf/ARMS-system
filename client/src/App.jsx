@@ -15,6 +15,14 @@ import Phase3 from "./components/BITPhases/Phase3";
 import Phase4 from "./components/BITPhases/Phase4";
 import Phase5 from "./components/BITPhases/Phase5";
 
+import BoardofStudies from "./components/BITPhases/phase4/BoardofStudies";
+import Assessors from "./components/BITPhases/phase4/Assessors";
+import CurriculumReviewProposal from "./components/BITPhases/phase4/CurriculumReviewProposal";
+import DokumenSemakan from "./components/BITPhases/phase4/DokumenSemakan";
+import ProgrammeCurriculum from "./components/BITPhases/phase4/ProgrammeCurriculum";
+import SelfSWOT from "./components/BITPhases/phase4/SelfSWOT";
+import Survey from "./components/BITPhases/phase4/Survey";
+
 // Pages
 import About_us_page from "./pages/About_us_page";
 import TCR from "./pages/TCR";
@@ -43,16 +51,28 @@ function App() {
                     <TopBar />
                     <Routes>
                       <Route path="/home" element={<Main />} />
-                        <Route index element={<AcademicProgram />} />
-                        <Route path="bcs" element={<BCS />} />
-                        <Route path="bit">
-                          <Route index element={<BIT />} />
-                          <Route path="phase1" element={<Phase1 />} />
-                          <Route path="phase2" element={<Phase2 />} />
-                          <Route path="phase3" element={<Phase3 />} />
-                          <Route path="phase4" element={<Phase4 />} />
-                          <Route path="phase5" element={<Phase5 />} />
+                      <Route index element={<AcademicProgram />} />
+                      <Route path="bcs" element={<BCS />} />
+                      <Route path="bit">
+                        <Route index element={<BIT />} />
+                        <Route path="phase1" element={<Phase1 />} />
+                        <Route path="phase2" element={<Phase2 />} />
+                        <Route path="phase3" element={<Phase3 />} />
+                        <Route path="phase4">
+                          <Route index element={<Phase4 />} />
+                          <Route path="s1" element={<BoardofStudies />} />
+                          <Route path="s2" element={<Assessors />} />
+                          <Route path="s3" element={<Survey />} />
+                          <Route path="s4" element={<ProgrammeCurriculum />} />
+                          <Route path="s5" element={<SelfSWOT />} />
+                          <Route
+                            path="s6"
+                            element={<CurriculumReviewProposal />}
+                          />
+                          <Route path="s7" element={<DokumenSemakan />} />
                         </Route>
+                        <Route path="phase5" element={<Phase5 />} />
+                      </Route>
                       <Route path="/TCR" element={<TCR />} />
                       <Route path="/account" element={<AccountPage />} />
                       <Route path="/about_us" element={<About_us_page />} />

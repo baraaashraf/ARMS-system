@@ -1,0 +1,44 @@
+.board-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  grid-gap: 10px;
+}
+
+/* .table {
+  Add any additional styling you need 
+*/
+
+@media screen and (max-width: 720px) {
+  .board-container {
+    grid-template-columns: 1fr; /* One column on mobile */
+  }
+}
+.table-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon-button {
+  cursor: pointer;
+  color: black;
+  transition: all 0.3s ease-in-out;
+}
+.add-icon {
+  padding-right: 20px;
+}
+.add-icon:hover {
+  color: #53ff47;
+}
+
+.trash-icon:hover {
+  color: #ff474c;
+}
+
+.edit-icon:hover {
+  color: #d19c04;
+}
+
+.download-icon:hover {
+  color: #04d126;
+}

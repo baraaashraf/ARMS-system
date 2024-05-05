@@ -40,7 +40,7 @@ const TopBar = () => {
         >
           <img src={menuIcon} alt="" />
         </button>
-        <h3 className="content-top-title">{location}</h3>
+        <h3 className="content-top-title">{location === "HOME" ? "Academic Review Managment System" : location}</h3>
       </div>
       <div className="user-logo">
         <span className="user-name">{userInfo.name}</span>
