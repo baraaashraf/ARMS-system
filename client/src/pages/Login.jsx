@@ -8,9 +8,10 @@ import { useLoginMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
 ////////
 import Loader from "../components/Loader.jsx/Loader";
+
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Login = () => {
 
   useEffect(() => {
     if (userInfo) {
-      navigate('/');
+      navigate("/home");
     }
   }, [navigate, userInfo]);
 
@@ -29,20 +30,20 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await login({ email, password }).unwrap();
-      dispatch(setCredentials({ ...res }));
-      navigate('/');
+      console.log("res", res);
+      dispatch(setCredentials({ ...res, role: "user" }));
+      navigate("/");
     } catch (err) {
       toast.error(err?.data?.message || err.error);
     }
   };
-  
+
   useEffect(() => {
     if (userInfo) {
       navigate("/home");
     }
   }, [navigate, userInfo]);
 
-  
   return (
     <div className="register-background">
       <div className="form-container">
@@ -66,8 +67,13 @@ const Login = () => {
                 setPassword(e.target.value);
               }}
             />
-            {isLoading && <Loader/>}
-            <input disabled={isLoading} type="submit" className="button" value="Login" />
+            {isLoading && <Loader />}
+            <input
+              disabled={isLoading}
+              type="submit"
+              className="button"
+              value="Login"
+            />
           </form>
           <div className="register-other">
             <span className="register-other">

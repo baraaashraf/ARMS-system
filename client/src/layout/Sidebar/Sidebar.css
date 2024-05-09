@@ -132,6 +132,9 @@
   .nav-link-text {
     display: none;
   }
+  .nav-logout-icon {
+    margin: 4px;
+  }
 }
 
 @media screen and (max-width: 420px) {
@@ -167,7 +170,7 @@
 
 .nav-logout-icon {
   width: 22px;
-  margin: 3px;
+  margin: 0px;
 }
 
 .nav-logout-text {

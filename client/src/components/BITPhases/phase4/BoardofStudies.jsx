@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import DataTable from "./tableContainer/DataTable";
 import "./tableContainer/DataTable.css";
 import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function createData(filename) {
   return { filename };
@@ -52,8 +53,8 @@ const BoardofStudies = () => {
       await fetch(`http://localhost:5000/api/bit/boardofstudies/${id}`, {
         method: "DELETE",
       });
-      setData(data.filter((item) => item.id !== id));
       toast.success("Item Deleted Successfully");
+      setData(data.filter((item) => item.id !== id));
     } catch (err) {
       toast.error(err?.data?.message || err.error);
     }
@@ -68,6 +69,7 @@ const BoardofStudies = () => {
             onDelete={handleDelete}
             title="Nomination of board"
             rows={nominationData}
+            route="nominationdata"
           />
         </div>
         <div className="table">
@@ -75,6 +77,7 @@ const BoardofStudies = () => {
             onDelete={handleDelete}
             title="Endorsement of Senate"
             rows={endorsementData}
+            route="endorsementdata"
           />
         </div>
 
@@ -83,6 +86,7 @@ const BoardofStudies = () => {
             onDelete={handleDelete}
             title="Issuance of Appointment"
             rows={issuanceData}
+            route="issuancedata"
           />
         </div>
         <div className="table">
@@ -90,6 +94,7 @@ const BoardofStudies = () => {
             onDelete={handleDelete}
             title="Appointment duration"
             rows={appointmentData}
+            route="appointmentData"
           />
         </div>
 
@@ -98,6 +103,7 @@ const BoardofStudies = () => {
             onDelete={handleDelete}
             title="Analysis and reporting"
             rows={analysisData}
+            route="analysisdata"
           />
         </div>
       </div>

@@ -3,10 +3,10 @@ import "./AnnouncmentCard.css";
 import iium from "../../assets/images/iium-logo-photo.jpg";
 const AnnouncmentCard = ({ title, date, desc }) => {
   return (
-    <div class="card-container">
-      <img class="hero-image" src={iium} />
+    <div className="card-container">
+      <img className="hero-image" src={iium} />
 
-      <main class="card-main-content">
+      <main className="card-main-content">
         <a className="card-title" href="#">
           {title}
         </a>

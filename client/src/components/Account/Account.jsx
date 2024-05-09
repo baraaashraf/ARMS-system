@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 const Account = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [role, setRole] = useState("");
   const [country, setCountry] = useState("");
   const [maritalStatus, setMaritalStatus] = useState("");
   const [identityCardOrPassportNo, setIdentityCardOrPassportNo] = useState("");
@@ -34,6 +35,7 @@ const Account = () => {
       const {
         name,
         email,
+        role,
         country,
         maritalStatus,
         identityCardOrPassportNo,
@@ -45,6 +47,7 @@ const Account = () => {
       } = userInfo;
 
       setName(name || "");
+      setRole(role || "undefined")
       setEmail(email || "");
       setCountry(country || "");
       setMaritalStatus(maritalStatus || "");
@@ -56,7 +59,7 @@ const Account = () => {
       setMobile(mobile || "");
     }
   }, [userInfo]);
-  console.log("userInfo", userInfo._id);
+  console.log("userInfo", userInfo);
 
 
   const submitHandler = async (e) => {
@@ -87,7 +90,7 @@ const Account = () => {
         <img className="profile-img" src={personOne} alt="" />
         <ul>
           <li>Username: {name}</li>
-          <li>User role: {}</li>
+          <li>User role: {role}</li>
         </ul>
       </div>
       <h1>Personal Info</h1>

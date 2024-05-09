@@ -32,8 +32,14 @@ const getAllData = async (req, res) => {
 
 const addNominationData = async (req, res) => {
   try {
-    const { filename } = req.body;
-    const newData = await NominationOfBoard.create({ filename });
+    const { filename, name, company, mobileno, email } = req.body;
+    const newData = await NominationOfBoard.create({
+      filename,
+      name,
+      company,
+      mobileno,
+      email,
+    });
     res.status(201).json(newData);
   } catch (error) {
     console.error(error);
@@ -114,6 +120,7 @@ const editIssuanceData = async (req, res) => {
 const addAppointmentData = async (req, res) => {
   try {
     const { filename } = req.body;
+    console.log("req.body", req.body);
     const newData = await AppointmentDuration.create({ filename });
     res.status(201).json(newData);
   } catch (error) {

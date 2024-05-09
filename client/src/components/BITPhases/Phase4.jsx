@@ -1,7 +1,7 @@
 import React from "react";
 import { BITphase4_1 } from "../../data/data";
 import { Link } from "react-router-dom";
-
+import PercentageLine from "../Percentage-Line/PercentageLine";
 import "./BITphase.css";
 const Phase4 = () => {
   return (
@@ -13,8 +13,10 @@ const Phase4 = () => {
           <>
             <div className="stage">
               <Link key={index} to={`s${index + 1}`}>
-                <p>{phase.title}</p>
+                <p>{phase.title}
+                <PercentageLine percentage={phase.percentage}/></p>
               </Link>
+              
             </div>
             <div className="line" />
           </>

@@ -219,24 +219,31 @@ export const BITphase4 = [
 export const BITphase4_1 = [
   {
     title: "Board of studies",
+    percentage:47
   },
   {
     title: "Internal & External Assessors",
+    percentage:80
   },
   {
     title: "Survey",
+    percentage:23
   },
   {
     title: "Programme Curriculum",
+    percentage:11
   },
   {
     title: "Self-review SWOT analysis",
+    percentage:21
   },
   {
     title: "Curriculum review Proposal",
+    percentage:35
   },
   {
     title: "Dokumen semakan",
+    percentage:97
   },
 ];
 

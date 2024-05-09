@@ -25,7 +25,7 @@
 .line {
   width: 4px;
   height: 15px;
-  background-color: black;
+  background-color: rgb(1, 86, 101);
   margin: 0;
 }
 .line:last-child {
