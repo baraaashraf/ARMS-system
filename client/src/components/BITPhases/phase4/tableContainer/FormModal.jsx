@@ -3,13 +3,13 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { faPlus,faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import "./DataTable.css";
 import "./FormModal.css";
 
+import Form1 from "./FormTypes/Form1";
+import Form2 from "./FormTypes/Form2";
 const style = {
   position: "absolute",
   top: "50%",
@@ -26,55 +26,10 @@ const style = {
   p: 4,
 };
 
-const FormModal = ({ title, route }) => {
+const FormModal = ({ title, route, page }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
-  const [formData, setFormData] = useState({
-    filename: "",
-    name: "",
-    position: "",
-    company: "",
-    mobileno: "",
-    email: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(route);
-
-    fetch(`http://localhost:5000/api/bit/boardofstudies/${route}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if(data.message){
-          toast.error("\nPlease fill all elements");
-          return;
-        }
-        console.log("Success:", data);
-        toast.success("Item Added Successfully");
-        handleClose();
-
-      })
-      .catch((err) => {
-        console.error("Error:", err);
-        toast.error(err?.data?.message || err.error);
-      });
-  };
 
   return (
     <div>
@@ -92,80 +47,21 @@ const FormModal = ({ title, route }) => {
             <Typography id="modal-modal-title" variant="h6" component="h2">
               Add {title.toLowerCase()} member
             </Typography>
-            <button onClick={handleClose}><FontAwesomeIcon icon={faCircleXmark} /></button>
+            <button onClick={handleClose}>
+              <FontAwesomeIcon icon={faCircleXmark} />
+            </button>
           </div>
 
           <Typography
             className="table-form-container"
             id="modal-modal-description"
             sx={{ mt: 2 }}
-          >
-            <form onSubmit={handleSubmit}>
-              <label htmlFor="filename">File name:</label>
-              <br />
-              <input
-                type="text"
-                id="filename"
-                name="filename"
-                value={formData.filename}
-                onChange={handleChange}
-              />
-
-              <br />
-              <label htmlFor="name">Name:</label>
-              <br />
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-              />
-
-              <br />
-              <label htmlFor="position">Position:</label>
-              <br />
-              <input
-                type="text"
-                id="position"
-                name="position"
-                value={formData.position}
-                onChange={handleChange}
-              />
-              <br />
-              <label htmlFor="company">Company/Institution:</label>
-              <br />
-              <input
-                type="text"
-                id="company"
-                name="company"
-                value={formData.company}
-                onChange={handleChange}a
-              />
-              <br />
-              <label htmlFor="mobileno">Mobile No:</label>
-              <br />
-              <input
-                type="text"
-                id="mobileno"
-                name="mobileno"
-                value={formData.mobileno}
-                onChange={handleChange}
-              />
-              <br />
-              <label htmlFor="email">Email:</label>
-              <br />
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-              />
-              <br />
-              <input id="form-submit-button" type="submit" value="Submit" />
-            </form>
-          </Typography>
+          ></Typography>
+          {route === "nominationdata" ? (
+            <Form1 route={route} page={page} onClose={handleClose} />
+          ) : (
+            <Form2 route={route} page={page} onClose={handleClose} />
+          )}
         </Box>
       </Modal>
     </div>

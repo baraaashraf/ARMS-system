@@ -13,8 +13,11 @@
 
 @media screen and (max-width: 720px) {
   .board-container {
-    grid-template-columns: 1fr; /* One column on mobile */
+    grid-template-columns: 1fr;
   }
+  /* .table{
+    width: 300px;
+  } */
 }
 .table-title {
   display: flex;

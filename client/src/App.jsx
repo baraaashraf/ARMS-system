@@ -15,8 +15,8 @@ import Phase3 from "./components/BITPhases/Phase3";
 import Phase4 from "./components/BITPhases/Phase4";
 import Phase5 from "./components/BITPhases/Phase5";
 
-import BoardofStudies from "./components/BITPhases/phase4/BoardofStudies";
-import Assessors from "./components/BITPhases/phase4/Assessors";
+import BoardofStudies from "./pages/Phase4/BoardofStudies";
+import Assessors from "./pages/Phase4/Assessors";
 import CurriculumReviewProposal from "./components/BITPhases/phase4/CurriculumReviewProposal";
 import DokumenSemakan from "./components/BITPhases/phase4/DokumenSemakan";
 import ProgrammeCurriculum from "./components/BITPhases/phase4/ProgrammeCurriculum";

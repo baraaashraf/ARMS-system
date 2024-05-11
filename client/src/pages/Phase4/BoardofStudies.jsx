@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
-import DataTable from "./tableContainer/DataTable";
-import "./tableContainer/DataTable.css";
+import DataTable from "../../components/BITPhases/phase4/tableContainer/DataTable";
+import "../../components/BITPhases/phase4/tableContainer/DataTable.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-function createData(filename) {
-  return { filename };
-}
 
 const BoardofStudies = () => {
   const [data, setData] = useState(null);
@@ -60,13 +56,44 @@ const BoardofStudies = () => {
     }
   };
 
+  const handleGet = async (id, downloadname) => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/bit/boardofstudies/${id}`,
+        {
+          method: "GET",
+        }
+      );
+      if (response.ok) {
+        const url = new URL(response.url);
+        const filename = downloadname;
+        const blob = await response.blob();
+        const link = document.createElement("a");
+
+        link.href = window.URL.createObjectURL(blob);
+        link.download = filename;
+        link.click();
+
+        toast.success("File downloaded successfully");
+      } else {
+        const errorData = await response.json();
+        toast.error(errorData.message || response.statusText);
+      }
+    } catch (error) {
+      console.error("Error downloading file:", error);
+      toast.error("An error occurred while downloading the file");
+    }
+  };
+
   return (
     <>
       <h1>Board of Studies</h1>
       <div className="board-container">
         <div className="table">
           <DataTable
+            page="boardofstudies"
             onDelete={handleDelete}
+            onGet={handleGet}
             title="Nomination of board"
             rows={nominationData}
             route="nominationdata"
@@ -74,7 +101,9 @@ const BoardofStudies = () => {
         </div>
         <div className="table">
           <DataTable
+            page="boardofstudies"
             onDelete={handleDelete}
+            onGet={handleGet}
             title="Endorsement of Senate"
             rows={endorsementData}
             route="endorsementdata"
@@ -83,7 +112,9 @@ const BoardofStudies = () => {
 
         <div className="table">
           <DataTable
+            page="boardofstudies"
             onDelete={handleDelete}
+            onGet={handleGet}
             title="Issuance of Appointment"
             rows={issuanceData}
             route="issuancedata"
@@ -91,7 +122,9 @@ const BoardofStudies = () => {
         </div>
         <div className="table">
           <DataTable
+            page="boardofstudies"
             onDelete={handleDelete}
+            onGet={handleGet}
             title="Appointment duration"
             rows={appointmentData}
             route="appointmentData"
@@ -100,7 +133,9 @@ const BoardofStudies = () => {
 
         <div className="table">
           <DataTable
+            page="boardofstudies"
             onDelete={handleDelete}
+            onGet={handleGet}
             title="Analysis and reporting"
             rows={analysisData}
             route="analysisdata"
