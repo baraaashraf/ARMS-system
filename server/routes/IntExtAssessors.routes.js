@@ -3,12 +3,11 @@ import {
   getAllData,
   deleteDataById,
   addAppointmentData,
-  addAnalysisData,
   addIssuanceData,
   addEndorsementData,
   addNominationData,
   getFileById,
-} from "../controllers/boardOfStudies.controller.js";
+} from "../controllers/IntExtAssessors.controller.js";
 import upload from "../utils/upload.js";
 
 //////////////////////////////////////////////
@@ -16,34 +15,30 @@ import upload from "../utils/upload.js";
 const router = express.Router();
 
 router.post(
-  "/boardofstudies/endorsementdata",
+  "/assessors/endorsementdata",
   upload.single("file"),
   addEndorsementData
 );
 
 /////////////////////////////////////////////
 
-router.get("/boardofstudies", getAllData);
+router.get("/assessors", getAllData);
 
 router.post(
-  "/boardofstudies/appointmentData",
+  "/assessors/appointmentData",
   upload.single("file"),
   addAppointmentData
 );
+
 router.post(
-  "/boardofstudies/analysisdata",
-  upload.single("file"),
-  addAnalysisData
-);
-router.post(
-  "/boardofstudies/issuancedata",
+  "/assessors/issuancedata",
   upload.single("file"),
   addIssuanceData
 );
 
-router.post("/boardofstudies/nominationdata", addNominationData);
+router.post("/assessors/nominationdata", addNominationData);
 
-router.delete("/boardofstudies/:id", deleteDataById);
-router.get("/boardofstudies/:id", getFileById);
+router.delete("/assessors/:id", deleteDataById);
+router.get("/assessors/:id", getFileById);
 
 export default router;

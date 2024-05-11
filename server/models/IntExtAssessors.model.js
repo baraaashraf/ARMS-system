@@ -1,8 +1,7 @@
 import mongoose from "mongoose";
 
-const NominationOfBoardSchema = mongoose.Schema(
+const NominationOfBoardSchema2 = mongoose.Schema(
   {
-
     name: {
       type: String,
       required: true,
@@ -31,7 +30,7 @@ const NominationOfBoardSchema = mongoose.Schema(
   }
 );
 
-const EndorsementOfSenateSchema = mongoose.Schema(
+const EndorsementOfSenateSchema2 = mongoose.Schema(
   {
     startDate: {
       type: String,
@@ -57,7 +56,7 @@ const EndorsementOfSenateSchema = mongoose.Schema(
   }
 );
 
-const IssuanceOfAppointmentSchema = mongoose.Schema(
+const IssuanceOfAppointmentSchema2 = mongoose.Schema(
   {
     startDate: {
       type: String,
@@ -83,7 +82,7 @@ const IssuanceOfAppointmentSchema = mongoose.Schema(
   }
 );
 
-const AppointmentDurationSchema = mongoose.Schema(
+const AppointmentDurationSchema2 = mongoose.Schema(
   {
     startDate: {
       type: String,
@@ -109,57 +108,26 @@ const AppointmentDurationSchema = mongoose.Schema(
   }
 );
 
-const AnalysisAndReportingSchema = mongoose.Schema(
-  {
-    startDate: {
-      type: String,
-      required: true,
-    },
-    endDate: {
-      type: String,
-      required: true,
-    },
-    targetDate: {
-      type: String,
-      required: true,
-    },
-    displayName: {
-      type: String,
-    },
-    file: {
-      type: String,
-    },
-  },
-  {
-    timestamps: true,
-  }
+const NominationOfBoard2 = mongoose.model(
+  "NominationOfBoard2",
+  NominationOfBoardSchema2
 );
-
-const NominationOfBoard = mongoose.model(
-  "NominationOfBoard",
-  NominationOfBoardSchema
+const EndorsementOfSenate2 = mongoose.model(
+  "EndorsementOfSenate2",
+  EndorsementOfSenateSchema2
 );
-const EndorsementOfSenate = mongoose.model(
-  "EndorsementOfSenate",
-  EndorsementOfSenateSchema
+const IssuanceOfAppointment2 = mongoose.model(
+  "IssuanceOfAppointment2",
+  IssuanceOfAppointmentSchema2
 );
-const IssuanceOfAppointment = mongoose.model(
-  "IssuanceOfAppointment",
-  IssuanceOfAppointmentSchema
-);
-const AppointmentDuration = mongoose.model(
-  "AppointmentDuration",
-  AppointmentDurationSchema
-);
-const AnalysisAndReporting = mongoose.model(
-  "AnalysisAndReporting",
-  AnalysisAndReportingSchema
+const AppointmentDuration2 = mongoose.model(
+  "AppointmentDuration2",
+  AppointmentDurationSchema2
 );
 
 export {
-  NominationOfBoard,
-  EndorsementOfSenate,
-  IssuanceOfAppointment,
-  AppointmentDuration,
-  AnalysisAndReporting,
+  NominationOfBoard2,
+  EndorsementOfSenate2,
+  IssuanceOfAppointment2,
+  AppointmentDuration2,
 };

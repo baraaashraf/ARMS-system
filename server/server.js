@@ -11,7 +11,7 @@ dotenv.config();
 ///ROUTES
 import userRoutes from "./routes/user.routes.js";
 import BoardofStudiesRoutes from './routes/boardOfStudies.routes.js'
-
+import AssersorsRoutes from './routes/IntExtAssessors.routes.js'
 const port = process.env.PORT || 5000;
 
 connectDB();
@@ -23,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use("/api/users", userRoutes);
 app.use("/api/bit", BoardofStudiesRoutes);
+app.use("/api/bit", AssersorsRoutes);
 
 app.get("/", (req, res) => {
   res.send("Server is ready");
