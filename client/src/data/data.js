@@ -230,6 +230,10 @@ export const BITphase4_1 = [
     percentage:23
   },
   {
+    title: "Benchmarking",
+    percentage:16
+  },
+  {
     title: "Programme Curriculum",
     percentage:11
   },

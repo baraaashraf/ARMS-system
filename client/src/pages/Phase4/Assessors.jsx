@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import DataTable from "../../components/BITPhases/phase4/tableContainer/DataTable";
-import "../../components/BITPhases/phase4/tableContainer/DataTable.css";
+import DataTable from "../../components/tableContainer/DataTable";
+import "../../components/tableContainer/DataTable.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -92,7 +92,7 @@ const BoardofStudies = () => {
             page="assessors"
             onDelete={handleDelete}
             onGet={handleGet}
-            title="Nomination of board"
+            title="Nomination of members"
             rows={nominationData}
             route="nominationdata"
           />

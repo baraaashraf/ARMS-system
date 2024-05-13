@@ -7,8 +7,8 @@ import {
   addEndorsementData,
   addNominationData,
   getFileById,
-} from "../controllers/IntExtAssessors.controller.js";
-import upload from "../utils/upload.js";
+} from "../../controllers/phase4/IntExtAssessors.controller.js";
+import upload from "../../utils/upload.js";
 
 //////////////////////////////////////////////
 

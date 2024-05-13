@@ -11,12 +11,13 @@ const Phase4 = () => {
       <div className="phases-container">
         {BITphase4_1.map((phase, index) => (
           <>
-            <div className="stage">
-              <Link key={index} to={`s${index + 1}`}>
-                <p>{phase.title}
-                <PercentageLine percentage={phase.percentage}/></p>
+            <div key={index} className="stage">
+              <Link className="phase-span" to={`s${index + 1}`}>
+                <span>
+                  <p> {phase.title}</p>
+                  <PercentageLine percentage={phase.percentage} />
+                </span>
               </Link>
-              
             </div>
             <div className="line" />
           </>

@@ -17,11 +17,12 @@ import Phase5 from "./components/BITPhases/Phase5";
 
 import BoardofStudies from "./pages/Phase4/BoardofStudies";
 import Assessors from "./pages/Phase4/Assessors";
-import CurriculumReviewProposal from "./components/BITPhases/phase4/CurriculumReviewProposal";
-import DokumenSemakan from "./components/BITPhases/phase4/DokumenSemakan";
-import ProgrammeCurriculum from "./components/BITPhases/phase4/ProgrammeCurriculum";
-import SelfSWOT from "./components/BITPhases/phase4/SelfSWOT";
-import Survey from "./components/BITPhases/phase4/Survey";
+import CurriculumReviewProposal from "./pages/Phase4/CurriculumReviewProposal";
+import DokumenSemakan from "./pages/Phase4/DokumenSemakan";
+import ProgrammeCurriculum from "./pages/Phase4/ProgrammeCurriculum";
+import SelfSWOT from "./pages/Phase4/SelfSWOT";
+import Survey from "./pages/Phase4/Survey";
+import Bechmarking from "./pages/Phase4/Bechmarking";
 
 // Pages
 import About_us_page from "./pages/About_us_page";
@@ -63,13 +64,14 @@ function App() {
                           <Route path="s1" element={<BoardofStudies />} />
                           <Route path="s2" element={<Assessors />} />
                           <Route path="s3" element={<Survey />} />
-                          <Route path="s4" element={<ProgrammeCurriculum />} />
-                          <Route path="s5" element={<SelfSWOT />} />
+                          <Route path="s4" element={<Bechmarking />} />
+                          <Route path="s5" element={<ProgrammeCurriculum />} />
                           <Route
                             path="s6"
-                            element={<CurriculumReviewProposal />}
+                            element={<SelfSWOT />}
                           />
-                          <Route path="s7" element={<DokumenSemakan />} />
+                          <Route path="s7" element={<CurriculumReviewProposal />} />
+                          <Route path="s8" element={<DokumenSemakan />} />
                         </Route>
                         <Route path="phase5" element={<Phase5 />} />
                       </Route>

@@ -4,7 +4,7 @@ import {
   IssuanceOfAppointment,
   AppointmentDuration,
   AnalysisAndReporting,
-} from "../models/boardOfStudies.model.js";
+} from "../../models/phase4/boardOfStudies.model.js";
 
 import fs from "fs";
 import path from "path";

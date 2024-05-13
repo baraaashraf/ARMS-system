@@ -4,7 +4,7 @@ import "../../components/tableContainer/DataTable.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const BoardofStudies = () => {
+const Survey = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -12,9 +12,7 @@ const BoardofStudies = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          "http://localhost:5000/api/bit/boardofstudies"
-        );
+        const response = await fetch("http://localhost:5000/api/bit/survey");
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
@@ -36,17 +34,11 @@ const BoardofStudies = () => {
   if (error) {
     return <div>Error: {error}</div>;
   }
-  const {
-    nominationData,
-    endorsementData,
-    issuanceData,
-    appointmentData,
-    analysisData,
-  } = data;
+  const {surveyData , surveyAnalysisData } = data;
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://localhost:5000/api/bit/boardofstudies/${id}`, {
+      await fetch(`http://localhost:5000/api/bit/survey/${id}`, {
         method: "DELETE",
       });
       toast.success("Item Deleted Successfully");
@@ -59,7 +51,7 @@ const BoardofStudies = () => {
   const handleGet = async (id, downloadname) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/bit/boardofstudies/${id}`,
+        `http://localhost:5000/api/bit/survey/${id}`,
         {
           method: "GET",
         }
@@ -86,58 +78,26 @@ const BoardofStudies = () => {
 
   return (
     <>
-      <h1>Board of Studies</h1>
+      <h1>Survey</h1>
       <div className="board-container">
         <div className="table">
           <DataTable
-            page="boardofstudies"
+            page="survey"
             onDelete={handleDelete}
             onGet={handleGet}
-            title="Nomination of members"
-            rows={nominationData}
-            route="nominationdata"
+            title="survey"
+            rows={surveyData}
+            route="surveydata"
           />
         </div>
         <div className="table">
           <DataTable
-            page="boardofstudies"
-            onDelete={handleDelete}
-            onGet={handleGet}
-            title="Endorsement of Senate"
-            rows={endorsementData}
-            route="endorsementdata"
-          />
-        </div>
-
-        <div className="table">
-          <DataTable
-            page="boardofstudies"
-            onDelete={handleDelete}
-            onGet={handleGet}
-            title="Issuance of Appointment"
-            rows={issuanceData}
-            route="issuancedata"
-          />
-        </div>
-        <div className="table">
-          <DataTable
-            page="boardofstudies"
-            onDelete={handleDelete}
-            onGet={handleGet}
-            title="Appointment duration"
-            rows={appointmentData}
-            route="appointmentData"
-          />
-        </div>
-
-        <div className="table">
-          <DataTable
-            page="boardofstudies"
+            page="survey"
             onDelete={handleDelete}
             onGet={handleGet}
             title="Analysis and reporting"
-            rows={analysisData}
-            route="analysisdata"
+            rows={surveyAnalysisData}
+            route="surveyanalysisdata"
           />
         </div>
       </div>
@@ -145,4 +105,4 @@ const BoardofStudies = () => {
   );
 };
 
-export default BoardofStudies;
+export default Survey;

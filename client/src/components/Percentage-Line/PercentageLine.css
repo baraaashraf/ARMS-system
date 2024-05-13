@@ -1,11 +1,11 @@
 .progressbar {
   position: relative;
   overflow: hidden;
-  margin-top: 5px;
+  margin-bottom: 1px;
   width: 100%;
+  border-radius: 30px;
   height: 15px;
-  border-radius: 40px;
-  background-color: #eee;
+  background-color: var(--clr-white);
 }
 
 .progressPercent {

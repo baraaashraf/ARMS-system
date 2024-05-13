@@ -28,7 +28,7 @@
 .navigation {
   margin-top: 28px;
   height: 600px;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 
   display: flex;
   justify-content: center;

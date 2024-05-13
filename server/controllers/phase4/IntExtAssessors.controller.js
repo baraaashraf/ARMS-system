@@ -3,7 +3,7 @@ import {
     EndorsementOfSenate2,
     IssuanceOfAppointment2,
     AppointmentDuration2,
-  } from "../models/IntExtAssessors.model.js";
+  } from "../../models/phase4/IntExtAssessors.model.js";
   
   import fs from "fs";
   import path from "path";

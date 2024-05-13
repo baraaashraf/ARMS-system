@@ -8,8 +8,8 @@ import {
   addEndorsementData,
   addNominationData,
   getFileById,
-} from "../controllers/boardOfStudies.controller.js";
-import upload from "../utils/upload.js";
+} from "../../controllers/phase4/boardOfStudies.controller.js";
+import upload from "../../utils/upload.js";
 
 //////////////////////////////////////////////
 

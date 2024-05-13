@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -8,18 +8,18 @@ import TableRow from "@mui/material/TableRow";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import { useSelector } from "react-redux";
+import ConfirmationModal from "../Modals/ConfirmationModal.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrash,
   faPenToSquare,
   faDownload,
 } from "@fortawesome/free-solid-svg-icons";
-import FormModal from "./FormModal";
+import FormModal from "../Modals/FormModal.jsx";
 import "./DataTable.css";
 
-const DataTable = ({ title, rows, route, onDelete, onGet,page }) => {
+const DataTable = ({ title, rows, route, onDelete, onGet, page }) => {
   const { userInfo } = useSelector((state) => state.auth);
-
   const handleDelete = (id) => {
     onDelete(id);
   };
@@ -28,7 +28,6 @@ const DataTable = ({ title, rows, route, onDelete, onGet,page }) => {
   };
   return (
     <>
-      {" "}
       <TableContainer sx={{ margin: 1 }} component={Paper}>
         <div className="table-title">
           <Typography sx={{ padding: 2 }} color="inherit" variant="h5">
@@ -67,12 +66,12 @@ const DataTable = ({ title, rows, route, onDelete, onGet,page }) => {
                     />
                   </TableCell>
                   <TableCell align="center">
-                    <FontAwesomeIcon
-                      className="icon-button fa-lg trash-icon"
-                      onClick={() => {
+                    <ConfirmationModal
+                      classIcon="trash-icon"
+                      icon={faTrash}
+                      onConfirm={() => {
                         handleDelete(row._id);
                       }}
-                      icon={faTrash}
                     />
                   </TableCell>
                 </TableRow>
@@ -80,6 +79,7 @@ const DataTable = ({ title, rows, route, onDelete, onGet,page }) => {
             </TableBody>
           </Table>
         ) : (
+          // the other tables that handle file uploading
           <Table sx={{ minWidth: 250 }} aria-label="simple table">
             <TableHead>
               <TableRow>
@@ -119,12 +119,12 @@ const DataTable = ({ title, rows, route, onDelete, onGet,page }) => {
                     />
                   </TableCell>
                   <TableCell align="center">
-                    <FontAwesomeIcon
-                      className="icon-button fa-lg trash-icon"
-                      onClick={() => {
+                  <ConfirmationModal
+                      classIcon="trash-icon"
+                      icon={faTrash}
+                      onConfirm={() => {
                         handleDelete(row._id);
                       }}
-                      icon={faTrash}
                     />
                   </TableCell>
                 </TableRow>
