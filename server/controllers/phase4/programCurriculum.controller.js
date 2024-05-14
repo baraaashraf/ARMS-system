@@ -1,86 +1,24 @@
 import {
-  PreparationofDokumenSemakan,
-  DokumenReviewbyKCA,
-  EndorsementatJKPT,
+  Workshop1,
+  Workshop2,
+  Workshop3,
 } from "../../models/fileupload.model.js";
 
 import fs from "fs";
 import path from "path";
 
-// const addPreparationofDokumenSemakanData = async (req, res) => {
-//   try {
-//     const { startDate, endDate, targetDate } = req.body;
-//     const file = req.file;
-//     console.log("req.body", req.body);
-//     console.log("file", req.file);
-//     const newData = await PreparationofDokumenSemakan.create({
-//       startDate,
-//       endDate,
-//       targetDate,
-//       displayName: file?.originalname,
-//       file: file?.filename,
-//     });
-
-//     res.json(newData);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ message: "Internal server error" });
-//   }
-// };
-// const addDokumenReviewbyKCAData = async (req, res) => {
-//   try {
-//     const { startDate, endDate, targetDate } = req.body;
-//     const file = req.file;
-//     console.log("req.body", req.body);
-//     console.log("file", req.file);
-//     const newData = await DokumenReviewbyKCA.create({
-//       startDate,
-//       endDate,
-//       targetDate,
-//       displayName: file?.originalname,
-//       file: file?.filename,
-//     });
-
-//     res.json(newData);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ message: "Internal server error" });
-//   }
-// };
-// const addEndorsementatJKPTData = async (req, res) => {
-//   try {
-//     const { startDate, endDate, targetDate } = req.body;
-//     const file = req.file;
-//     console.log("req.body", req.body);
-//     console.log("file", req.file);
-//     const newData = await EndorsementatJKPT.create({
-//       startDate,
-//       endDate,
-//       targetDate,
-//       displayName: file?.originalname,
-//       file: file?.filename,
-//     });
-
-//     res.json(newData);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ message: "Internal server error" });
-//   }
-// };
-
 const getAllData = async (req, res) => {
   try {
     // Fetch data from each model
-    const DokumenSemakanData = await PreparationofDokumenSemakan.find();
-
-    const DokumenReviewbyKCAData = await DokumenReviewbyKCA.find();
-    const EndorsementatJKPTData = await EndorsementatJKPT.find();
+    const workshop1Data = await Workshop1.find();
+    const workshop2Data = await Workshop2.find();
+    const workshop3Data = await Workshop3.find();
 
     // Send the data as a response
     res.json({
-      DokumenSemakanData,
-      DokumenReviewbyKCAData,
-      EndorsementatJKPTData,
+      workshop1Data,
+      workshop2Data,
+      workshop3Data,
     });
   } catch (error) {
     // Handle error
@@ -92,11 +30,7 @@ const getAllData = async (req, res) => {
 const deleteDataById = async (req, res) => {
   try {
     const { id } = req.params;
-    const collections = [
-      PreparationofDokumenSemakan,
-      DokumenReviewbyKCA,
-      EndorsementatJKPT,
-    ];
+    const collections = [Workshop1, Workshop2, Workshop3];
 
     let deleted = false;
     for (const collection of collections) {
@@ -130,11 +64,7 @@ const deleteDataById = async (req, res) => {
 const getFileById = async (req, res) => {
   try {
     const { id } = req.params;
-    const collections = [
-      PreparationofDokumenSemakan,
-      DokumenReviewbyKCA,
-      EndorsementatJKPT,
-    ];
+    const collections = [Workshop1, Workshop2, Workshop3];
 
     let fileFound = false;
     for (const collection of collections) {
@@ -173,10 +103,7 @@ const getFileById = async (req, res) => {
 };
 
 export {
-  //ADD
-//   addPreparationofDokumenSemakanData,
-//   addDokumenReviewbyKCAData,
-//   addEndorsementatJKPTData,
+
   //EDIT
 
   //////////////////////

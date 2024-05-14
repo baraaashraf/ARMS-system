@@ -5,122 +5,127 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const SelfSWOT = () => {
-  // const [data, setData] = useState(null);
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(null);
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch("http://localhost:5000/api/bit/survey");
-  //       if (!response.ok) {
-  //         throw new Error("Failed to fetch data");
-  //       }
-  //       const jsonData = await response.json();
-  //       setData(jsonData);
-  //       setLoading(false);
-  //     } catch (error) {
-  //       setError(error.message);
-  //       setLoading(false);
-  //     }
-  //   };
-  //   fetchData();
-  // }, [data]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/bit/selfswot");
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const jsonData = await response.json();
+        setData(jsonData);
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, [data]);
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-  // if (error) {
-  //   return <div>Error: {error}</div>;
-  // }
-  // const { surveyData, surveyAnalysisData } = data;
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+  const {
+    SelfReviewReportData,
+    SubmissionOfSelfReviewReportData,
+    assessorFeedbackReportData,
+    ReceiptofAssessorFeedbackReportData,
+  } = data;
 
-  // const handleDelete = async (id) => {
-  //   try {
-  //     await fetch(`http://localhost:5000/api/bit/survey/${id}`, {
-  //       method: "DELETE",
-  //     });
-  //     toast.success("Item Deleted Successfully");
-  //     setData(data.filter((item) => item.id !== id));
-  //   } catch (err) {
-  //     toast.error(err?.data?.message || err.error);
-  //   }
-  // };
+  const handleDelete = async (id) => {
+    try {
+      await fetch(`http://localhost:5000/api/bit/selfswot/${id}`, {
+        method: "DELETE",
+      });
+      toast.success("Item Deleted Successfully");
+      setData(data.filter((item) => item.id !== id));
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
+    }
+  };
 
-  // const handleGet = async (id, downloadname) => {
-  //   try {
-  //     const response = await fetch(
-  //       `http://localhost:5000/api/bit/survey/${id}`,
-  //       {
-  //         method: "GET",
-  //       }
-  //     );
-  //     if (response.ok) {
-  //       const filename = downloadname;
-  //       const blob = await response.blob();
-  //       const link = document.createElement("a");
+  const handleGet = async (id, downloadname) => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/bit/selfswot/${id}`,
+        {
+          method: "GET",
+        }
+      );
+      if (response.ok) {
+        const filename = downloadname;
+        const blob = await response.blob();
+        const link = document.createElement("a");
 
-  //       link.href = window.URL.createObjectURL(blob);
-  //       link.download = filename;
-  //       link.click();
+        link.href = window.URL.createObjectURL(blob);
+        link.download = filename;
+        link.click();
 
-  //       toast.success("File downloaded successfully");
-  //     } else {
-  //       const errorData = await response.json();
-  //       toast.error(errorData.message || response.statusText);
-  //     }
-  //   } catch (error) {
-  //     console.error("Error downloading file:", error);
-  //     toast.error("An error occurred while downloading the file");
-  //   }
-  // };
+        toast.success("File downloaded successfully");
+      } else {
+        const errorData = await response.json();
+        toast.error(errorData.message || response.statusText);
+      }
+    } catch (error) {
+      console.error("Error downloading file:", error);
+      toast.error("An error occurred while downloading the file");
+    }
+  };
 
   return (
     <>
       <h1>Self-review and SWOT Analysis</h1>
-      {/* <div className="board-container">
+      <div className="board-container">
         <div className="table">
           <DataTable
-            page="survey"
+            page="selfswot"
             onDelete={handleDelete}
             onGet={handleGet}
             title="Preparation of self-review report"
-            rows={surveyData}
-            route="surveydata"
+            rows={SelfReviewReportData}
+            route="selfreviewreport"
           />
         </div>
         <div className="table">
           <DataTable
-            page="survey"
+            page="selfswot"
             onDelete={handleDelete}
             onGet={handleGet}
             title="Preparation of SWOT analysis"
-            rows={surveyAnalysisData}
-            route="surveyanalysisdata"
+            rows={SubmissionOfSelfReviewReportData}
+            route="submissionofselfreviewreport"
           />
         </div>
         <div className="table">
           <DataTable
-            page="survey"
+            page="selfswot"
             onDelete={handleDelete}
             onGet={handleGet}
             title="Submission of self-review report to assessor"
-            rows={surveyData}
-            route="surveydata"
+            rows={assessorFeedbackReportData}
+            route="assessorfeedbackreport"
           />
         </div>
         <div className="table">
           <DataTable
-            page="survey"
+            page="selfswot"
             onDelete={handleDelete}
             onGet={handleGet}
             title="Receipt of assessor feedback report"
-            rows={surveyAnalysisData}
-            route="surveyanalysisdata"
+            rows={ReceiptofAssessorFeedbackReportData}
+            route="receiptofassessorfeedback"
           />
         </div>
-      </div> */}
+      </div>
     </>
   );
 };

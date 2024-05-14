@@ -1,26 +1,29 @@
 import express from "express";
 import {
-  getAllData,
   deleteDataById,
+  getAllData,
   getFileById,
-} from "../../controllers/phase4/survey.controller.js";
-
-import {
-  addSurveyData,
-  addSurveyAnalysisData,
-} from "../../controllers/fileupload.controller.js";
+} from "../../controllers/phase4/benchmarking.controller.js";
 import upload from "../../utils/upload.js";
+import {
+  addBenchmarkingAnalysisData,
+  addInstitutionVisitData,
+} from "../../controllers/fileupload.controller.js";
 
 //////////////////////////////////////////////
 const router = express.Router();
 /////////////////////////////////////////////
 
-router.post("/surveydata", upload.single("file"), addSurveyData);
+router.post(
+  "/benchmarkingdata",
+  upload.single("file"),
+  addBenchmarkingAnalysisData
+);
 
 router.post(
-  "/surveyanalysisdata",
+  "/institutionvisitdata",
   upload.single("file"),
-  addSurveyAnalysisData
+  addInstitutionVisitData
 );
 
 router.get("/", getAllData);

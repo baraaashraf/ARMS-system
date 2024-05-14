@@ -3,25 +3,21 @@ import {
   getAllData,
   deleteDataById,
   getFileById,
-} from "../../controllers/phase4/survey.controller.js";
-
-import {
-  addSurveyData,
-  addSurveyAnalysisData,
-} from "../../controllers/fileupload.controller.js";
+} from "../../controllers/phase4/programCurriculum.controller.js";
 import upload from "../../utils/upload.js";
+import {
+  addWorkshop1Data,
+  addWorkshop2Data,
+  addWorkshop3Data,
+} from "../../controllers/fileupload.controller.js";
 
 //////////////////////////////////////////////
 const router = express.Router();
 /////////////////////////////////////////////
 
-router.post("/surveydata", upload.single("file"), addSurveyData);
-
-router.post(
-  "/surveyanalysisdata",
-  upload.single("file"),
-  addSurveyAnalysisData
-);
+router.post("/workshop1", upload.single("file"), addWorkshop1Data);
+router.post("/workshop2", upload.single("file"), addWorkshop2Data);
+router.post("/workshop3", upload.single("file"), addWorkshop3Data);
 
 router.get("/", getAllData);
 router.delete("/:id", deleteDataById);

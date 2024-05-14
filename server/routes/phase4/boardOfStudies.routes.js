@@ -2,48 +2,38 @@ import express from "express";
 import {
   getAllData,
   deleteDataById,
+  getFileById,
+} from "../../controllers/phase4/boardOfStudies.controller.js";
+import upload from "../../utils/upload.js";
+
+import {
   addAppointmentData,
   addAnalysisData,
   addIssuanceData,
   addEndorsementData,
   addNominationData,
-  getFileById,
-} from "../../controllers/phase4/boardOfStudies.controller.js";
-import upload from "../../utils/upload.js";
-
+} from "../../controllers/fileupload.controller.js";
 //////////////////////////////////////////////
 
 const router = express.Router();
 
-router.post(
-  "/boardofstudies/endorsementdata",
-  upload.single("file"),
-  addEndorsementData
-);
+router.post("/endorsementdata", upload.single("file"), addEndorsementData);
 
 /////////////////////////////////////////////
 
-router.get("/boardofstudies", getAllData);
+router.get("/", getAllData);
 
 router.post(
   "/boardofstudies/appointmentData",
   upload.single("file"),
   addAppointmentData
 );
-router.post(
-  "/boardofstudies/analysisdata",
-  upload.single("file"),
-  addAnalysisData
-);
-router.post(
-  "/boardofstudies/issuancedata",
-  upload.single("file"),
-  addIssuanceData
-);
+router.post("/analysisdata", upload.single("file"), addAnalysisData);
+router.post("/issuancedata", upload.single("file"), addIssuanceData);
 
-router.post("/boardofstudies/nominationdata", addNominationData);
+router.post("/nominationdata", addNominationData);
 
-router.delete("/boardofstudies/:id", deleteDataById);
-router.get("/boardofstudies/:id", getFileById);
+router.delete("/:id", deleteDataById);
+router.get("/:id", getFileById);
 
 export default router;

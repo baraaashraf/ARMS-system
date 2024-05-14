@@ -2,14 +2,16 @@ import express from "express";
 import {
   getAllData,
   deleteDataById,
-  addAppointmentData,
-  addIssuanceData,
-  addEndorsementData,
-  addNominationData,
   getFileById,
 } from "../../controllers/phase4/IntExtAssessors.controller.js";
 import upload from "../../utils/upload.js";
 
+import {
+  addAppointmentData,
+  addIssuanceData,
+  addEndorsementData,
+  addNominationData,
+} from "../../controllers/fileupload.controller.js";
 //////////////////////////////////////////////
 
 const router = express.Router();
@@ -22,23 +24,15 @@ router.post(
 
 /////////////////////////////////////////////
 
-router.get("/assessors", getAllData);
+router.get("/", getAllData);
 
-router.post(
-  "/assessors/appointmentData",
-  upload.single("file"),
-  addAppointmentData
-);
+router.post("/appointmentData", upload.single("file"), addAppointmentData);
 
-router.post(
-  "/assessors/issuancedata",
-  upload.single("file"),
-  addIssuanceData
-);
+router.post("/issuancedata", upload.single("file"), addIssuanceData);
 
-router.post("/assessors/nominationdata", addNominationData);
+router.post("/nominationdata", addNominationData);
 
-router.delete("/assessors/:id", deleteDataById);
-router.get("/assessors/:id", getFileById);
+router.delete("/:id", deleteDataById);
+router.get("/:id", getFileById);
 
 export default router;

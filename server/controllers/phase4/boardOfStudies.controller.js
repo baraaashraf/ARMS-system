@@ -1,11 +1,10 @@
 import {
-  NominationOfBoard,
   EndorsementOfSenate,
   IssuanceOfAppointment,
   AppointmentDuration,
   AnalysisAndReporting,
-} from "../../models/phase4/boardOfStudies.model.js";
-
+} from "../../models/fileupload.model.js";
+import { NominationOfBoard } from "../../models/members.model.js";
 import fs from "fs";
 import path from "path";
 
@@ -33,23 +32,6 @@ const getAllData = async (req, res) => {
   }
 };
 
-const addNominationData = async (req, res) => {
-  try {
-    const { filename, name, company, mobileno, email } = req.body;
-    const newData = await NominationOfBoard.create({
-      filename,
-      name,
-      company,
-      mobileno,
-      email,
-    });
-    res.status(201).json(newData);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Internal server error" });
-  }
-};
-
 const editNominationData = async (req, res) => {
   try {
     const { id } = req.params;
@@ -67,27 +49,6 @@ const editNominationData = async (req, res) => {
 };
 ///////////////////////////////////////////////////////////////////////
 
-const addEndorsementData = async (req, res) => {
-  try {
-    const { startDate, endDate, targetDate } = req.body;
-    const file = req.file;
-    console.log("req.body", req.body);
-    console.log("file", req.file);
-    const newData = await EndorsementOfSenate.create({
-      startDate,
-      endDate,
-      targetDate,
-      displayName: file.originalname,
-      file: file.filename,
-    });
-
-    res.status(201).json(newData);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Internal server error" });
-  }
-};
-
 const editEndorsementData = async (req, res) => {
   try {
     const { id } = req.params;
@@ -98,27 +59,6 @@ const editEndorsementData = async (req, res) => {
       { new: true }
     );
     res.json(updatedData);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Internal server error" });
-  }
-};
-
-const addIssuanceData = async (req, res) => {
-  try {
-    const { startDate, endDate, targetDate } = req.body;
-    const file = req.file;
-    console.log("req.body", req.body);
-    console.log("file", req.file);
-    const newData = await IssuanceOfAppointment.create({
-      startDate,
-      endDate,
-      targetDate,
-      displayName: file.originalname,
-      file: file.filename,
-    });
-
-    res.status(201).json(newData);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });
@@ -141,27 +81,6 @@ const editIssuanceData = async (req, res) => {
   }
 };
 
-const addAppointmentData = async (req, res) => {
-  try {
-    const { startDate, endDate, targetDate } = req.body;
-    const file = req.file;
-    console.log("req.body", req.body);
-    console.log("file", req.file);
-    const newData = await AppointmentDuration.create({
-      startDate,
-      endDate,
-      targetDate,
-      displayName: file.originalname,
-      file: file.filename,
-    });
-
-    res.status(201).json(newData);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Internal server error" });
-  }
-};
-
 const editAppointmentData = async (req, res) => {
   try {
     const { id } = req.params;
@@ -172,27 +91,6 @@ const editAppointmentData = async (req, res) => {
       { new: true }
     );
     res.json(updatedData);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Internal server error" });
-  }
-};
-
-const addAnalysisData = async (req, res) => {
-  try {
-    const { startDate, endDate, targetDate } = req.body;
-    const file = req.file;
-    console.log("req.body", req.body);
-    console.log("file", req.file);
-    const newData = await AnalysisAndReporting.create({
-      startDate,
-      endDate,
-      targetDate,
-      displayName: file.originalname,
-      file: file.filename,
-    });
-
-    res.status(201).json(newData);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });
@@ -307,13 +205,7 @@ const getFileById = async (req, res) => {
 };
 
 export {
-  //ADD
-  addAnalysisData,
-  addAppointmentData,
   getAllData,
-  addEndorsementData,
-  addIssuanceData,
-  addNominationData,
   //EDIT
   editAnalysisData,
   editEndorsementData,

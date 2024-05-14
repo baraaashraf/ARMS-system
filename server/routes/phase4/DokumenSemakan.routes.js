@@ -3,11 +3,13 @@ import {
   getAllData,
   deleteDataById,
   getFileById,
-} from "../../controllers/phase4/survey.controller.js";
+  ////////////
+} from "../../controllers/phase4/DokumenSemakan.controller.js";
 
 import {
-  addSurveyData,
-  addSurveyAnalysisData,
+  addPreparationofDokumenSemakan,
+  addDokumenReviewbyKCA,
+  addEndorsementatJKPT,
 } from "../../controllers/fileupload.controller.js";
 import upload from "../../utils/upload.js";
 
@@ -15,13 +17,15 @@ import upload from "../../utils/upload.js";
 const router = express.Router();
 /////////////////////////////////////////////
 
-router.post("/surveydata", upload.single("file"), addSurveyData);
-
 router.post(
-  "/surveyanalysisdata",
+  "/preparationofdokumensemakan",
   upload.single("file"),
-  addSurveyAnalysisData
+  addPreparationofDokumenSemakan
 );
+
+router.post("/reviewbykca", upload.single("file"), addDokumenReviewbyKCA);
+
+router.post("/endorsementatjkpt", upload.single("file"), addEndorsementatJKPT);
 
 router.get("/", getAllData);
 router.delete("/:id", deleteDataById);

@@ -10,9 +10,8 @@ dotenv.config();
 
 ///ROUTES
 import userRoutes from "./routes/user.routes.js";
-import BoardofStudiesRoutes from './routes/phase4/boardOfStudies.routes.js'
-import AssersorsRoutes from './routes/phase4/IntExtAssessors.routes.js'
-import surveyRoutes from './routes/phase4/survey.routes.js'
+
+import Phase4Routes from "./routes/phase4/phase4.routes.js";
 const port = process.env.PORT || 5000;
 
 connectDB();
@@ -24,9 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 ////////////////////////////////////////////
 app.use("/api/users", userRoutes);
-app.use("/api/bit", BoardofStudiesRoutes);
-app.use("/api/bit", AssersorsRoutes);
-app.use("/api/bit", surveyRoutes);
+app.use("/api/bit", Phase4Routes);
 
 app.get("/", (req, res) => {
   res.send("Server is ready");

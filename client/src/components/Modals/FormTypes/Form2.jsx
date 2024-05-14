@@ -90,6 +90,15 @@ const Form2 = ({ route, onClose, page }) => {
         onChange={handleChange}
       />
       <br />
+      <label htmlFor="comment">Description:</label>
+      <br />
+      <input
+        type="text"
+        id="comment"
+        name="comment"
+        onChange={handleChange} // Use separate handler for file change
+      />
+      <br />
       <label htmlFor="file">PDF File:</label>
       <br />
       <input
@@ -100,6 +109,7 @@ const Form2 = ({ route, onClose, page }) => {
         onChange={handleFileChange} // Use separate handler for file change
       />
       <br />
+
       <input id="form-submit-button" type="submit" value="Submit" />
     </form>
   );

@@ -1,49 +1,7 @@
-import { surveyModel, surveyAnalysisModel } from "../../models/phase4/survey.model.js";
+import { surveyModel, surveyAnalysisModel } from "../../models/fileupload.model.js";
 
 import fs from "fs";
 import path from "path";
-
-const addSurveyData = async (req, res) => {
-  try {
-    const { startDate, endDate, targetDate } = req.body;
-    const file = req.file;
-    console.log("req.body", req.body);
-    console.log("file", req.file);
-    const newData = await surveyModel.create({
-      startDate,
-      endDate,
-      targetDate,
-      displayName: file.originalname,
-      file: file.filename,
-    });
-
-    res.json(newData);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Internal server error" });
-  }
-};
-
-const addSurveyAnalysisData = async (req, res) => {
-  try {
-    const { startDate, endDate, targetDate } = req.body;
-    const file = req.file;
-    console.log("req.body", req.body);
-    console.log("file", req.file);
-    const newData = await surveyAnalysisModel.create({
-      startDate,
-      endDate,
-      targetDate,
-      displayName: file.originalname,
-      file: file.filename,
-    });
-
-    res.json(newData);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Internal server error" });
-  }
-};
 
 const getAllData = async (req, res) => {
   try {
@@ -141,8 +99,6 @@ const getFileById = async (req, res) => {
 
 export {
   //ADD
-  addSurveyAnalysisData,
-  addSurveyData,
   //EDIT
 
   //////////////////////
