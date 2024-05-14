@@ -5,152 +5,160 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const CurriculumReviewProposal = () => {
-  // const [data, setData] = useState(null);
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(null);
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch("http://localhost:5000/api/bit/survey");
-  //       if (!response.ok) {
-  //         throw new Error("Failed to fetch data");
-  //       }
-  //       const jsonData = await response.json();
-  //       setData(jsonData);
-  //       setLoading(false);
-  //     } catch (error) {
-  //       setError(error.message);
-  //       setLoading(false);
-  //     }
-  //   };
-  //   fetchData();
-  // }, [data]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/bit/crm");
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const jsonData = await response.json();
+        setData(jsonData);
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, [data]);
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-  // if (error) {
-  //   return <div>Error: {error}</div>;
-  // }
-  // const { surveyData, surveyAnalysisData } = data;
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+  const {
+    CRM_PreperationProposal,
+    CRM_EndorsementatKulliyyah,
+    CRM_ReviewByKCA1,
+    EndorsementatAQAC_DCM,
+    RevisionofCRM,
+    CRM_ReviewByKCA2,
+    CRM_EndorsementatSenate,
+  } = data;
 
-  // const handleDelete = async (id) => {
-  //   try {
-  //     await fetch(`http://localhost:5000/api/bit/survey/${id}`, {
-  //       method: "DELETE",
-  //     });
-  //     toast.success("Item Deleted Successfully");
-  //     setData(data.filter((item) => item.id !== id));
-  //   } catch (err) {
-  //     toast.error(err?.data?.message || err.error);
-  //   }
-  // };
+  const handleDelete = async (id) => {
+    try {
+      await fetch(`http://localhost:5000/api/bit/crm/${id}`, {
+        method: "DELETE",
+      });
+      toast.success("Item Deleted Successfully");
+      setData(data.filter((item) => item.id !== id));
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
+    }
+  };
 
-  // const handleGet = async (id, downloadname) => {
-  //   try {
-  //     const response = await fetch(
-  //       `http://localhost:5000/api/bit/survey/${id}`,
-  //       {
-  //         method: "GET",
-  //       }
-  //     );
-  //     if (response.ok) {
-  //       const filename = downloadname;
-  //       const blob = await response.blob();
-  //       const link = document.createElement("a");
+  const handleGet = async (id, downloadname) => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/bit/crm/${id}`,
+        {
+          method: "GET",
+        }
+      );
+      if (response.ok) {
+        const filename = downloadname;
+        const blob = await response.blob();
+        const link = document.createElement("a");
 
-  //       link.href = window.URL.createObjectURL(blob);
-  //       link.download = filename;
-  //       link.click();
+        link.href = window.URL.createObjectURL(blob);
+        link.download = filename;
+        link.click();
 
-  //       toast.success("File downloaded successfully");
-  //     } else {
-  //       const errorData = await response.json();
-  //       toast.error(errorData.message || response.statusText);
-  //     }
-  //   } catch (error) {
-  //     console.error("Error downloading file:", error);
-  //     toast.error("An error occurred while downloading the file");
-  //   }
-  // };
+        toast.success("File downloaded successfully");
+      } else {
+        const errorData = await response.json();
+        toast.error(errorData.message || response.statusText);
+      }
+    } catch (error) {
+      console.error("Error downloading file:", error);
+      toast.error("An error occurred while downloading the file");
+    }
+  };
 
   return (
     <>
       <h1>Curriculum Review Proposal</h1>
-      {/* <div className="board-container">
+      <div className="board-container">
         <div className="table">
           <DataTable
-            page="survey"
+            page="crm"
             onDelete={handleDelete}
             onGet={handleGet}
             title="Preparation of curriculum review proposal"
-            rows={surveyData}
-            route="surveydata"
+            rows={CRM_PreperationProposal}
+            route="preparationproposal"
           />
         </div>
         <div className="table">
           <DataTable
-            page="survey"
+            page="crm"
             onDelete={handleDelete}
             onGet={handleGet}
             title="Endorsement at Kulliyyah (Department, KEM, KBM)"
-            rows={surveyAnalysisData}
-            route="surveyanalysisdata"
+            rows={CRM_EndorsementatKulliyyah}
+            route="endorsmentatkulliyah"
           />
         </div>
         <div className="table">
           <DataTable
-            page="survey"
+            page="crm"
             onDelete={handleDelete}
             onGet={handleGet}
-            title="Review by KCA"
-            rows={surveyAnalysisData}
-            route="surveyanalysisdata"
+            title="Review by KCA 1"
+            rows={CRM_ReviewByKCA1}
+            route="kca1"
           />
         </div>
         <div className="table">
           <DataTable
-            page="survey"
+            page="crm"
             onDelete={handleDelete}
             onGet={handleGet}
             title="Endorsement at AQAC/DCM"
-            rows={surveyData}
-            route="surveydata"
+            rows={EndorsementatAQAC_DCM}
+            route="aqacdcm"
           />
         </div>
         <div className="table">
           <DataTable
-            page="survey"
+            page="crm"
             onDelete={handleDelete}
             onGet={handleGet}
             title="Revision of curriculum review proposal with course outlines and course plans"
-            rows={surveyAnalysisData}
-            route="surveyanalysisdata"
+            rows={RevisionofCRM}
+            route="revisionofcrm"
           />
         </div>
         <div className="table">
           <DataTable
-            page="survey"
+            page="crm"
             onDelete={handleDelete}
             onGet={handleGet}
-            title="Review by KCA"
-            rows={surveyAnalysisData}
-            route="surveyanalysisdata"
+            title="Review by KCA 2"
+            rows={CRM_ReviewByKCA2}
+            route="kca2"
           />
         </div>
         <div className="table">
           <DataTable
-            page="survey"
+            page="crm"
             onDelete={handleDelete}
             onGet={handleGet}
             title="Endorsement at Senate"
-            rows={surveyAnalysisData}
-            route="surveyanalysisdata"
+            rows={CRM_EndorsementatSenate}
+            route="endorsementatsenate"
           />
         </div>
-      </div> */}
+      </div>
     </>
   );
 };

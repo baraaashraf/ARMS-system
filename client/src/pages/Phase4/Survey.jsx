@@ -34,7 +34,7 @@ const Survey = () => {
   if (error) {
     return <div>Error: {error}</div>;
   }
-  const {surveyData , surveyAnalysisData } = data;
+  const { Survey, surveyAnalysis } = data;
 
   const handleDelete = async (id) => {
     try {
@@ -86,7 +86,7 @@ const Survey = () => {
             onDelete={handleDelete}
             onGet={handleGet}
             title="survey"
-            rows={surveyData}
+            rows={Survey}
             route="surveydata"
           />
         </div>
@@ -96,7 +96,7 @@ const Survey = () => {
             onDelete={handleDelete}
             onGet={handleGet}
             title="Analysis and reporting"
-            rows={surveyAnalysisData}
+            rows={surveyAnalysis}
             route="surveyanalysisdata"
           />
         </div>

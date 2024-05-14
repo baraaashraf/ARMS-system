@@ -1,9 +1,9 @@
 import express from "express";
 import {
-  getAllData,
-  deleteDataById,
-  getFileById,
-} from "../../controllers/phase4/IntExtAssessors.controller.js";
+  getAssessorsData,
+  deleteAssessorsElement,
+  DownloadAssessorsFile,
+} from "../../controllers/CRUD.controller.js";
 import upload from "../../utils/upload.js";
 
 import {
@@ -24,7 +24,7 @@ router.post(
 
 /////////////////////////////////////////////
 
-router.get("/", getAllData);
+router.get("/", getAssessorsData);
 
 router.post("/appointmentData", upload.single("file"), addAppointmentData);
 
@@ -32,7 +32,7 @@ router.post("/issuancedata", upload.single("file"), addIssuanceData);
 
 router.post("/nominationdata", addNominationData);
 
-router.delete("/:id", deleteDataById);
-router.get("/:id", getFileById);
+router.delete("/:id", deleteAssessorsElement);
+router.get("/:id", DownloadAssessorsFile);
 
 export default router;

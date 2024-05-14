@@ -1,9 +1,9 @@
 import express from "express";
 import {
-  getAllData,
-  deleteDataById,
-  getFileById,
-} from "../../controllers/phase4/boardOfStudies.controller.js";
+  getAllBOFData,
+  deleteBOFElement,
+  DownloadBOFFile,
+} from "../../controllers/CRUD.controller.js";
 import upload from "../../utils/upload.js";
 
 import {
@@ -21,7 +21,7 @@ router.post("/endorsementdata", upload.single("file"), addEndorsementData);
 
 /////////////////////////////////////////////
 
-router.get("/", getAllData);
+router.get("/", getAllBOFData);
 
 router.post(
   "/boardofstudies/appointmentData",
@@ -33,7 +33,7 @@ router.post("/issuancedata", upload.single("file"), addIssuanceData);
 
 router.post("/nominationdata", addNominationData);
 
-router.delete("/:id", deleteDataById);
-router.get("/:id", getFileById);
+router.delete("/:id", deleteBOFElement);
+router.get("/:id", DownloadBOFFile);
 
 export default router;

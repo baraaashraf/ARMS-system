@@ -36,7 +36,7 @@ const ProgrammeCurriculum = () => {
   if (error) {
     return <div>Error: {error}</div>;
   }
-  const { workshop1Data, workshop2Data, workshop3Data } = data;
+  const { Workshop1, Workshop2, Workshop3 } = data;
 
   const handleDelete = async (id) => {
     try {
@@ -88,7 +88,7 @@ const ProgrammeCurriculum = () => {
             onDelete={handleDelete}
             onGet={handleGet}
             title="Workshop 1: Programme Review"
-            rows={workshop1Data}
+            rows={Workshop1}
             route="workshop1"
           />
         </div>
@@ -98,7 +98,7 @@ const ProgrammeCurriculum = () => {
             onDelete={handleDelete}
             onGet={handleGet}
             title="Workshop 2: Curriculum Structure Design"
-            rows={workshop2Data}
+            rows={Workshop2}
             route="workshop2"
           />
         </div>
@@ -108,7 +108,7 @@ const ProgrammeCurriculum = () => {
             onDelete={handleDelete}
             onGet={handleGet}
             title="Workshop 3: Course Outline and Course Plan"
-            rows={workshop3Data}
+            rows={Workshop3}
             route="workshop3"
           />
         </div>

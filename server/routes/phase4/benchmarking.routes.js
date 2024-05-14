@@ -1,9 +1,9 @@
 import express from "express";
 import {
-  deleteDataById,
-  getAllData,
-  getFileById,
-} from "../../controllers/phase4/benchmarking.controller.js";
+  deleteBenchmarkingElement,
+  getBenchmarkingData,
+  DownloadBenchmarkingFile,
+} from "../../controllers/CRUD.controller.js";
 import upload from "../../utils/upload.js";
 import {
   addBenchmarkingAnalysisData,
@@ -26,8 +26,8 @@ router.post(
   addInstitutionVisitData
 );
 
-router.get("/", getAllData);
-router.delete("/:id", deleteDataById);
-router.get("/:id", getFileById);
+router.get("/", getBenchmarkingData);
+router.delete("/:id", deleteBenchmarkingElement);
+router.get("/:id", DownloadBenchmarkingFile);
 
 export default router;

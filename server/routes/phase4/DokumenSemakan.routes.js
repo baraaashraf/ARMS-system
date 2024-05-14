@@ -1,10 +1,10 @@
 import express from "express";
 import {
-  getAllData,
-  deleteDataById,
-  getFileById,
+  getDokumenSemakanData,
+  deleteDokumenSemakanElement,
+  DownloadDokumenSemakanFile
   ////////////
-} from "../../controllers/phase4/DokumenSemakan.controller.js";
+} from "../../controllers/CRUD.controller.js";
 
 import {
   addPreparationofDokumenSemakan,
@@ -27,8 +27,8 @@ router.post("/reviewbykca", upload.single("file"), addDokumenReviewbyKCA);
 
 router.post("/endorsementatjkpt", upload.single("file"), addEndorsementatJKPT);
 
-router.get("/", getAllData);
-router.delete("/:id", deleteDataById);
-router.get("/:id", getFileById);
+router.get("/", getDokumenSemakanData);
+router.delete("/:id", deleteDokumenSemakanElement);
+router.get("/:id", DownloadDokumenSemakanFile);
 
 export default router;

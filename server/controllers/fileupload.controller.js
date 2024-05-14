@@ -26,7 +26,13 @@ import {
   ReceiptofAssessorFeedbackReport,
 
   /////7
-
+  CRM_PreperationProposal,
+  CRM_EndorsementatKulliyyah,
+  CRM_ReviewByKCA1,
+  EndorsementatAQAC_DCM,
+  RevisionofCRM,
+  CRM_ReviewByKCA2,
+  CRM_EndorsementatSenate,
   ///// 8
   PreparationofDokumenSemakan,
   DokumenReviewbyKCA,
@@ -149,6 +155,28 @@ export const addReceiptofAssessorFeedbackReportData = async (req, res) => {
   await createDocument(req, res, ReceiptofAssessorFeedbackReport);
 };
 /////7
+export const addCRM_PreperationProposalData = async (req, res) => {
+  await createDocument(req, res, CRM_PreperationProposal);
+};
+export const addCRM_EndorsementatKulliyyahData = async (req, res) => {
+  await createDocument(req, res, CRM_EndorsementatKulliyyah);
+};
+export const addCRM_ReviewByKCA1Data = async (req, res) => {
+  await createDocument(req, res, CRM_ReviewByKCA1);
+};
+export const addEndorsementatAQAC_DCMData = async (req, res) => {
+  await createDocument(req, res, EndorsementatAQAC_DCM);
+};
+export const addRevisionofCRMData = async (req, res) => {
+  await createDocument(req, res, RevisionofCRM);
+};
+
+export const addCRM_ReviewByKCA2Data = async (req, res) => {
+  await createDocument(req, res, CRM_ReviewByKCA2);
+};
+export const addCRM_EndorsementatSenateData = async (req, res) => {
+  await createDocument(req, res, CRM_EndorsementatSenate);
+};
 
 ///// 8
 export const addPreparationofDokumenSemakan = async (req, res) => {

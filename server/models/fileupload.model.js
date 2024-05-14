@@ -106,7 +106,30 @@ const ReceiptofAssessorFeedbackReport = mongoose.model(
 );
 
 ///////////// 7 Curriculum Review Proposal/////////////////
+const CRM_PreperationProposal = mongoose.model(
+  "CRM_PreperationProposal",
+  FileUploadSchema
+);
 
+const CRM_EndorsementatKulliyyah = mongoose.model(
+  "CRM_EndorsementatKulliyyah",
+  FileUploadSchema
+);
+
+const CRM_ReviewByKCA1 = mongoose.model("CRM_ReviewByKCA1", FileUploadSchema);
+
+const EndorsementatAQAC_DCM = mongoose.model(
+  "EndorsementatAQAC_DCM",
+  FileUploadSchema
+);
+
+const RevisionofCRM = mongoose.model("RevisionofCRM", FileUploadSchema);
+const CRM_ReviewByKCA2 = mongoose.model("CRM_ReviewByKCA2", FileUploadSchema);
+
+const CRM_EndorsementatSenate = mongoose.model(
+  "CRM_EndorsementatSenate",
+  FileUploadSchema
+);
 ////////////// 8 Dokumen Semakan/////////////////
 
 const PreparationofDokumenSemakan = mongoose.model(
@@ -152,6 +175,13 @@ export {
   ReceiptofAssessorFeedbackReport,
 
   /////7
+  CRM_PreperationProposal,
+  CRM_EndorsementatKulliyyah,
+  CRM_ReviewByKCA1,
+  EndorsementatAQAC_DCM,
+  RevisionofCRM,
+  CRM_ReviewByKCA2,
+  CRM_EndorsementatSenate,
 
   ///// 8
   PreparationofDokumenSemakan,

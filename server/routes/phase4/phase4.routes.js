@@ -5,6 +5,7 @@ import surveyRoutes from "./survey.routes.js";
 import benchmarkingRoutes from "./benchmarking.routes.js";
 import ProgrammeCurriculumRoutes from "./programCirriculum.routes.js";
 import SelfswotRoutes from "./selfSWOT.routes.js";
+import CRM_Routes from './CRM.routes.js'
 
 import express from "express";
 const router = express.Router();
@@ -17,6 +18,7 @@ router.use('/survey', surveyRoutes);
 router.use('/benchmarking', benchmarkingRoutes);
 router.use('/programcurriculum', ProgrammeCurriculumRoutes);
 router.use('/selfswot', SelfswotRoutes);
+router.use('/crm', CRM_Routes);
 
 
 export default router;

@@ -35,11 +35,10 @@ const BoardofStudies = () => {
     return <div>Error: {error}</div>;
   }
   const {
-    nominationData,
-    endorsementData,
-    issuanceData,
-    appointmentData,
-    analysisData,
+    NominationOfBoard2,
+    EndorsementOfSenate2,
+    IssuanceOfAppointment2,
+    AppointmentDuration2,
   } = data;
 
   const handleDelete = async (id) => {
@@ -93,7 +92,7 @@ const BoardofStudies = () => {
             onDelete={handleDelete}
             onGet={handleGet}
             title="Nomination of members"
-            rows={nominationData}
+            rows={NominationOfBoard2}
             route="nominationdata"
           />
         </div>
@@ -103,7 +102,7 @@ const BoardofStudies = () => {
             onDelete={handleDelete}
             onGet={handleGet}
             title="Endorsement of Senate"
-            rows={endorsementData}
+            rows={EndorsementOfSenate2}
             route="endorsementdata"
           />
         </div>
@@ -114,7 +113,7 @@ const BoardofStudies = () => {
             onDelete={handleDelete}
             onGet={handleGet}
             title="Issuance of Appointment"
-            rows={issuanceData}
+            rows={IssuanceOfAppointment2}
             route="issuancedata"
           />
         </div>
@@ -124,7 +123,7 @@ const BoardofStudies = () => {
             onDelete={handleDelete}
             onGet={handleGet}
             title="Appointment duration"
-            rows={appointmentData}
+            rows={AppointmentDuration2}
             route="appointmentData"
           />
         </div>

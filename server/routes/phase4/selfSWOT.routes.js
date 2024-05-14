@@ -1,9 +1,9 @@
 import express from "express";
 import {
-  getAllData,
-  deleteDataById,
-  getFileById,
-} from "../../controllers/phase4/selfSWOT.controller.js";
+  getSelfSWOTData,
+  deleteselfswotElement,
+  DownloadSelfSWOTFile,
+} from "../../controllers/CRUD.controller.js";
 import upload from "../../utils/upload.js";
 import {
   addSelfReviewReportData,
@@ -40,8 +40,8 @@ router.post(
   addReceiptofAssessorFeedbackReportData
 );
 
-router.get("/", getAllData);
-router.delete("/:id", deleteDataById);
-router.get("/:id", getFileById);
+router.get("/", getSelfSWOTData);
+router.delete("/:id", deleteselfswotElement);
+router.get("/:id", DownloadSelfSWOTFile);
 
 export default router;

@@ -35,10 +35,10 @@ const SelfSWOT = () => {
     return <div>Error: {error}</div>;
   }
   const {
-    SelfReviewReportData,
-    SubmissionOfSelfReviewReportData,
-    assessorFeedbackReportData,
-    ReceiptofAssessorFeedbackReportData,
+    SelfReviewReport,
+    SubmissionOfSelfReviewReport,
+    AssessorFeedbackReport,
+    ReceiptofAssessorFeedbackReport,
   } = data;
 
   const handleDelete = async (id) => {
@@ -91,7 +91,7 @@ const SelfSWOT = () => {
             onDelete={handleDelete}
             onGet={handleGet}
             title="Preparation of self-review report"
-            rows={SelfReviewReportData}
+            rows={SelfReviewReport}
             route="selfreviewreport"
           />
         </div>
@@ -101,7 +101,7 @@ const SelfSWOT = () => {
             onDelete={handleDelete}
             onGet={handleGet}
             title="Preparation of SWOT analysis"
-            rows={SubmissionOfSelfReviewReportData}
+            rows={SubmissionOfSelfReviewReport}
             route="submissionofselfreviewreport"
           />
         </div>
@@ -111,7 +111,7 @@ const SelfSWOT = () => {
             onDelete={handleDelete}
             onGet={handleGet}
             title="Submission of self-review report to assessor"
-            rows={assessorFeedbackReportData}
+            rows={AssessorFeedbackReport}
             route="assessorfeedbackreport"
           />
         </div>
@@ -121,7 +121,7 @@ const SelfSWOT = () => {
             onDelete={handleDelete}
             onGet={handleGet}
             title="Receipt of assessor feedback report"
-            rows={ReceiptofAssessorFeedbackReportData}
+            rows={ReceiptofAssessorFeedbackReport}
             route="receiptofassessorfeedback"
           />
         </div>

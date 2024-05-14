@@ -12,7 +12,9 @@ const ProgrammeCurriculum = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/bit/benchmarking");
+        const response = await fetch(
+          "http://localhost:5000/api/bit/benchmarking"
+        );
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
@@ -34,7 +36,7 @@ const ProgrammeCurriculum = () => {
   if (error) {
     return <div>Error: {error}</div>;
   }
-  const { BenchmarkingData, VisitData } = data;
+  const { BenchmarkingAnalysis, InstitutionVisit } = data;
 
   const handleDelete = async (id) => {
     try {
@@ -86,7 +88,7 @@ const ProgrammeCurriculum = () => {
             onDelete={handleDelete}
             onGet={handleGet}
             title="Analysis and reporting"
-            rows={BenchmarkingData}
+            rows={BenchmarkingAnalysis}
             route="benchmarkingdata"
           />
         </div>
@@ -96,11 +98,10 @@ const ProgrammeCurriculum = () => {
             onDelete={handleDelete}
             onGet={handleGet}
             title="Visit to selected institution(s)"
-            rows={VisitData}
+            rows={InstitutionVisit}
             route="institutionvisitdata"
           />
         </div>
-
       </div>
     </>
   );

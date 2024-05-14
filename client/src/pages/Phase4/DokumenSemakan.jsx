@@ -36,7 +36,7 @@ const DokumenSemakan = () => {
   if (error) {
     return <div>Error: {error}</div>;
   }
-  const { DokumenSemakanData, DokumenReviewbyKCAData, EndorsementatJKPTData } =
+  const { PreparationofDokumenSemakan, DokumenReviewbyKCA, JKPTEndorsement } =
     data;
 
   const handleDelete = async (id) => {
@@ -89,7 +89,7 @@ const DokumenSemakan = () => {
             onDelete={handleDelete}
             onGet={handleGet}
             title="Preparation of dokumen semakan"
-            rows={DokumenSemakanData}
+            rows={PreparationofDokumenSemakan}
             route="preparationofdokumensemakan"
           />
         </div>
@@ -99,7 +99,7 @@ const DokumenSemakan = () => {
             onDelete={handleDelete}
             onGet={handleGet}
             title="Review by KCA"
-            rows={DokumenReviewbyKCAData}
+            rows={DokumenReviewbyKCA}
             route="reviewbykca"
           />
         </div>
@@ -109,7 +109,7 @@ const DokumenSemakan = () => {
             onDelete={handleDelete}
             onGet={handleGet}
             title="Endorsement at JKPT"
-            rows={EndorsementatJKPTData}
+            rows={JKPTEndorsement}
             route="endorsementatjkpt"
           />
         </div>

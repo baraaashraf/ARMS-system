@@ -1,9 +1,9 @@
 import express from "express";
 import {
-  getAllData,
-  deleteDataById,
-  getFileById,
-} from "../../controllers/phase4/survey.controller.js";
+  getSurveyData,
+  deletesurveyElement,
+  DownloadSurveyFile,
+} from "../../controllers/CRUD.controller.js";
 
 import {
   addSurveyData,
@@ -23,8 +23,8 @@ router.post(
   addSurveyAnalysisData
 );
 
-router.get("/", getAllData);
-router.delete("/:id", deleteDataById);
-router.get("/:id", getFileById);
+router.get("/", getSurveyData);
+router.delete("/:id", deletesurveyElement);
+router.get("/:id", DownloadSurveyFile);
 
 export default router;
