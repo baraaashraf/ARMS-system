@@ -5,7 +5,7 @@ import {
   DownloadBOFFile,
 } from "../../controllers/CRUD.controller.js";
 import upload from "../../utils/upload.js";
-
+import { isAdmin } from "../../middleware/isAdminMiddleware.js";
 import {
   addAppointmentData,
   addAnalysisData,
@@ -34,6 +34,6 @@ router.post("/issuancedata", upload.single("file"), addIssuanceData);
 router.post("/nominationdata", addNominationData);
 
 router.delete("/:id", deleteBOFElement);
-router.get("/:id", DownloadBOFFile);
+router.get("/:id", isAdmin, DownloadBOFFile);
 
 export default router;

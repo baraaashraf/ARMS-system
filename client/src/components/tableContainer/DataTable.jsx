@@ -33,7 +33,11 @@ const DataTable = ({ title, rows, route, onDelete, onGet, page }) => {
           <Typography sx={{ padding: 2 }} color="inherit" variant="h5">
             {title}
           </Typography>
-          <FormModal page={page} title={title} route={route} />
+          {userInfo.role === "admin" && (
+            <>
+              <FormModal page={page} title={title} route={route} />
+            </>
+          )}
         </div>
 
         {route === "nominationdata" ? (
@@ -44,8 +48,12 @@ const DataTable = ({ title, rows, route, onDelete, onGet, page }) => {
                 <TableCell align="center">company</TableCell>
                 <TableCell align="center">Mobile No</TableCell>
                 <TableCell align="center">Email</TableCell>
-                <TableCell align="center">Edit</TableCell>
-                <TableCell align="center">Delete</TableCell>
+                {userInfo.role === "admin" && (
+                  <>
+                    <TableCell align="center">Edit</TableCell>
+                    <TableCell align="center">Delete</TableCell>{" "}
+                  </>
+                )}
               </TableRow>
             </TableHead>
             <TableBody>
@@ -59,21 +67,25 @@ const DataTable = ({ title, rows, route, onDelete, onGet, page }) => {
                   <TableCell align="center">{row.company}</TableCell>
                   <TableCell align="center">{row.mobileno}</TableCell>
                   <TableCell align="center">{row.email}</TableCell>
-                  <TableCell align="center">
-                    <FontAwesomeIcon
-                      className="icon-button fa-lg edit-icon"
-                      icon={faPenToSquare}
-                    />
-                  </TableCell>
-                  <TableCell align="center">
-                    <ConfirmationModal
-                      classIcon="trash-icon"
-                      icon={faTrash}
-                      onConfirm={() => {
-                        handleDelete(row._id);
-                      }}
-                    />
-                  </TableCell>
+                  {userInfo.role === "admin" && (
+                    <>
+                      <TableCell align="center">
+                        <FontAwesomeIcon
+                          className="icon-button fa-lg edit-icon"
+                          icon={faPenToSquare}
+                        />
+                      </TableCell>
+                      <TableCell align="center">
+                        <ConfirmationModal
+                          classIcon="trash-icon"
+                          icon={faTrash}
+                          onConfirm={() => {
+                            handleDelete(row._id);
+                          }}
+                        />
+                      </TableCell>
+                    </>
+                  )}
                 </TableRow>
               ))}
             </TableBody>
@@ -88,8 +100,12 @@ const DataTable = ({ title, rows, route, onDelete, onGet, page }) => {
                 <TableCell align="center">start date</TableCell>
                 <TableCell align="center">end date</TableCell>
                 <TableCell align="center">target date</TableCell>
-                <TableCell align="center">Edit</TableCell>
-                <TableCell align="center">Delete</TableCell>
+                {userInfo.role === "admin" && (
+                  <>
+                    <TableCell align="center">Edit</TableCell>
+                    <TableCell align="center">Delete</TableCell>{" "}
+                  </>
+                )}
               </TableRow>
             </TableHead>
             <TableBody>
@@ -112,21 +128,25 @@ const DataTable = ({ title, rows, route, onDelete, onGet, page }) => {
                   <TableCell align="center">{row.startDate}</TableCell>
                   <TableCell align="center">{row.endDate}</TableCell>
                   <TableCell align="center">{row.targetDate}</TableCell>
-                  <TableCell align="center">
-                    <FontAwesomeIcon
-                      className="icon-button fa-lg edit-icon"
-                      icon={faPenToSquare}
-                    />
-                  </TableCell>
-                  <TableCell align="center">
-                  <ConfirmationModal
-                      classIcon="trash-icon"
-                      icon={faTrash}
-                      onConfirm={() => {
-                        handleDelete(row._id);
-                      }}
-                    />
-                  </TableCell>
+                  {userInfo.role === "admin" && (
+                    <>
+                      <TableCell align="center">
+                        <FontAwesomeIcon
+                          className="icon-button fa-lg edit-icon"
+                          icon={faPenToSquare}
+                        />
+                      </TableCell>
+                      <TableCell align="center">
+                        <ConfirmationModal
+                          classIcon="trash-icon"
+                          icon={faTrash}
+                          onConfirm={() => {
+                            handleDelete(row._id);
+                          }}
+                        />
+                      </TableCell>
+                    </>
+                  )}
                 </TableRow>
               ))}
             </TableBody>

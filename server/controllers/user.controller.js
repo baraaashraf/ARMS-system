@@ -15,6 +15,14 @@ const authUser = asyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      country: user.country,
+      maritalStatus: user.maritalStatus,
+      identityCardOrPassportNo: user.identityCardOrPassportNo,
+      gender: user.gender,
+      address: user.address,
+      birthday: user.birthday,
+      religion: user.religion,
+      mobile: user.mobile,
     });
   } else {
     res.status(401);
@@ -78,7 +86,6 @@ const logoutUser = (req, res) => {
 
 // AUTH-- get /api/users/profile
 const getUserProfile = asyncHandler(async (req, res) => {
-  console.log(req.user)
   const user = await User.findById(req.user._id);
 
   if (user) {
@@ -86,6 +93,14 @@ const getUserProfile = asyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      country: user.country,
+      maritalStatus: user.maritalStatus,
+      identityCardOrPassportNo: user.identityCardOrPassportNo,
+      gender: user.gender,
+      address: user.address,
+      birthday: user.birthday,
+      religion: user.religion,
+      mobile: user.mobile,
     });
   } else {
     res.status(404);
@@ -95,14 +110,20 @@ const getUserProfile = asyncHandler(async (req, res) => {
 
 // AUTH-- put /api/users/profile
 const updateUserProfile = asyncHandler(async (req, res) => {
-  console.log(req.user)
-  const user = await User.findById(req.user._id);
-  console.log(user)
+  const user = await User.findById(req.body._id);
 
   if (user) {
     user.name = req.body.name || user.name;
     user.email = req.body.email || user.email;
-
+    user.country = req.body.country || user.country;
+    user.maritalStatus = req.body.maritalStatus.toLowerCase() || user.maritalStatus.toLowerCase();
+    user.identityCardOrPassportNo =
+      req.body.identityCardOrPassportNo || user.identityCardOrPassportNo;
+    user.gender = req.body.gender.toLowerCase() || user.gender.toLowerCase();
+    user.address = req.body.address || user.address;
+    user.birthday = req.body.birthday || user.birthday;
+    user.religion = req.body.religion || user.religion;
+    user.mobile = req.body.mobile || user.mobile;
 
     const updatedUser = await user.save();
 
@@ -110,10 +131,19 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       _id: updatedUser._id,
       name: updatedUser.name,
       email: updatedUser.email,
+      role: updatedUser.role,
+      country: updatedUser.country,
+      maritalStatus: updatedUser.maritalStatus,
+      identityCardOrPassportNo: updatedUser.identityCardOrPassportNo,
+      gender: updatedUser.gender,
+      address: updatedUser.address,
+      birthday: updatedUser.birthday,
+      religion: updatedUser.religion,
+      mobile: updatedUser.mobile,
     });
   } else {
     res.status(404);
-    throw new Error('User not found');
+    throw new Error("User not found");
   }
 });
 

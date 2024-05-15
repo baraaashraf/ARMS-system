@@ -10,8 +10,8 @@ const Phase4 = () => {
       <h2>Flowchart of Scopes</h2>
       <div className="phases-container">
         {BITphase4_1.map((phase, index) => (
-          <>
-            <div key={index} className="stage">
+          <React.Fragment key={index}>
+            <div className="stage">
               <Link className="phase-span" to={`s${index + 1}`}>
                 <span>
                   <p> {phase.title}</p>
@@ -20,7 +20,7 @@ const Phase4 = () => {
               </Link>
             </div>
             <div className="line" />
-          </>
+          </React.Fragment>
         ))}
       </div>
     </div>

@@ -27,20 +27,20 @@ const userSchema = mongoose.Schema(
     },
     maritalStatus: {
       type: String,
-      enum: ['Single', 'Married', 'Divorced', 'Widowed', 'unspecified'],
+      enum: ['single', 'married', 'divorced', 'widowed', 'unspecified'],
     },
     identityCardOrPassportNo: {
       type: String,
     },
     gender: {
       type: String,
-      enum: ['Male', 'Female', 'unspecified'],
+      enum: ['male', 'female', 'unspecified'],
     },
     address: {
       type: String,
     },
     birthday: {
-      type: Date,
+      type: String,
     },
     religion: {
       type: String,

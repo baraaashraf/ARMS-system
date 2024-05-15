@@ -21,8 +21,9 @@ const BoardofStudies = () => {
         const jsonData = await response.json();
         setData(jsonData);
         setLoading(false);
-      } catch (error) {
-        setError(error.message);
+      } catch (err) {
+        toast.error(err?.data?.message || err.error);
+        setError(err.message);
         setLoading(false);
       }
     };
@@ -79,8 +80,8 @@ const BoardofStudies = () => {
         toast.error(errorData.message || response.statusText);
       }
     } catch (error) {
+      toast.error(err?.data?.message || err.error);
       console.error("Error downloading file:", error);
-      toast.error("An error occurred while downloading the file");
     }
   };
 

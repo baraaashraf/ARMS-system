@@ -20,8 +20,8 @@ const Account = () => {
   const [birthday, setBirthday] = useState("");
   const [religion, setReligion] = useState("");
   const [mobile, setMobile] = useState("");
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const { userInfo } = useSelector((state) => state.auth);
 
@@ -47,7 +47,7 @@ const Account = () => {
       } = userInfo;
 
       setName(name || "");
-      setRole(role || "undefined")
+      setRole(role || "undefined");
       setEmail(email || "");
       setCountry(country || "");
       setMaritalStatus(maritalStatus || "");
@@ -61,22 +61,29 @@ const Account = () => {
   }, [userInfo]);
   console.log("userInfo", userInfo);
 
-
   const submitHandler = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      toast.error('Passwords do not match');
+      toast.error("Passwords do not match");
     } else {
       try {
         const res = await updateProfile({
           _id: userInfo._id,
           name,
           email,
+          country,
+          maritalStatus,
+          identityCardOrPassportNo,
+          gender,
+          address,
+          birthday,
+          religion,
+          mobile,
           password,
         }).unwrap();
-        console.log(res);
+        console.log("res submit handler", res);
         dispatch(setCredentials(res));
-        toast.success('Profile updated successfully');
+        toast.success("Profile updated successfully");
       } catch (err) {
         toast.error(err?.data?.message || err.error);
       }
@@ -114,6 +121,7 @@ const Account = () => {
           <FormInput
             label="Marital Status"
             value={maritalStatus}
+            placeholder="['single', 'married', 'divorced', 'widowed', 'unspecified']"
             onEdit={(e) => setMaritalStatus(e.target.value)}
           />
           <FormInput
@@ -124,6 +132,7 @@ const Account = () => {
           <FormInput
             label="Gender"
             value={gender}
+            placeholder="['male', 'female','unspecified]"
             onEdit={(e) => setGender(e.target.value)}
           />
           <FormInput

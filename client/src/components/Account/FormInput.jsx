@@ -1,10 +1,15 @@
 import React from "react";
 
-const FormInput = ({ label, value, onEdit }) => {
+const FormInput = ({ label, value, placeholder, onEdit }) => {
   return (
-    <div class="form-group">
+    <div className="form-group">
       <label htmlFor="">{label}</label>
-      <input type="text" value={value} onChange={onEdit}/>
+      <input
+        type="text"
+        placeholder={placeholder}
+        value={value}
+        onChange={onEdit}
+      />
     </div>
   );
 };
