@@ -3,6 +3,8 @@ import {
   getCurriculumReviewData,
   deleteCurriculumReviewModelsElement,
   DownloadCurriculumReviewFile,
+  updateCurriculumReviewRow,
+  getCurriculumReviewRow,
 } from "../../controllers/CRUD.controller.js";
 import upload from "../../utils/upload.js";
 import {
@@ -49,8 +51,12 @@ router.post(
   addCRM_EndorsementatSenateData
 );
 
+
+router.get("/download/:id", DownloadCurriculumReviewFile);
+router.get("/:id", getCurriculumReviewRow);
 router.get("/", getCurriculumReviewData);
+
 router.delete("/:id", deleteCurriculumReviewModelsElement);
-router.get("/:id", DownloadCurriculumReviewFile);
+router.put("/:id", updateCurriculumReviewRow);
 
 export default router;

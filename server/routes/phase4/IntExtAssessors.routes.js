@@ -3,6 +3,8 @@ import {
   getAssessorsData,
   deleteAssessorsElement,
   DownloadAssessorsFile,
+  updateAssessorsRow,
+  getAssessorsRow,
 } from "../../controllers/CRUD.controller.js";
 import upload from "../../utils/upload.js";
 
@@ -24,7 +26,6 @@ router.post(
 
 /////////////////////////////////////////////
 
-router.get("/", getAssessorsData);
 
 router.post("/appointmentData", upload.single("file"), addAppointmentData);
 
@@ -32,7 +33,12 @@ router.post("/issuancedata", upload.single("file"), addIssuanceData);
 
 router.post("/nominationdata", addNominationData);
 
+router.get("/download/:id", DownloadAssessorsFile);
+router.get("/:id", getAssessorsRow);
+router.get("/", getAssessorsData);
+
+
 router.delete("/:id", deleteAssessorsElement);
-router.get("/:id", DownloadAssessorsFile);
+router.put("/:id", updateAssessorsRow);
 
 export default router;

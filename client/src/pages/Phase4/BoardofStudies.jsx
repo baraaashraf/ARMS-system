@@ -60,7 +60,7 @@ const BoardofStudies = () => {
   const handleGet = async (id, downloadname) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/bit/boardofstudies/${id}`,
+        `http://localhost:5000/api/bit/boardofstudies/download/${id}`,
         {
           method: "GET",
         }

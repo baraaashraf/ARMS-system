@@ -66,6 +66,65 @@ const getAllData = async (req, res, models) => {
   }
 };
 
+const updateDataById = async (req, res, collections) => {
+  try {
+    const { id } = req.params;
+    const updateData = req.body;
+    let documentFound = false;
+
+    for (const collection of collections) {
+      const document = await collection.findById(id);
+
+      if (document) {
+        if (
+          collection === NominationOfBoard ||
+          collection === NominationOfBoard2
+        ) {
+          await collection.findByIdAndUpdate(id, updateData);
+        } else {
+          // Update the document properties from req.body
+          Object.assign(document, updateData);
+          await document.save();
+        }
+        documentFound = true;
+        break;
+      }
+    }
+    if (documentFound) {
+      res.status(200).json({ message: "Data updated successfully" });
+    } else {
+      res.status(404).json({ message: "Document not found" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+const getDataById = async (req, res, collections) => {
+  try {
+    const { id } = req.params;
+    let documentFound = false;
+
+    for (const collection of collections) {
+      const document = await collection.findById(id);
+
+      if (document) {
+        res.status(200).json({ data: document });
+        documentFound = true;
+        break;
+      }
+    }
+
+    if (!documentFound) {
+      res.status(404).json({ message: "Document not found" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
 const deleteDataById = async (req, res, collections) => {
   try {
     const { id } = req.params;
@@ -154,6 +213,14 @@ export const getAllBOFData = async (req, res) => {
   await getAllData(req, res, boardOfStudiesModels);
 };
 
+export const updateBOFRow = async (req, res) => {
+  await updateDataById(req, res, boardOfStudiesModels);
+};
+
+export const getBOFRow = async (req, res) => {
+  await getDataById(req, res, boardOfStudiesModels);
+};
+
 export const deleteBOFElement = async (req, res) => {
   await deleteDataById(req, res, boardOfStudiesModels);
 };
@@ -171,6 +238,15 @@ const assessorsModels = [
 export const getAssessorsData = async (req, res) => {
   await getAllData(req, res, assessorsModels);
 };
+export const updateAssessorsRow = async (req, res) => {
+  await updateDataById(req, res, assessorsModels);
+};
+
+export const getAssessorsRow = async (req, res) => {
+  await getDataById(req, res, assessorsModels);
+};
+
+
 export const deleteAssessorsElement = async (req, res) => {
   await deleteDataById(req, res, assessorsModels);
 };
@@ -183,6 +259,17 @@ const surveyModels = [surveyModel, surveyAnalysisModel];
 export const getSurveyData = async (req, res) => {
   await getAllData(req, res, surveyModels);
 };
+
+export const updateSurveyRow = async (req, res) => {
+  await updateDataById(req, res, surveyModels);
+};
+
+export const getSurveyRow = async (req, res) => {
+  await getDataById(req, res, surveyModels);
+};
+
+
+
 export const deletesurveyElement = async (req, res) => {
   await deleteDataById(req, res, surveyModels);
 };
@@ -195,6 +282,15 @@ const BenchmarkingModels = [BenchmarkingAnalysis, InstitutionVisit];
 export const getBenchmarkingData = async (req, res) => {
   await getAllData(req, res, BenchmarkingModels);
 };
+export const updateBenchmarkingRow = async (req, res) => {
+  await updateDataById(req, res, BenchmarkingModels);
+};
+
+export const getBenchmarkingRow = async (req, res) => {
+  await getDataById(req, res, BenchmarkingModels);
+};
+
+
 export const deleteBenchmarkingElement = async (req, res) => {
   await deleteDataById(req, res, BenchmarkingModels);
 };
@@ -207,6 +303,15 @@ const ProgrammeCurriculumModels = [Workshop1, Workshop2, Workshop3];
 export const getProgrammeCurriculumData = async (req, res) => {
   await getAllData(req, res, ProgrammeCurriculumModels);
 };
+export const updateProgrammeCurriculumRow = async (req, res) => {
+  await updateDataById(req, res, ProgrammeCurriculumModels);
+};
+
+export const getProgrammeCurriculumRow = async (req, res) => {
+  await getDataById(req, res, ProgrammeCurriculumModels);
+};
+
+
 export const deleteProgrammeCurriculumElement = async (req, res) => {
   await deleteDataById(req, res, ProgrammeCurriculumModels);
 };
@@ -224,6 +329,15 @@ const selfswotModels = [
 export const getSelfSWOTData = async (req, res) => {
   await getAllData(req, res, selfswotModels);
 };
+export const updateSelfSWOTRow = async (req, res) => {
+  await updateDataById(req, res, selfswotModels);
+};
+
+export const getSelfSWOTRow = async (req, res) => {
+  await getDataById(req, res, selfswotModels);
+};
+
+
 export const deleteselfswotElement = async (req, res) => {
   await deleteDataById(req, res, selfswotModels);
 };
@@ -244,6 +358,15 @@ const curriculumReviewModels = [
 export const getCurriculumReviewData = async (req, res) => {
   await getAllData(req, res, curriculumReviewModels);
 };
+export const updateCurriculumReviewRow = async (req, res) => {
+  await updateDataById(req, res, curriculumReviewModels);
+};
+
+export const getCurriculumReviewRow = async (req, res) => {
+  await getDataById(req, res, curriculumReviewModels);
+};
+
+
 
 export const deleteCurriculumReviewModelsElement = async (req, res) => {
   await deleteDataById(req, res, curriculumReviewModels);
@@ -261,6 +384,15 @@ const dokumenSemakanModels = [
 export const getDokumenSemakanData = async (req, res) => {
   await getAllData(req, res, dokumenSemakanModels);
 };
+
+export const updatedokumenSemakanRow = async (req, res) => {
+  await updateDataById(req, res, dokumenSemakanModels);
+};
+
+export const getdokumenSemakanRow = async (req, res) => {
+  await getDataById(req, res, dokumenSemakanModels);
+};
+
 
 export const deleteDokumenSemakanElement = async (req, res) => {
   await deleteDataById(req, res, dokumenSemakanModels);

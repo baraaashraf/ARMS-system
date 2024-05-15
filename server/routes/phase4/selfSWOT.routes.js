@@ -3,6 +3,8 @@ import {
   getSelfSWOTData,
   deleteselfswotElement,
   DownloadSelfSWOTFile,
+  updateSelfSWOTRow,
+  getSelfSWOTRow,
 } from "../../controllers/CRUD.controller.js";
 import upload from "../../utils/upload.js";
 import {
@@ -40,8 +42,11 @@ router.post(
   addReceiptofAssessorFeedbackReportData
 );
 
+router.get("/download/:id", DownloadSelfSWOTFile);
+router.get("/:id", getSelfSWOTRow);
 router.get("/", getSelfSWOTData);
+
 router.delete("/:id", deleteselfswotElement);
-router.get("/:id", DownloadSelfSWOTFile);
+router.put("/:id", updateSelfSWOTRow);
 
 export default router;

@@ -3,6 +3,8 @@ import {
   getSurveyData,
   deletesurveyElement,
   DownloadSurveyFile,
+  updateSelfSWOTRow,
+  getSurveyRow,
 } from "../../controllers/CRUD.controller.js";
 
 import {
@@ -23,8 +25,12 @@ router.post(
   addSurveyAnalysisData
 );
 
+
+router.get("/download/:id", DownloadSurveyFile);
+router.get("/:id", getSurveyRow);
 router.get("/", getSurveyData);
+
 router.delete("/:id", deletesurveyElement);
-router.get("/:id", DownloadSurveyFile);
+router.put("/:id", updateSelfSWOTRow);
 
 export default router;

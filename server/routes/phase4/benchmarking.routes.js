@@ -3,6 +3,8 @@ import {
   deleteBenchmarkingElement,
   getBenchmarkingData,
   DownloadBenchmarkingFile,
+  updateBenchmarkingRow,
+  getBenchmarkingRow,
 } from "../../controllers/CRUD.controller.js";
 import upload from "../../utils/upload.js";
 import {
@@ -26,8 +28,12 @@ router.post(
   addInstitutionVisitData
 );
 
-router.get("/", getBenchmarkingData);
+router.get("/download/:id", DownloadBenchmarkingFile);
+router.get("/:id", getBenchmarkingData);
+router.get("/", getBenchmarkingRow);
+
+
 router.delete("/:id", deleteBenchmarkingElement);
-router.get("/:id", DownloadBenchmarkingFile);
+router.put("/:id", updateBenchmarkingRow);
 
 export default router;

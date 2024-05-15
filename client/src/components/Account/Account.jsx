@@ -28,7 +28,6 @@ const Account = () => {
   const dispatch = useDispatch();
 
   const [updateProfile, { isLoading }] = useUpdateUserMutation();
-  console.log(userInfo);
 
   useEffect(() => {
     if (userInfo) {
@@ -59,8 +58,6 @@ const Account = () => {
       setMobile(mobile || "");
     }
   }, [userInfo]);
-  console.log("userInfo", userInfo);
-
   const submitHandler = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {

@@ -2,7 +2,9 @@ import express from "express";
 import {
   getDokumenSemakanData,
   deleteDokumenSemakanElement,
-  DownloadDokumenSemakanFile
+  DownloadDokumenSemakanFile,
+  updatedokumenSemakanRow,
+  getdokumenSemakanRow
   ////////////
 } from "../../controllers/CRUD.controller.js";
 
@@ -27,8 +29,12 @@ router.post("/reviewbykca", upload.single("file"), addDokumenReviewbyKCA);
 
 router.post("/endorsementatjkpt", upload.single("file"), addEndorsementatJKPT);
 
+router.get("/download/:id", DownloadDokumenSemakanFile);
+router.get("/:id", getdokumenSemakanRow);
 router.get("/", getDokumenSemakanData);
+
+
 router.delete("/:id", deleteDokumenSemakanElement);
-router.get("/:id", DownloadDokumenSemakanFile);
+router.put("/:id", updatedokumenSemakanRow);
 
 export default router;

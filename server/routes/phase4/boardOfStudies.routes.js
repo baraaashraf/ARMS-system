@@ -3,6 +3,8 @@ import {
   getAllBOFData,
   deleteBOFElement,
   DownloadBOFFile,
+  updateBOFRow,
+  getBOFRow,
 } from "../../controllers/CRUD.controller.js";
 import upload from "../../utils/upload.js";
 import { isAdmin } from "../../middleware/isAdminMiddleware.js";
@@ -21,7 +23,7 @@ router.post("/endorsementdata", upload.single("file"), addEndorsementData);
 
 /////////////////////////////////////////////
 
-router.get("/", getAllBOFData);
+
 
 router.post(
   "/boardofstudies/appointmentData",
@@ -33,7 +35,12 @@ router.post("/issuancedata", upload.single("file"), addIssuanceData);
 
 router.post("/nominationdata", addNominationData);
 
+
+router.get("/download/:id", DownloadBOFFile);
+router.get("/:id", getBOFRow);
+router.get("/", getAllBOFData);
+
 router.delete("/:id", deleteBOFElement);
-router.get("/:id", isAdmin, DownloadBOFFile);
+router.put("/:id", updateBOFRow);
 
 export default router;
