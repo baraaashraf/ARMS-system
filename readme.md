@@ -13,7 +13,7 @@ Before proceeding, ensure you have the following installed on your system:
 ### Installation
 Clone the repository:
 ```bash
-git clone https://github.com/baraaashraf/ARMS-system.git
+git clone https://github.com/bxra2/ARMS-system.git
 ```
 Navigate to the project directory:
 ```bash
