@@ -164,90 +164,66 @@ export const BITphases = [
   },
   {
     phaseName: "Phase 2",
-    phaseTitle: "Provisional Accreditation Process Flow (Appendix A)",
+    phaseTitle: "Provisional Accreditation Process Flow",
     link: "phase2",
   },
   {
     phaseName: "Phase 3",
-    phaseTitle: "Full Accreditation Process Flow (Appendix B)",
+    phaseTitle: "Full Accreditation Process Flow",
     link: "phase3",
   },
   {
     phaseName: "Phase 4",
-    phaseTitle: "Curriculum Review Process Flow (Appendix C)",
+    phaseTitle: "Curriculum Review Process Flow",
     link: "phase4",
   },
   {
     phaseName: "Phase 5",
-    phaseTitle: "New-cycle Accreditation/PMA Process Flwo (Appendix D)",
+    phaseTitle: "New-cycle Accreditation/PMA Process Flow",
     link: "phase5",
-  },
-];
-
-export const BITphase4 = [
-  {
-    title: "Internal and external assesors managment",
-  },
-  {
-    title: "Preparing self-review report",
-  },
-  {
-    title:
-      "Preparing Strength, Weakness, Opportunity and Threat (SWOT) analysis",
-  },
-  {
-    title: "Conducting alumni, industry and graduates survey and analysis",
-  },
-  {
-    title: "Obtainging feedback from Board of Studies members",
-  },
-  {
-    title: "Conducting benchmarking visit(s)",
-  },
-  {
-    title:
-      "Reviewing Programme Educatinoal Objectives (PEO), Programme Learning Outcomes (PLO) and Sejahtera Academic Framework (SAF) Elements",
-  },
-  {
-    title: "Reviewing programme curriculum structure and course outline",
-  },
-  {
-    title: "Proposal",
   },
 ];
 
 export const BITphase4_1 = [
   {
     title: "Board of studies",
-    percentage:47
+    percentage:47,
+    page:"boardofstudies"
   },
   {
     title: "Internal & External Assessors",
-    percentage:80
+    percentage:80,
+    page:"assessors"
   },
   {
     title: "Survey",
-    percentage:23
+    percentage:23,
+    page:"survey"
   },
   {
     title: "Benchmarking",
-    percentage:16
+    percentage:16,
+    page:"benchmarking"
   },
   {
     title: "Programme Curriculum",
-    percentage:11
+    percentage:11,
+    page:"programcurriculum"
   },
   {
     title: "Self-review SWOT analysis",
-    percentage:21
+    percentage:21,
+    page:"selfswot"
   },
   {
     title: "Curriculum review Proposal",
-    percentage:35
+    percentage:35,
+    page:"crm"
   },
   {
     title: "Dokumen semakan",
-    percentage:97
+    percentage:97,
+    page:"dokumensemakan"
   },
 ];
 

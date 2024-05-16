@@ -106,6 +106,7 @@ button {
 }
 .grid-c-title-text {
   font-weight: 400;
+  font-size: 24px;
   color: var(--clr-white);
 }
 .grid-c-title-icon img {

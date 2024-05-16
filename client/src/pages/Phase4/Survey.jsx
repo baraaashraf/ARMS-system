@@ -48,10 +48,10 @@ const Survey = () => {
     }
   };
 
-  const handleGet = async (id, downloadname) => {
+  const handleDownload = async (id, downloadname) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/bit/survey/${id}`,
+        `http://localhost:5000/api/bit/survey/download/${id}`,
         {
           method: "GET",
         }
@@ -84,7 +84,7 @@ const Survey = () => {
           <DataTable
             page="survey"
             onDelete={handleDelete}
-            onGet={handleGet}
+            onDownload={handleDownload}
             title="survey"
             rows={Survey}
             route="surveydata"
@@ -94,7 +94,7 @@ const Survey = () => {
           <DataTable
             page="survey"
             onDelete={handleDelete}
-            onGet={handleGet}
+            onDownload={handleDownload}
             title="Analysis and reporting"
             rows={surveyAnalysis}
             route="surveyanalysisdata"

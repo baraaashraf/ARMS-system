@@ -16,6 +16,7 @@ const authUser = asyncHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       country: user.country,
+      role: user.role,
       maritalStatus: user.maritalStatus,
       identityCardOrPassportNo: user.identityCardOrPassportNo,
       gender: user.gender,

@@ -50,10 +50,10 @@ const ProgrammeCurriculum = () => {
     }
   };
 
-  const handleGet = async (id, downloadname) => {
+  const handleDownload = async (id, downloadname) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/bit/programcurriculum/${id}`,
+        `http://localhost:5000/api/bit/programcurriculum/download/${id}`,
         {
           method: "GET",
         }
@@ -86,7 +86,7 @@ const ProgrammeCurriculum = () => {
           <DataTable
             page="programcurriculum"
             onDelete={handleDelete}
-            onGet={handleGet}
+            onDownload={handleDownload}
             title="Workshop 1: Programme Review"
             rows={Workshop1}
             route="workshop1"
@@ -96,7 +96,7 @@ const ProgrammeCurriculum = () => {
           <DataTable
             page="programcurriculum"
             onDelete={handleDelete}
-            onGet={handleGet}
+            onDownload={handleDownload}
             title="Workshop 2: Curriculum Structure Design"
             rows={Workshop2}
             route="workshop2"
@@ -106,7 +106,7 @@ const ProgrammeCurriculum = () => {
           <DataTable
             page="programcurriculum"
             onDelete={handleDelete}
-            onGet={handleGet}
+            onDownload={handleDownload}
             title="Workshop 3: Course Outline and Course Plan"
             rows={Workshop3}
             route="workshop3"

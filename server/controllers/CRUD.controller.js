@@ -101,6 +101,19 @@ const updateDataById = async (req, res, collections) => {
   }
 };
 
+const filterProperties = (object, excludedProperties) => {
+  const toBeFiltered = object.toObject();
+  const filteredObject = { ...toBeFiltered };
+
+  excludedProperties.forEach((property) => {
+    if (filteredObject.hasOwnProperty(property)) {
+      delete filteredObject[property];
+    }
+  });
+
+  return filteredObject;
+};
+
 const getDataById = async (req, res, collections) => {
   try {
     const { id } = req.params;
@@ -110,7 +123,11 @@ const getDataById = async (req, res, collections) => {
       const document = await collection.findById(id);
 
       if (document) {
-        res.status(200).json({ data: document });
+        const excludedProperties = ["createdAt", "updatedAt", "__v"];
+        const filteredDocument = filterProperties(document, excludedProperties);
+        console.log("filteredDocument", filteredDocument);
+
+        res.status(200).json(filteredDocument);
         documentFound = true;
         break;
       }
@@ -246,7 +263,6 @@ export const getAssessorsRow = async (req, res) => {
   await getDataById(req, res, assessorsModels);
 };
 
-
 export const deleteAssessorsElement = async (req, res) => {
   await deleteDataById(req, res, assessorsModels);
 };
@@ -268,8 +284,6 @@ export const getSurveyRow = async (req, res) => {
   await getDataById(req, res, surveyModels);
 };
 
-
-
 export const deletesurveyElement = async (req, res) => {
   await deleteDataById(req, res, surveyModels);
 };
@@ -290,7 +304,6 @@ export const getBenchmarkingRow = async (req, res) => {
   await getDataById(req, res, BenchmarkingModels);
 };
 
-
 export const deleteBenchmarkingElement = async (req, res) => {
   await deleteDataById(req, res, BenchmarkingModels);
 };
@@ -310,7 +323,6 @@ export const updateProgrammeCurriculumRow = async (req, res) => {
 export const getProgrammeCurriculumRow = async (req, res) => {
   await getDataById(req, res, ProgrammeCurriculumModels);
 };
-
 
 export const deleteProgrammeCurriculumElement = async (req, res) => {
   await deleteDataById(req, res, ProgrammeCurriculumModels);
@@ -336,7 +348,6 @@ export const updateSelfSWOTRow = async (req, res) => {
 export const getSelfSWOTRow = async (req, res) => {
   await getDataById(req, res, selfswotModels);
 };
-
 
 export const deleteselfswotElement = async (req, res) => {
   await deleteDataById(req, res, selfswotModels);
@@ -366,8 +377,6 @@ export const getCurriculumReviewRow = async (req, res) => {
   await getDataById(req, res, curriculumReviewModels);
 };
 
-
-
 export const deleteCurriculumReviewModelsElement = async (req, res) => {
   await deleteDataById(req, res, curriculumReviewModels);
 };
@@ -392,7 +401,6 @@ export const updatedokumenSemakanRow = async (req, res) => {
 export const getdokumenSemakanRow = async (req, res) => {
   await getDataById(req, res, dokumenSemakanModels);
 };
-
 
 export const deleteDokumenSemakanElement = async (req, res) => {
   await deleteDataById(req, res, dokumenSemakanModels);

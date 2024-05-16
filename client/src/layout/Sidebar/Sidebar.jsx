@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import IIUMlogo from "../../assets/images/IIUM-logo.png";
 import { navigationLinks } from "../../data/data";
 import "./Sidebar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink,Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../../slices/authSlice";
@@ -43,7 +43,9 @@ const Sidebar = () => {
     <div className={`sidebar ${sidebarClass}`}>
       <div className="arms-logo">
         <div className="arms-img img-fit-cover">
-          <img src={IIUMlogo} alt="profile image" />
+          <Link to="/home">
+            <img src={IIUMlogo} alt="profile image" />
+          </Link>
         </div>
         <span className="arms-name">ARMS</span>
       </div>

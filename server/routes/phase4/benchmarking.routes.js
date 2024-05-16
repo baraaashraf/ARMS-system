@@ -29,8 +29,8 @@ router.post(
 );
 
 router.get("/download/:id", DownloadBenchmarkingFile);
-router.get("/:id", getBenchmarkingData);
-router.get("/", getBenchmarkingRow);
+router.get("/:id", getBenchmarkingRow);
+router.get("/", getBenchmarkingData);
 
 
 router.delete("/:id", deleteBenchmarkingElement);

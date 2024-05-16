@@ -6,7 +6,7 @@ import "./BITphase.css";
 const Phase4 = () => {
   return (
     <div>
-      <h1>Curriculum Review Process Flow(Appendix C)</h1>
+      <h1>Curriculum Review Process Flow</h1>
       <h2>Flowchart of Scopes</h2>
       <div className="phases-container">
         {BITphase4_1.map((phase, index) => (

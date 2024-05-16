@@ -51,10 +51,10 @@ const DokumenSemakan = () => {
     }
   };
 
-  const handleGet = async (id, downloadname) => {
+  const handleDownload = async (id, downloadname) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/bit/dokumensemakan/${id}`,
+        `http://localhost:5000/api/bit/dokumensemakan/download/${id}`,
         {
           method: "GET",
         }
@@ -87,7 +87,7 @@ const DokumenSemakan = () => {
           <DataTable
             page="dokumensemakan"
             onDelete={handleDelete}
-            onGet={handleGet}
+            onDownload={handleDownload}
             title="Preparation of dokumen semakan"
             rows={PreparationofDokumenSemakan}
             route="preparationofdokumensemakan"
@@ -97,7 +97,7 @@ const DokumenSemakan = () => {
           <DataTable
             page="dokumensemakan"
             onDelete={handleDelete}
-            onGet={handleGet}
+            onDownload={handleDownload}
             title="Review by KCA"
             rows={DokumenReviewbyKCA}
             route="reviewbykca"
@@ -107,7 +107,7 @@ const DokumenSemakan = () => {
           <DataTable
             page="dokumensemakan"
             onDelete={handleDelete}
-            onGet={handleGet}
+            onDownload={handleDownload}
             title="Endorsement at JKPT"
             rows={JKPTEndorsement}
             route="endorsementatjkpt"

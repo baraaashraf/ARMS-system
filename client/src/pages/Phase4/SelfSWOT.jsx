@@ -43,7 +43,7 @@ const SelfSWOT = () => {
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://localhost:5000/api/bit/selfswot/${id}`, {
+      await fetch(`http://localhost:5000/api/bit/selfswot/download/${id}`, {
         method: "DELETE",
       });
       toast.success("Item Deleted Successfully");
@@ -53,7 +53,7 @@ const SelfSWOT = () => {
     }
   };
 
-  const handleGet = async (id, downloadname) => {
+  const handleDownload = async (id, downloadname) => {
     try {
       const response = await fetch(
         `http://localhost:5000/api/bit/selfswot/${id}`,
@@ -89,7 +89,7 @@ const SelfSWOT = () => {
           <DataTable
             page="selfswot"
             onDelete={handleDelete}
-            onGet={handleGet}
+            onDownload={handleDownload}
             title="Preparation of self-review report"
             rows={SelfReviewReport}
             route="selfreviewreport"
@@ -99,7 +99,7 @@ const SelfSWOT = () => {
           <DataTable
             page="selfswot"
             onDelete={handleDelete}
-            onGet={handleGet}
+            onDownload={handleDownload}
             title="Preparation of SWOT analysis"
             rows={SubmissionOfSelfReviewReport}
             route="submissionofselfreviewreport"
@@ -109,7 +109,7 @@ const SelfSWOT = () => {
           <DataTable
             page="selfswot"
             onDelete={handleDelete}
-            onGet={handleGet}
+            onDownload={handleDownload}
             title="Submission of self-review report to assessor"
             rows={AssessorFeedbackReport}
             route="assessorfeedbackreport"
@@ -119,7 +119,7 @@ const SelfSWOT = () => {
           <DataTable
             page="selfswot"
             onDelete={handleDelete}
-            onGet={handleGet}
+            onDownload={handleDownload}
             title="Receipt of assessor feedback report"
             rows={ReceiptofAssessorFeedbackReport}
             route="receiptofassessorfeedback"

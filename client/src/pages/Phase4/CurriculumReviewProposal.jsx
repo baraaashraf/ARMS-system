@@ -56,10 +56,10 @@ const CurriculumReviewProposal = () => {
     }
   };
 
-  const handleGet = async (id, downloadname) => {
+  const handleDownload = async (id, downloadname) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/bit/crm/${id}`,
+        `http://localhost:5000/api/bit/crm/download/${id}`,
         {
           method: "GET",
         }
@@ -92,7 +92,7 @@ const CurriculumReviewProposal = () => {
           <DataTable
             page="crm"
             onDelete={handleDelete}
-            onGet={handleGet}
+            onDownload={handleDownload}
             title="Preparation of curriculum review proposal"
             rows={CRM_PreperationProposal}
             route="preparationproposal"
@@ -102,7 +102,7 @@ const CurriculumReviewProposal = () => {
           <DataTable
             page="crm"
             onDelete={handleDelete}
-            onGet={handleGet}
+            onDownload={handleDownload}
             title="Endorsement at Kulliyyah (Department, KEM, KBM)"
             rows={CRM_EndorsementatKulliyyah}
             route="endorsmentatkulliyah"
@@ -112,7 +112,7 @@ const CurriculumReviewProposal = () => {
           <DataTable
             page="crm"
             onDelete={handleDelete}
-            onGet={handleGet}
+            onDownload={handleDownload}
             title="Review by KCA 1"
             rows={CRM_ReviewByKCA1}
             route="kca1"
@@ -122,7 +122,7 @@ const CurriculumReviewProposal = () => {
           <DataTable
             page="crm"
             onDelete={handleDelete}
-            onGet={handleGet}
+            onDownload={handleDownload}
             title="Endorsement at AQAC/DCM"
             rows={EndorsementatAQAC_DCM}
             route="aqacdcm"
@@ -132,7 +132,7 @@ const CurriculumReviewProposal = () => {
           <DataTable
             page="crm"
             onDelete={handleDelete}
-            onGet={handleGet}
+            onDownload={handleDownload}
             title="Revision of curriculum review proposal with course outlines and course plans"
             rows={RevisionofCRM}
             route="revisionofcrm"
@@ -142,7 +142,7 @@ const CurriculumReviewProposal = () => {
           <DataTable
             page="crm"
             onDelete={handleDelete}
-            onGet={handleGet}
+            onDownload={handleDownload}
             title="Review by KCA 2"
             rows={CRM_ReviewByKCA2}
             route="kca2"
@@ -152,7 +152,7 @@ const CurriculumReviewProposal = () => {
           <DataTable
             page="crm"
             onDelete={handleDelete}
-            onGet={handleGet}
+            onDownload={handleDownload}
             title="Endorsement at Senate"
             rows={CRM_EndorsementatSenate}
             route="endorsementatsenate"

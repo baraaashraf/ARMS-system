@@ -53,7 +53,7 @@ const BoardofStudies = () => {
     }
   };
 
-  const handleGet = async (id, downloadname) => {
+  const handleDownload = async (id, downloadname) => {
     try {
       const response = await fetch(
         `http://localhost:5000/api/bit/assessors/${id}`,
@@ -90,7 +90,7 @@ const BoardofStudies = () => {
           <DataTable
             page="assessors"
             onDelete={handleDelete}
-            onGet={handleGet}
+            onDownload={handleDownload}
             title="Nomination of members"
             rows={NominationOfBoard2}
             route="nominationdata"
@@ -100,7 +100,7 @@ const BoardofStudies = () => {
           <DataTable
             page="assessors"
             onDelete={handleDelete}
-            onGet={handleGet}
+            onDownload={handleDownload}
             title="Endorsement of Senate"
             rows={EndorsementOfSenate2}
             route="endorsementdata"
@@ -111,7 +111,7 @@ const BoardofStudies = () => {
           <DataTable
             page="assessors"
             onDelete={handleDelete}
-            onGet={handleGet}
+            onDownload={handleDownload}
             title="Issuance of Appointment"
             rows={IssuanceOfAppointment2}
             route="issuancedata"
@@ -121,7 +121,7 @@ const BoardofStudies = () => {
           <DataTable
             page="assessors"
             onDelete={handleDelete}
-            onGet={handleGet}
+            onDownload={handleDownload}
             title="Appointment duration"
             rows={AppointmentDuration2}
             route="appointmentData"

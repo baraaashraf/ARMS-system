@@ -12,19 +12,19 @@ import ConfirmationModal from "../Modals/ConfirmationModal.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrash,
-  faPenToSquare,
   faDownload,
 } from "@fortawesome/free-solid-svg-icons";
 import FormModal from "../Modals/FormModal.jsx";
+import EditFormModal from "../Modals/EditFormModal.jsx";
 import "./DataTable.css";
 
-const DataTable = ({ title, rows, route, onDelete, onGet, page }) => {
+const DataTable = ({ title, rows, route, onDelete, onDownload, page }) => {
   const { userInfo } = useSelector((state) => state.auth);
   const handleDelete = (id) => {
     onDelete(id);
   };
   const handleGet = (id, downlaodname) => {
-    onGet(id, downlaodname);
+    onDownload(id, downlaodname);
   };
   return (
     <>
@@ -51,7 +51,7 @@ const DataTable = ({ title, rows, route, onDelete, onGet, page }) => {
                 {userInfo.role === "admin" && (
                   <>
                     <TableCell align="center">Edit</TableCell>
-                    <TableCell align="center">Delete</TableCell>{" "}
+                    <TableCell align="center">Delete</TableCell>
                   </>
                 )}
               </TableRow>
@@ -70,9 +70,11 @@ const DataTable = ({ title, rows, route, onDelete, onGet, page }) => {
                   {userInfo.role === "admin" && (
                     <>
                       <TableCell align="center">
-                        <FontAwesomeIcon
-                          className="icon-button fa-lg edit-icon"
-                          icon={faPenToSquare}
+                        <EditFormModal
+                          page={page}
+                          title={title}
+                          route={route}
+                          rowID={row._id}
                         />
                       </TableCell>
                       <TableCell align="center">
@@ -129,23 +131,25 @@ const DataTable = ({ title, rows, route, onDelete, onGet, page }) => {
                   <TableCell align="center">{row.endDate}</TableCell>
                   <TableCell align="center">{row.targetDate}</TableCell>
                   {userInfo.role === "admin" && (
-                    <>
-                      <TableCell align="center">
-                        <FontAwesomeIcon
-                          className="icon-button fa-lg edit-icon"
-                          icon={faPenToSquare}
-                        />
-                      </TableCell>
-                      <TableCell align="center">
-                        <ConfirmationModal
-                          classIcon="trash-icon"
-                          icon={faTrash}
-                          onConfirm={() => {
-                            handleDelete(row._id);
-                          }}
-                        />
-                      </TableCell>
-                    </>
+                   <>
+                   <TableCell align="center">
+                     <EditFormModal
+                       page={page}
+                       title={title}
+                       route={route}
+                       rowID={row._id}
+                     />
+                   </TableCell>
+                   <TableCell align="center">
+                     <ConfirmationModal
+                       classIcon="trash-icon"
+                       icon={faTrash}
+                       onConfirm={() => {
+                         handleDelete(row._id);
+                       }}
+                     />
+                   </TableCell>
+                 </>
                   )}
                 </TableRow>
               ))}
