@@ -9,34 +9,27 @@ import {
 import upload from "../../utils/upload.js";
 
 import {
-  addAppointmentData,
-  addIssuanceData,
-  addEndorsementData,
-  addNominationData,
+  addAppointmentData2,
+  addIssuanceData2,
+  addEndorsementData2,
+  addNominationData2,
 } from "../../controllers/fileupload.controller.js";
 //////////////////////////////////////////////
 
 const router = express.Router();
 
-router.post(
-  "/assessors/endorsementdata",
-  upload.single("file"),
-  addEndorsementData
-);
-
 /////////////////////////////////////////////
+router.post("/nominationdata", addNominationData2);
 
+router.post("/appointmentData", upload.single("file"), addAppointmentData2);
 
-router.post("/appointmentData", upload.single("file"), addAppointmentData);
+router.post("/endorsementdata", upload.single("file"), addEndorsementData2);
 
-router.post("/issuancedata", upload.single("file"), addIssuanceData);
-
-router.post("/nominationdata", addNominationData);
+router.post("/issuancedata", upload.single("file"), addIssuanceData2);
 
 router.get("/download/:id", DownloadAssessorsFile);
 router.get("/:id", getAssessorsRow);
 router.get("/", getAssessorsData);
-
 
 router.delete("/:id", deleteAssessorsElement);
 router.put("/:id", updateAssessorsRow);

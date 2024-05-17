@@ -10,7 +10,7 @@ const Form2 = ({ route, onClose, page }) => {
     targetDate: "",
   });
 
-  const [file, setFile] = useState(null); // State to handle file
+  const [file, setFile] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,7 +41,7 @@ const Form2 = ({ route, onClose, page }) => {
       .then((response) => response.json())
       .then((data) => {
         if (data.message) {
-          toast.error("Please fill all elements");
+          toast.error(data.message);
           return;
         }
         console.log("Success:", data);
@@ -96,7 +96,7 @@ const Form2 = ({ route, onClose, page }) => {
         type="text"
         id="comment"
         name="comment"
-        onChange={handleChange} // Use separate handler for file change
+        onChange={handleChange} 
       />
       <br />
       <label htmlFor="file">PDF File:</label>
@@ -106,7 +106,7 @@ const Form2 = ({ route, onClose, page }) => {
         accept=".doc,.docx,.pdf"
         id="file"
         name="file"
-        onChange={handleFileChange} // Use separate handler for file change
+        onChange={handleFileChange}
       />
       <br />
 

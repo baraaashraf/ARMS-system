@@ -127,7 +127,7 @@ const BoardofStudies = () => {
             onDownload={handleDownload}
             title="Appointment duration"
             rows={AppointmentDuration}
-            route="appointmentData"
+            route="appointmentdata"
           />
         </div>
 

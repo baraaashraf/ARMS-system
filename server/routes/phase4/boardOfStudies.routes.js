@@ -19,22 +19,12 @@ import {
 
 const router = express.Router();
 
-router.post("/endorsementdata", upload.single("file"), addEndorsementData);
-
 /////////////////////////////////////////////
-
-
-
-router.post(
-  "/boardofstudies/appointmentData",
-  upload.single("file"),
-  addAppointmentData
-);
-router.post("/analysisdata", upload.single("file"), addAnalysisData);
-router.post("/issuancedata", upload.single("file"), addIssuanceData);
-
 router.post("/nominationdata", addNominationData);
-
+router.post("/endorsementdata", upload.single("file"), addEndorsementData);
+router.post("/issuancedata", upload.single("file"), addIssuanceData);
+router.post("/appointmentData", upload.single("file"), addAppointmentData);
+router.post("/analysisdata", upload.single("file"), addAnalysisData);
 
 router.get("/download/:id", DownloadBOFFile);
 router.get("/:id", getBOFRow);
