@@ -4,7 +4,7 @@ import "../../components/tableContainer/DataTable.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const BoardofStudies = () => {
+const ExternalStakeholders = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,7 +13,7 @@ const BoardofStudies = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/bit/boardofstudies"
+          "http://localhost:5000/api/bit/externalstakeholder"
         );
         if (!response.ok) {
           throw new Error("Failed to fetch data");
@@ -40,14 +40,12 @@ const BoardofStudies = () => {
   const {
     NominationOfBoard,
     EndorsementOfSenate,
-    IssuanceOfAppointment,
-    AppointmentDuration,
-    AnalysisAndReporting,
+    AnalysisReport,
   } = data;
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://localhost:5000/api/bit/boardofstudies/${id}`, {
+      await fetch(`http://localhost:5000/api/bit/externalstakeholder/${id}`, {
         method: "DELETE",
       });
       toast.success("Item Deleted Successfully");
@@ -60,7 +58,7 @@ const BoardofStudies = () => {
   const handleDownload = async (id, downloadname) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/bit/boardofstudies/download/${id}`,
+        `http://localhost:5000/api/bit/externalstakeholder/download/${id}`,
         {
           method: "GET",
         }
@@ -87,57 +85,35 @@ const BoardofStudies = () => {
 
   return (
     <>
-      <h1>Board of Studies</h1>
+      <h1>External Stakeholders</h1>
       <div className="board-container">
         <div className="table">
           <DataTable
-            page="boardofstudies"
+            page="externalstakeholder"
             onDelete={handleDelete}
             onDownload={handleDownload}
-            title="Nomination of members"
+            title="Members"
             rows={NominationOfBoard}
             route="nominationdata"
           />
         </div>
         <div className="table">
           <DataTable
-            page="boardofstudies"
+            page="externalstakeholder"
             onDelete={handleDelete}
             onDownload={handleDownload}
-            title="Endorsement of Senate"
+            title="Endorsement in Senate"
             rows={EndorsementOfSenate}
             route="endorsementdata"
           />
         </div>
-
         <div className="table">
           <DataTable
-            page="boardofstudies"
+            page="externalstakeholder"
             onDelete={handleDelete}
             onDownload={handleDownload}
-            title="Issuance of Appointment"
-            rows={IssuanceOfAppointment}
-            route="issuancedata"
-          />
-        </div>
-        <div className="table">
-          <DataTable
-            page="boardofstudies"
-            onDelete={handleDelete}
-            onDownload={handleDownload}
-            title="Appointment duration"
-            rows={AppointmentDuration}
-            route="appointmentdata"
-          />
-        </div>
-
-        <div className="table">
-          <DataTable
-            page="boardofstudies"
-            onDelete={handleDelete}
-            onDownload={handleDownload}
-            title="Analysis and reporting"
-            rows={AnalysisAndReporting}
+            title="Analysis Report"
+            rows={AnalysisReport}
             route="analysisdata"
           />
         </div>
@@ -146,4 +122,4 @@ const BoardofStudies = () => {
   );
 };
 
-export default BoardofStudies;
+export default ExternalStakeholders;

@@ -10,6 +10,9 @@ const Form1 = ({ route, onClose,page }) => {
     mobileno: "",
     email: "",
   });
+
+  const [file, setFile] = useState(null);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
@@ -97,6 +100,36 @@ const Form1 = ({ route, onClose,page }) => {
         id="email"
         name="email"
         value={formData.email}
+        onChange={handleChange}
+      />
+      <br />
+      <label htmlFor="email">Appointment issue date:</label>
+      <br />
+      <input
+        type="date"
+        id="appointment_issue_date"
+        name="appointment_issue_date"
+        value={formData.appointment_issue_date}
+        onChange={handleChange}
+      />
+      <br />
+      <label htmlFor="email">Appointment start date:</label>
+      <br />
+      <input
+        type="date"
+        id="appointment_start_date"
+        name="appointment_start_date"
+        value={formData.appointment_start_date}
+        onChange={handleChange}
+      />
+      <br />
+      <label htmlFor="email">Appointment end date:</label>
+      <br />
+      <input
+        type="date"
+        id="appointment_end_date"
+        name="appointment_end_date"
+        value={formData.appointment_end_date}
         onChange={handleChange}
       />
       <br />

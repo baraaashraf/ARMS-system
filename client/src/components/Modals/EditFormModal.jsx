@@ -22,7 +22,6 @@ const style = {
   width: "60%",
   maxWidth: 800,
   minWidth: 200,
-  height: "55%",
   bgcolor: "background.paper",
   border: "0px solid #000",
   borderRadius: "10px",

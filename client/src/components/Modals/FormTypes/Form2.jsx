@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../FormModal.css";
 
-const Form2 = ({ route, onClose, page }) => {
+const Form2 = ({ route, onClose, page, descInput }) => {
   const [formData, setFormData] = useState({
     startDate: "",
     endDate: "",
@@ -90,15 +90,20 @@ const Form2 = ({ route, onClose, page }) => {
         onChange={handleChange}
       />
       <br />
-      <label htmlFor="comment">Description:</label>
-      <br />
-      <input
-        type="text"
-        id="comment"
-        name="comment"
-        onChange={handleChange} 
-      />
-      <br />
+      {descInput && (
+        <>
+          <label htmlFor="comment">Description:</label>
+          <br />
+          <input
+            type="text"
+            id="comment"
+            name="comment"
+            onChange={handleChange}
+          />
+          <br />
+        </>
+      )}
+
       <label htmlFor="file">PDF File:</label>
       <br />
       <input

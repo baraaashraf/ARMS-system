@@ -6,6 +6,9 @@ const MembersSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    position: {
+      type: String,
+    },
     company: {
       type: String,
       required: true,
@@ -13,6 +16,15 @@ const MembersSchema = mongoose.Schema(
     mobileno: {
       type: String,
       required: true,
+    },
+    appointment_issue_date: {
+      type: String,
+    },
+    appointment_start_date: {
+      type: String,
+    },
+    appointment_end_date: {
+      type: String,
     },
     email: {
       type: String,
@@ -23,6 +35,12 @@ const MembersSchema = mongoose.Schema(
         },
         message: (props) => `${props.value} is not a valid email address!`,
       },
+    },
+    displayName: {
+      type: String,
+    },
+    file: {
+      type: String,
     },
   },
   {

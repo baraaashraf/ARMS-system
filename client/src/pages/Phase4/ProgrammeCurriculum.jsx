@@ -90,6 +90,7 @@ const ProgrammeCurriculum = () => {
             title="Workshop 1: Programme Review"
             rows={Workshop1}
             route="workshop1"
+            descInput={true}
           />
         </div>
         <div className="table">
@@ -99,6 +100,7 @@ const ProgrammeCurriculum = () => {
             onDownload={handleDownload}
             title="Workshop 2: Curriculum Structure Design"
             rows={Workshop2}
+            descInput={true}
             route="workshop2"
           />
         </div>
@@ -109,6 +111,7 @@ const ProgrammeCurriculum = () => {
             onDownload={handleDownload}
             title="Workshop 3: Course Outline and Course Plan"
             rows={Workshop3}
+            descInput={true}
             route="workshop3"
           />
         </div>

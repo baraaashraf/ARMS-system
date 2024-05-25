@@ -10,15 +10,20 @@ import Paper from "@mui/material/Paper";
 import { useSelector } from "react-redux";
 import ConfirmationModal from "../Modals/ConfirmationModal.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTrash,
-  faDownload,
-} from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faDownload } from "@fortawesome/free-solid-svg-icons";
 import FormModal from "../Modals/FormModal.jsx";
 import EditFormModal from "../Modals/EditFormModal.jsx";
 import "./DataTable.css";
 
-const DataTable = ({ title, rows, route, onDelete, onDownload, page }) => {
+const DataTable = ({
+  title,
+  rows,
+  route,
+  onDelete,
+  onDownload,
+  page,
+  descInput,
+}) => {
   const { userInfo } = useSelector((state) => state.auth);
   const handleDelete = (id) => {
     onDelete(id);
@@ -35,7 +40,7 @@ const DataTable = ({ title, rows, route, onDelete, onDownload, page }) => {
           </Typography>
           {userInfo.role === "admin" && (
             <>
-              <FormModal page={page} title={title} route={route} />
+              <FormModal descInput={descInput} page={page} title={title} route={route} />
             </>
           )}
         </div>
@@ -45,9 +50,13 @@ const DataTable = ({ title, rows, route, onDelete, onDownload, page }) => {
             <TableHead>
               <TableRow>
                 <TableCell align="center">Name</TableCell>
+                <TableCell align="center">position</TableCell>
                 <TableCell align="center">company</TableCell>
                 <TableCell align="center">Mobile No</TableCell>
                 <TableCell align="center">Email</TableCell>
+                <TableCell align="center">Issue date</TableCell>
+                <TableCell align="center">Start date</TableCell>
+                <TableCell align="center">End date</TableCell>
                 {userInfo.role === "admin" && (
                   <>
                     <TableCell align="center">Edit</TableCell>
@@ -63,10 +72,20 @@ const DataTable = ({ title, rows, route, onDelete, onDownload, page }) => {
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell align="center">{row.name}</TableCell>
-
+                  <TableCell align="center">{row.position}</TableCell>
                   <TableCell align="center">{row.company}</TableCell>
                   <TableCell align="center">{row.mobileno}</TableCell>
                   <TableCell align="center">{row.email}</TableCell>
+                  <TableCell align="center">
+                    {row.appointment_issue_date}
+                  </TableCell>
+                  <TableCell align="center">
+                    {row.appointment_start_date}
+                  </TableCell>
+                  <TableCell align="center">
+                    {row.appointment_end_date}
+                  </TableCell>
+
                   {userInfo.role === "admin" && (
                     <>
                       <TableCell align="center">
@@ -131,25 +150,25 @@ const DataTable = ({ title, rows, route, onDelete, onDownload, page }) => {
                   <TableCell align="center">{row.endDate}</TableCell>
                   <TableCell align="center">{row.targetDate}</TableCell>
                   {userInfo.role === "admin" && (
-                   <>
-                   <TableCell align="center">
-                     <EditFormModal
-                       page={page}
-                       title={title}
-                       route={route}
-                       rowID={row._id}
-                     />
-                   </TableCell>
-                   <TableCell align="center">
-                     <ConfirmationModal
-                       classIcon="trash-icon"
-                       icon={faTrash}
-                       onConfirm={() => {
-                         handleDelete(row._id);
-                       }}
-                     />
-                   </TableCell>
-                 </>
+                    <>
+                      <TableCell align="center">
+                        <EditFormModal
+                          page={page}
+                          title={title}
+                          route={route}
+                          rowID={row._id}
+                        />
+                      </TableCell>
+                      <TableCell align="center">
+                        <ConfirmationModal
+                          classIcon="trash-icon"
+                          icon={faTrash}
+                          onConfirm={() => {
+                            handleDelete(row._id);
+                          }}
+                        />
+                      </TableCell>
+                    </>
                   )}
                 </TableRow>
               ))}

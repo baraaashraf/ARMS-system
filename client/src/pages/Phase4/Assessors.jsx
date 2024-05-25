@@ -37,8 +37,6 @@ const BoardofStudies = () => {
   const {
     NominationOfBoard2,
     EndorsementOfSenate2,
-    IssuanceOfAppointment2,
-    AppointmentDuration2,
   } = data;
 
   const handleDelete = async (id) => {
@@ -91,7 +89,7 @@ const BoardofStudies = () => {
             page="assessors"
             onDelete={handleDelete}
             onDownload={handleDownload}
-            title="Nomination of members"
+            title="Members"
             rows={NominationOfBoard2}
             route="nominationdata"
           />
@@ -101,30 +99,9 @@ const BoardofStudies = () => {
             page="assessors"
             onDelete={handleDelete}
             onDownload={handleDownload}
-            title="Endorsement of Senate"
+            title="Endorsement in Senate"
             rows={EndorsementOfSenate2}
             route="endorsementdata"
-          />
-        </div>
-
-        <div className="table">
-          <DataTable
-            page="assessors"
-            onDelete={handleDelete}
-            onDownload={handleDownload}
-            title="Issuance of Appointment"
-            rows={IssuanceOfAppointment2}
-            route="issuancedata"
-          />
-        </div>
-        <div className="table">
-          <DataTable
-            page="assessors"
-            onDelete={handleDelete}
-            onDownload={handleDownload}
-            title="Appointment duration"
-            rows={AppointmentDuration2}
-            route="appointmentdata"
           />
         </div>
       </div>

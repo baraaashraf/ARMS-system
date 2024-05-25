@@ -10,6 +10,8 @@ import "./FormModal.css";
 
 import Form1 from "./FormTypes/Form1";
 import Form2 from "./FormTypes/Form2";
+import FileForm from "./FormTypes/FileForm";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -18,7 +20,6 @@ const style = {
   width: "60%",
   maxWidth: 800,
   minWidth: 200,
-  height: "55%",
   bgcolor: "background.paper",
   border: "0px solid #000",
   borderRadius: "10px",
@@ -26,7 +27,7 @@ const style = {
   p: 4,
 };
 
-const FormModal = ({ title, route, page }) => {
+const FormModal = ({ title, route, page, descInput }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -60,7 +61,12 @@ const FormModal = ({ title, route, page }) => {
           {route === "nominationdata" ? (
             <Form1 route={route} page={page} onClose={handleClose} />
           ) : (
-            <Form2 route={route} page={page} onClose={handleClose} />
+            <Form2
+              route={route}
+              page={page}
+              descInput={descInput}
+              onClose={handleClose}
+            />
           )}
         </Box>
       </Modal>

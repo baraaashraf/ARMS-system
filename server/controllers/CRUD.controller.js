@@ -1,16 +1,13 @@
 import {
   ///////////// 1
   EndorsementOfSenate,
-  IssuanceOfAppointment,
-  AppointmentDuration,
-  AnalysisAndReporting,
+  AnalysisReport,
   ///////////////// 2
   EndorsementOfSenate2,
-  IssuanceOfAppointment2,
-  AppointmentDuration2,
   /////////////////// 3
-  surveyModel,
-  surveyAnalysisModel,
+  AlumniSurvey,
+  EmployerSurvey,
+  StudentSurvey,
   ///////////////////// 4
   BenchmarkingAnalysis,
   InstitutionVisit,
@@ -222,9 +219,7 @@ const getFileById = async (req, res, collections) => {
 const boardOfStudiesModels = [
   NominationOfBoard,
   EndorsementOfSenate,
-  IssuanceOfAppointment,
-  AppointmentDuration,
-  AnalysisAndReporting,
+  AnalysisReport,
 ];
 export const getAllBOFData = async (req, res) => {
   await getAllData(req, res, boardOfStudiesModels);
@@ -246,12 +241,7 @@ export const DownloadBOFFile = async (req, res) => {
 };
 
 ///////////////// 2
-const assessorsModels = [
-  NominationOfBoard2,
-  EndorsementOfSenate2,
-  IssuanceOfAppointment2,
-  AppointmentDuration2,
-];
+const assessorsModels = [NominationOfBoard2, EndorsementOfSenate2];
 export const getAssessorsData = async (req, res) => {
   await getAllData(req, res, assessorsModels);
 };
@@ -271,7 +261,7 @@ export const DownloadAssessorsFile = async (req, res) => {
 };
 
 /////////////////// 3
-const surveyModels = [surveyModel, surveyAnalysisModel];
+const surveyModels = [AlumniSurvey, EmployerSurvey, StudentSurvey];
 export const getSurveyData = async (req, res) => {
   await getAllData(req, res, surveyModels);
 };

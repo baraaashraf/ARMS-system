@@ -1,6 +1,22 @@
 import mongoose from "mongoose";
 
-const FileUploadSchema = mongoose.Schema(
+const FileSchema = mongoose.Schema(
+  {
+    file: {
+      type: String,
+      required: true
+    },
+    displayName: {
+      type: String
+    }
+  },
+  {
+    timestamps: true,
+  }
+);
+
+
+const FileandDateSchema = mongoose.Schema(
   {
     startDate: {
       type: String,
@@ -37,112 +53,105 @@ const FileUploadSchema = mongoose.Schema(
 
 const EndorsementOfSenate = mongoose.model(
   "EndorsementOfSenate",
-  FileUploadSchema
+  FileandDateSchema
 );
-const IssuanceOfAppointment = mongoose.model(
-  "IssuanceOfAppointment",
-  FileUploadSchema
-);
-const AppointmentDuration = mongoose.model(
-  "AppointmentDuration",
-  FileUploadSchema
-);
-const AnalysisAndReporting = mongoose.model(
-  "AnalysisAndReporting",
-  FileUploadSchema
+const AnalysisReport = mongoose.model(
+  "AnalysisReport",
+  FileSchema
 );
 ///////// 2 Internal and external assessors /////////////
 
 const EndorsementOfSenate2 = mongoose.model(
   "EndorsementOfSenate2",
-  FileUploadSchema
+  FileandDateSchema
 );
 const IssuanceOfAppointment2 = mongoose.model(
   "IssuanceOfAppointment2",
-  FileUploadSchema
+  FileandDateSchema
 );
 const AppointmentDuration2 = mongoose.model(
   "AppointmentDuration2",
-  FileUploadSchema
+  FileandDateSchema
 );
 ///////////////// 3 Survey//////////////////////////
 
-const surveyModel = mongoose.model("Survey", FileUploadSchema);
-const surveyAnalysisModel = mongoose.model("surveyAnalysis", FileUploadSchema);
+const AlumniSurvey = mongoose.model("Alumni", FileandDateSchema);
+const EmployerSurvey = mongoose.model("Employer", FileandDateSchema);
+const StudentSurvey = mongoose.model("Student", FileandDateSchema);
 
 /////////////// 4 Benchmarking//////////////////////////
 
 const BenchmarkingAnalysis = mongoose.model(
   "BenchmarkingAnalysis",
-  FileUploadSchema
+  FileandDateSchema
 );
-const InstitutionVisit = mongoose.model("InstitutionVisit", FileUploadSchema);
+const InstitutionVisit = mongoose.model("InstitutionVisit", FileandDateSchema);
 
 ////////////// 5 Program Curriculum//////////////////////
 
-const Workshop1 = mongoose.model("Workshop1", FileUploadSchema);
+const Workshop1 = mongoose.model("Workshop1", FileandDateSchema);
 
-const Workshop2 = mongoose.model("Workshop2", FileUploadSchema);
+const Workshop2 = mongoose.model("Workshop2", FileandDateSchema);
 
-const Workshop3 = mongoose.model("Workshop3", FileUploadSchema);
+const Workshop3 = mongoose.model("Workshop3", FileandDateSchema);
 
 /////////////// 6 Self-review and SWOT Analysis////////////////////
 
-const SelfReviewReport = mongoose.model("SelfReviewReport", FileUploadSchema);
+const SelfReviewReport = mongoose.model("SelfReviewReport", FileandDateSchema);
 
 const SubmissionOfSelfReviewReport = mongoose.model(
   "SubmissionOfSelfReviewReport",
-  FileUploadSchema
+  FileandDateSchema
 );
 
 const assessorFeedbackReport = mongoose.model(
   "AssessorFeedbackReport",
-  FileUploadSchema
+  FileandDateSchema
 );
 
 const ReceiptofAssessorFeedbackReport = mongoose.model(
   "ReceiptofAssessorFeedbackReport",
-  FileUploadSchema
+  FileandDateSchema
 );
 
 ///////////// 7 Curriculum Review Proposal/////////////////
 const CRM_PreperationProposal = mongoose.model(
   "CRM_PreperationProposal",
-  FileUploadSchema
+  FileandDateSchema
 );
 
 const CRM_EndorsementatKulliyyah = mongoose.model(
   "CRM_EndorsementatKulliyyah",
-  FileUploadSchema
+  FileandDateSchema
 );
 
-const CRM_ReviewByKCA1 = mongoose.model("CRM_ReviewByKCA1", FileUploadSchema);
+const CRM_ReviewByKCA1 = mongoose.model("CRM_ReviewByKCA1", FileandDateSchema);
 
 const EndorsementatAQAC_DCM = mongoose.model(
   "EndorsementatAQAC_DCM",
-  FileUploadSchema
+  FileandDateSchema
 );
 
-const RevisionofCRM = mongoose.model("RevisionofCRM", FileUploadSchema);
-const CRM_ReviewByKCA2 = mongoose.model("CRM_ReviewByKCA2", FileUploadSchema);
+const RevisionofCRM = mongoose.model("RevisionofCRM", FileandDateSchema);
+const CRM_ReviewByKCA2 = mongoose.model("CRM_ReviewByKCA2", FileandDateSchema);
 
 const CRM_EndorsementatSenate = mongoose.model(
   "CRM_EndorsementatSenate",
-  FileUploadSchema
+  FileandDateSchema
 );
 ////////////// 8 Dokumen Semakan/////////////////
 
 const PreparationofDokumenSemakan = mongoose.model(
   "PreparationofDokumenSemakan",
-  FileUploadSchema
+  FileandDateSchema
 );
 
 const DokumenReviewbyKCA = mongoose.model(
   "DokumenReviewbyKCA",
-  FileUploadSchema
+  FileandDateSchema
 );
 
-const EndorsementatJKPT = mongoose.model("JKPTEndorsement", FileUploadSchema);
+const EndorsementatJKPT = mongoose.model("JKPTEndorsement", FileandDateSchema);
 
 /////////////////////////////////////////////////
 ///////////////// exporting /////////////////////
@@ -150,16 +159,13 @@ const EndorsementatJKPT = mongoose.model("JKPTEndorsement", FileUploadSchema);
 export {
   ///////////// 1
   EndorsementOfSenate,
-  IssuanceOfAppointment,
-  AppointmentDuration,
-  AnalysisAndReporting,
+  AnalysisReport,
   ///////////////// 2
   EndorsementOfSenate2,
-  IssuanceOfAppointment2,
-  AppointmentDuration2,
   /////////////////// 3
-  surveyModel,
-  surveyAnalysisModel,
+  AlumniSurvey,
+  EmployerSurvey,
+  StudentSurvey,
   ///////////////////// 4
   BenchmarkingAnalysis,
   InstitutionVisit,

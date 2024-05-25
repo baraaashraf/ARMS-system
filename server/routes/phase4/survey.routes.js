@@ -8,8 +8,9 @@ import {
 } from "../../controllers/CRUD.controller.js";
 
 import {
-  addSurveyData,
-  addSurveyAnalysisData,
+  addAlumniSurveyData,
+  addEmployerSurveyData,
+  addStudentSurveyData,
 } from "../../controllers/fileupload.controller.js";
 import upload from "../../utils/upload.js";
 
@@ -17,14 +18,11 @@ import upload from "../../utils/upload.js";
 const router = express.Router();
 /////////////////////////////////////////////
 
-router.post("/surveydata", upload.single("file"), addSurveyData);
+router.post("/alumnidata", upload.single("file"), addAlumniSurveyData);
 
-router.post(
-  "/surveyanalysisdata",
-  upload.single("file"),
-  addSurveyAnalysisData
-);
+router.post("/employerdata", upload.single("file"), addEmployerSurveyData);
 
+router.post("/studentdata", upload.single("file"), addStudentSurveyData);
 
 router.get("/download/:id", DownloadSurveyFile);
 router.get("/:id", getSurveyRow);

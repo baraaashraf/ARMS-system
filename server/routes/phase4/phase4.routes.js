@@ -1,5 +1,5 @@
 import DokumenSemakanRoutes from "./DokumenSemakan.routes.js";
-import boardofStudiesRoutes from "./boardOfStudies.routes.js";
+import ExternalStakeholdersRoutes from "./ExternalStakeholders.routes.js";
 import assersorsRoutes from "./IntExtAssessors.routes.js";
 import surveyRoutes from "./survey.routes.js";
 import benchmarkingRoutes from "./benchmarking.routes.js";
@@ -12,7 +12,7 @@ const router = express.Router();
 
 
 router.use('/dokumensemakan', DokumenSemakanRoutes);
-router.use('/boardofstudies', boardofStudiesRoutes);
+router.use('/externalstakeholder', ExternalStakeholdersRoutes);
 router.use('/assessors', assersorsRoutes);
 router.use('/survey', surveyRoutes);
 router.use('/benchmarking', benchmarkingRoutes);

@@ -1,16 +1,13 @@
 import {
   ///////////// 1
   EndorsementOfSenate,
-  IssuanceOfAppointment,
-  AppointmentDuration,
-  AnalysisAndReporting,
+  AnalysisReport,
   ///////////////// 2
   EndorsementOfSenate2,
-  IssuanceOfAppointment2,
-  AppointmentDuration2,
   /////////////////// 3
-  surveyModel,
-  surveyAnalysisModel,
+  AlumniSurvey,
+  EmployerSurvey,
+  StudentSurvey,
   ///////////////////// 4
   BenchmarkingAnalysis,
   InstitutionVisit,
@@ -46,13 +43,27 @@ import {
 
 const addMembersData = async (req, res, Model) => {
   try {
-    const { filename, name, company, mobileno, email } = req.body;
+    const {
+      filename,
+      name,
+      company,
+      mobileno,
+      email,
+      position,
+      appointment_issue_date,
+      appointment_start_date,
+      appointment_end_date,
+    } = req.body;
     const newData = await Model.create({
       filename,
       name,
       company,
       mobileno,
       email,
+      position,
+      appointment_issue_date,
+      appointment_start_date,
+      appointment_end_date,
     });
     res.status(201).json(newData);
   } catch (error) {
@@ -90,14 +101,8 @@ export const addNominationData = async (req, res) => {
 export const addEndorsementData = async (req, res) => {
   await createDocument(req, res, EndorsementOfSenate);
 };
-export const addIssuanceData = async (req, res) => {
-  await createDocument(req, res, IssuanceOfAppointment);
-};
-export const addAppointmentData = async (req, res) => {
-  await createDocument(req, res, AppointmentDuration);
-};
 export const addAnalysisData = async (req, res) => {
-  await createDocument(req, res, AnalysisAndReporting);
+  await createDocument(req, res, AnalysisReport);
 };
 ///////////////// 2
 export const addNominationData2 = async (req, res) => {
@@ -106,19 +111,17 @@ export const addNominationData2 = async (req, res) => {
 export const addEndorsementData2 = async (req, res) => {
   await createDocument(req, res, EndorsementOfSenate2);
 };
-export const addIssuanceData2 = async (req, res) => {
-  await createDocument(req, res, IssuanceOfAppointment2);
-};
-export const addAppointmentData2 = async (req, res) => {
-  await createDocument(req, res, AppointmentDuration2);
-};
+
 /////////////////// 3
 
-export const addSurveyData = async (req, res) => {
-  await createDocument(req, res, surveyModel);
+export const addAlumniSurveyData = async (req, res) => {
+  await createDocument(req, res, AlumniSurvey);
 };
-export const addSurveyAnalysisData = async (req, res) => {
-  await createDocument(req, res, surveyAnalysisModel);
+export const addEmployerSurveyData = async (req, res) => {
+  await createDocument(req, res, EmployerSurvey);
+};
+export const addStudentSurveyData = async (req, res) => {
+  await createDocument(req, res, StudentSurvey);
 };
 
 ///////////////////// 4

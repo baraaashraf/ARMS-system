@@ -34,7 +34,7 @@ const Survey = () => {
   if (error) {
     return <div>Error: {error}</div>;
   }
-  const { Survey, surveyAnalysis } = data;
+  const { Alumni, Employer, Student } = data;
 
   const handleDelete = async (id) => {
     try {
@@ -85,9 +85,9 @@ const Survey = () => {
             page="survey"
             onDelete={handleDelete}
             onDownload={handleDownload}
-            title="survey"
-            rows={Survey}
-            route="surveydata"
+            title="Alumni"
+            rows={Alumni}
+            route="alumnidata"
           />
         </div>
         <div className="table">
@@ -95,9 +95,19 @@ const Survey = () => {
             page="survey"
             onDelete={handleDelete}
             onDownload={handleDownload}
-            title="Analysis and reporting"
-            rows={surveyAnalysis}
-            route="surveyanalysisdata"
+            title="Employer"
+            rows={Employer}
+            route="employerdata"
+          />
+        </div>
+        <div className="table">
+          <DataTable
+            page="survey"
+            onDelete={handleDelete}
+            onDownload={handleDownload}
+            title="Student"
+            rows={Student}
+            route="studentdata"
           />
         </div>
       </div>

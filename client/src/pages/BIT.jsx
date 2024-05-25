@@ -10,9 +10,13 @@ const BIT = () => {
         {BITphases.map((phase, index) => (
           <div key={index} className="phase">
             <h2>{phase.phaseName}</h2>
-            <Link to={phase.link}>
+            {index === 3 ? (
+              <Link to={phase.link}>
+                <p>{phase.phaseTitle}</p>
+              </Link>
+            ) : (
               <p>{phase.phaseTitle}</p>
-            </Link>
+            )}
           </div>
         ))}
       </div>
