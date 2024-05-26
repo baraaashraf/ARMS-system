@@ -60,6 +60,16 @@ const Form2 = ({ route, onClose, page, descInput }) => {
       className="modal-form"
       onSubmit={handleSubmit}
     >
+      <label htmlFor="startDate">Target Date:</label>
+      <br />
+      <input
+        type="date"
+        id="targetDate"
+        name="targetDate"
+        value={formData.targetDate}
+        onChange={handleChange}
+      />
+      <br />
       <label htmlFor="startDate">Start Date:</label>
       <br />
       <input
@@ -80,16 +90,7 @@ const Form2 = ({ route, onClose, page, descInput }) => {
         onChange={handleChange}
       />
       <br />
-      <label htmlFor="startDate">Target Date:</label>
-      <br />
-      <input
-        type="date"
-        id="targetDate"
-        name="targetDate"
-        value={formData.targetDate}
-        onChange={handleChange}
-      />
-      <br />
+
       {descInput && (
         <>
           <label htmlFor="comment">Description:</label>

@@ -91,6 +91,7 @@ const DokumenSemakan = () => {
             title="Preparation of dokumen semakan"
             rows={PreparationofDokumenSemakan}
             route="preparationofdokumensemakan"
+            form="Form2"
           />
         </div>
         <div className="table">
@@ -101,6 +102,7 @@ const DokumenSemakan = () => {
             title="Review by KCA"
             rows={DokumenReviewbyKCA}
             route="reviewbykca"
+            form="Form2"
           />
         </div>
         <div className="table">
@@ -111,6 +113,7 @@ const DokumenSemakan = () => {
             title="Endorsement at JKPT"
             rows={JKPTEndorsement}
             route="endorsementatjkpt"
+            form="Form2"
           />
         </div>
       </div>

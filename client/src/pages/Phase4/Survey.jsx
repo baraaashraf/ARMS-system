@@ -88,6 +88,7 @@ const Survey = () => {
             title="Alumni"
             rows={Alumni}
             route="alumnidata"
+            form="Form2"
           />
         </div>
         <div className="table">
@@ -98,6 +99,7 @@ const Survey = () => {
             title="Employer"
             rows={Employer}
             route="employerdata"
+            form="Form2"
           />
         </div>
         <div className="table">
@@ -108,6 +110,18 @@ const Survey = () => {
             title="Student"
             rows={Student}
             route="studentdata"
+            form="Form2"
+          />
+        </div>
+        <div className="table">
+          <DataTable
+            page="survey"
+            onDelete={handleDelete}
+            onDownload={handleDownload}
+            title="Analysis Report"
+            rows={Student}
+            route="studentdata"
+            form="FileForm"
           />
         </div>
       </div>

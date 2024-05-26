@@ -39,9 +39,9 @@ export const navigationLinks = [
   },
   {
     id: 7,
-    title: "Settings",
+    title: "Admins",
     image: iconsImgs.gears,
-    link: "/settings",
+    link: "/admins",
   },
 ];
 
@@ -186,7 +186,7 @@ export const BITphases = [
 
 export const BITphase4_1 = [
   {
-    title: "Board of studies",
+    title: "External Stakeholders",
     percentage:47,
     page:"boardofstudies"
   },

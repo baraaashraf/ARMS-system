@@ -70,7 +70,7 @@ function App() {
                       <Route path="/TCR" element={<TCR />} />
                       <Route path="/account" element={<AccountPage />} />
                       <Route path="/about_us" element={<About_us_page />} />
-                      <Route path="*" element={<h1>Page Not Found</h1>} />
+                      <Route path="*" element={<h1>Page Not Found !!</h1>} />
                     </Routes>
                   </div>
                 </>

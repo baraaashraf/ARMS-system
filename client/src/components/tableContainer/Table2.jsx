@@ -24,9 +24,10 @@ const Table2 = ({
         <TableRow>
           <TableCell align="center">Download</TableCell>
           <TableCell align="center">File Name</TableCell>
+          <TableCell align="center">target date</TableCell>
           <TableCell align="center">start date</TableCell>
           <TableCell align="center">end date</TableCell>
-          <TableCell align="center">target date</TableCell>
+          
           {userInfo.role === "admin" && (
             <>
               <TableCell align="center">Edit</TableCell>
@@ -52,9 +53,10 @@ const Table2 = ({
               />
             </TableCell>
             <TableCell align="center">{row.displayName}</TableCell>
+            <TableCell align="center">{row.targetDate}</TableCell>
             <TableCell align="center">{row.startDate}</TableCell>
             <TableCell align="center">{row.endDate}</TableCell>
-            <TableCell align="center">{row.targetDate}</TableCell>
+            
             {userInfo.role === "admin" && (
               <>
                 <TableCell align="center">
