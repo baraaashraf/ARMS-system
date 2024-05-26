@@ -22,39 +22,68 @@ const about_us = () => {
           academic review lifecycle
         </p>
       </div>
+      <br />
       <h1>Contact Us</h1>
-      <table class="contact-us-table">
+      <table className="about-us-desc">
         <tr>
-          <td>
-            {/* <strong>University Name</strong> */}
-          </td>
+          <td>{/* <strong>University Name</strong> */}</td>
           <td>International Islamic University Malaysia</td>
         </tr>
         <tr>
           <td>
             <strong>Mailing Address</strong>
           </td>
-          <td><img width={12} src={location} alt="" /> P.O. Box 10, 50728 Kuala Lumpur</td>
+          <td>
+            <img width={12} src={location} alt="" /> P.O. Box 10, 50728 Kuala
+            Lumpur
+          </td>
         </tr>
         <tr>
           <td>
             <strong>Phone</strong>
           </td>
-          <td><img width={12} src={phone} alt="" /> (+603) 6421 6421</td>
+          <td>
+            <img width={12} src={phone} alt="" /> (+603) 6421 6421
+          </td>
         </tr>
         <tr>
           <td>
             <strong>Fax</strong>
           </td>
-          <td><img width={12} src={fax} alt="" /> (+603) 6421 4053</td>
+          <td>
+            <img width={12} src={fax} alt="" /> (+603) 6421 4053
+          </td>
         </tr>
         <tr>
           <td>
             <strong>Email Address</strong>
           </td>
-          <td><img width={12} src={mail} alt="" /> arms.iium@gmail.com</td>
+          <td>
+            <img width={12} src={mail} alt="" /> arms.iium@gmail.com
+          </td>
         </tr>
       </table>
+      <br />
+      <h1>Developers</h1>
+      <div className="about-us-desc">
+        <p>
+          Issak Ali Mahamat Kulliyyah: Kulliyyah of Information and
+          Communication Technology (KICT)
+          <br />
+          Department: Bachelor of Information Technology (BIT)
+          <br />
+          Specialization: Business Intelligence And Information Science (BIIS)
+        </p>
+        <br />
+        <p>
+          Kanize Fathama Zinia Kulliyyah: Kulliyyah of Information and
+          Communication Technology (KICT)
+          <br />
+          Department: Bachelor of Information Technology (BIT)
+          <br />
+          Specialization: Digital Media Design (DMD)
+        </p>
+      </div>
     </div>
   );
 };

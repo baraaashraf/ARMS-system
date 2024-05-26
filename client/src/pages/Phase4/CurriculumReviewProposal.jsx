@@ -42,6 +42,7 @@ const CurriculumReviewProposal = () => {
     RevisionofCRM,
     CRM_ReviewByKCA2,
     CRM_EndorsementatSenate,
+    CRM_Proposal
   } = data;
 
   const handleDelete = async (id) => {
@@ -96,6 +97,7 @@ const CurriculumReviewProposal = () => {
             title="Preparation of curriculum review proposal"
             rows={CRM_PreperationProposal}
             route="preparationproposal"
+            form="Form2"
           />
         </div>
         <div className="table">
@@ -106,6 +108,7 @@ const CurriculumReviewProposal = () => {
             title="Endorsement at Kulliyyah (Department, KEM, KBM)"
             rows={CRM_EndorsementatKulliyyah}
             route="endorsmentatkulliyah"
+            form="Form2"
           />
         </div>
         <div className="table">
@@ -116,6 +119,7 @@ const CurriculumReviewProposal = () => {
             title="Review by KCA 1"
             rows={CRM_ReviewByKCA1}
             route="kca1"
+            form="Form2"
           />
         </div>
         <div className="table">
@@ -126,6 +130,7 @@ const CurriculumReviewProposal = () => {
             title="Endorsement at AQAC/DCM"
             rows={EndorsementatAQAC_DCM}
             route="aqacdcm"
+            form="Form2"
           />
         </div>
         <div className="table">
@@ -136,6 +141,7 @@ const CurriculumReviewProposal = () => {
             title="Revision of curriculum review proposal with course outlines and course plans"
             rows={RevisionofCRM}
             route="revisionofcrm"
+            form="Form2"
           />
         </div>
         <div className="table">
@@ -146,6 +152,7 @@ const CurriculumReviewProposal = () => {
             title="Review by KCA 2"
             rows={CRM_ReviewByKCA2}
             route="kca2"
+            form="Form2"
           />
         </div>
         <div className="table">
@@ -153,9 +160,21 @@ const CurriculumReviewProposal = () => {
             page="crm"
             onDelete={handleDelete}
             onDownload={handleDownload}
-            title="Endorsement at Senate"
+            title="Endorsement in Senate"
             rows={CRM_EndorsementatSenate}
             route="endorsementatsenate"
+            form="Form3"
+          />
+        </div>
+        <div className="table">
+          <DataTable
+            page="crm"
+            onDelete={handleDelete}
+            onDownload={handleDownload}
+            title="Proposal"
+            rows={CRM_Proposal}
+            route="proposal"
+            form="FileForm"
           />
         </div>
       </div>

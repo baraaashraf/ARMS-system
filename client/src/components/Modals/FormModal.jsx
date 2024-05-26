@@ -10,6 +10,7 @@ import "./FormModal.css";
 
 import Form1 from "./FormTypes/Form1";
 import Form2 from "./FormTypes/Form2";
+import Form3 from "./FormTypes/Form3";
 import FileForm from "./FormTypes/FileForm";
 
 const style = {
@@ -27,10 +28,39 @@ const style = {
   p: 4,
 };
 
-const FormModal = ({ title, route, page, descInput }) => {
+const FormModal = ({ title, route, page, descInput, form }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  function desiredForm(form) {
+    switch (form) {
+      case "Form1":
+        return <Form1 route={route} page={page} onClose={handleClose} />;
+      case "Form2":
+        return (
+          <Form2
+            route={route}
+            page={page}
+            descInput={descInput}
+            onClose={handleClose}
+          />
+        );
+        case "Form3":
+        return (
+          <Form3
+            route={route}
+            page={page}
+            descInput={descInput}
+            onClose={handleClose}
+          />
+        );
+      case "FileForm":
+        return <FileForm route={route} page={page} onClose={handleClose} />;
+      default:
+        return <h1>No Form</h1>;
+    }
+  }
 
   return (
     <div>
@@ -46,7 +76,7 @@ const FormModal = ({ title, route, page, descInput }) => {
         <Box sx={style}>
           <div className="table-title">
             <Typography id="modal-modal-title" variant="h6" component="h2">
-              Add {title.toLowerCase()} member
+              Add {title.toLowerCase()}
             </Typography>
             <button onClick={handleClose}>
               <FontAwesomeIcon icon={faCircleXmark} />
@@ -58,16 +88,7 @@ const FormModal = ({ title, route, page, descInput }) => {
             id="modal-modal-description"
             sx={{ mt: 2 }}
           ></Typography>
-          {route === "nominationdata" ? (
-            <Form1 route={route} page={page} onClose={handleClose} />
-          ) : (
-            <Form2
-              route={route}
-              page={page}
-              descInput={descInput}
-              onClose={handleClose}
-            />
-          )}
+          {desiredForm(form)}
         </Box>
       </Modal>
     </div>

@@ -15,7 +15,7 @@ import {
   addCRM_ReviewByKCA2Data,
   addCRM_EndorsementatSenateData,
   addRevisionofCRMData,
-  addDokumenReviewbyKCA,
+  addCRM_ProposalData,
 } from "../../controllers/fileupload.controller.js";
 
 //////////////////////////////////////////////
@@ -50,6 +50,12 @@ router.post(
   upload.single("file"),
   addCRM_EndorsementatSenateData
 );
+router.post(
+  "/proposal",
+  upload.single("file"),
+  addCRM_ProposalData
+);
+
 
 
 router.get("/download/:id", DownloadCurriculumReviewFile);

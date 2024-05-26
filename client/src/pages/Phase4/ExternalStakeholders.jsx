@@ -37,11 +37,7 @@ const ExternalStakeholders = () => {
   if (error) {
     return <div>Error: {error}</div>;
   }
-  const {
-    NominationOfBoard,
-    EndorsementOfSenate,
-    AnalysisReport,
-  } = data;
+  const { NominationOfBoard, EndorsementOfSenate, AnalysisReport } = data;
 
   const handleDelete = async (id) => {
     try {
@@ -95,6 +91,7 @@ const ExternalStakeholders = () => {
             title="Members"
             rows={NominationOfBoard}
             route="nominationdata"
+            form="Form1"
           />
         </div>
         <div className="table">
@@ -105,6 +102,7 @@ const ExternalStakeholders = () => {
             title="Endorsement in Senate"
             rows={EndorsementOfSenate}
             route="endorsementdata"
+            form="Form3"
           />
         </div>
         <div className="table">
@@ -115,6 +113,7 @@ const ExternalStakeholders = () => {
             title="Analysis Report"
             rows={AnalysisReport}
             route="analysisdata"
+            form="FileForm"
           />
         </div>
       </div>

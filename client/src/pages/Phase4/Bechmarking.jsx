@@ -87,9 +87,10 @@ const ProgrammeCurriculum = () => {
             page="benchmarking"
             onDelete={handleDelete}
             onDownload={handleDownload}
-            title="Analysis and reporting"
-            rows={BenchmarkingAnalysis}
-            route="benchmarkingdata"
+            title="Visit to selected institution(s)"
+            rows={InstitutionVisit}
+            route="institutionvisitdata"
+            form='Form4'
           />
         </div>
         <div className="table">
@@ -97,9 +98,10 @@ const ProgrammeCurriculum = () => {
             page="benchmarking"
             onDelete={handleDelete}
             onDownload={handleDownload}
-            title="Visit to selected institution(s)"
-            rows={InstitutionVisit}
-            route="institutionvisitdata"
+            title="Analysis Report"
+            rows={BenchmarkingAnalysis}
+            route="benchmarkingdata"
+            form='FileForm'
           />
         </div>
       </div>

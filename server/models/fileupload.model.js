@@ -4,17 +4,36 @@ const FileSchema = mongoose.Schema(
   {
     file: {
       type: String,
-      required: true
+      required: true,
     },
     displayName: {
-      type: String
-    }
+      type: String,
+    },
   },
   {
     timestamps: true,
   }
 );
 
+const EndorsmentSchema = mongoose.Schema(
+  {
+    targetDate: {
+      type: String,
+    },
+    actualDate: {
+      type: String,
+    },
+    displayName: {
+      type: String,
+    },
+    file: {
+      type: String,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
 const FileandDateSchema = mongoose.Schema(
   {
@@ -53,17 +72,14 @@ const FileandDateSchema = mongoose.Schema(
 
 const EndorsementOfSenate = mongoose.model(
   "EndorsementOfSenate",
-  FileandDateSchema
+  EndorsmentSchema
 );
-const AnalysisReport = mongoose.model(
-  "AnalysisReport",
-  FileSchema
-);
+const AnalysisReport = mongoose.model("AnalysisReport", FileSchema);
 ///////// 2 Internal and external assessors /////////////
 
 const EndorsementOfSenate2 = mongoose.model(
   "EndorsementOfSenate2",
-  FileandDateSchema
+  EndorsmentSchema
 );
 const IssuanceOfAppointment2 = mongoose.model(
   "IssuanceOfAppointment2",
@@ -137,8 +153,10 @@ const CRM_ReviewByKCA2 = mongoose.model("CRM_ReviewByKCA2", FileandDateSchema);
 
 const CRM_EndorsementatSenate = mongoose.model(
   "CRM_EndorsementatSenate",
-  FileandDateSchema
+  EndorsmentSchema
 );
+
+const CRM_Proposal = mongoose.model("CRM_Proposal", FileSchema);
 ////////////// 8 Dokumen Semakan/////////////////
 
 const PreparationofDokumenSemakan = mongoose.model(
@@ -188,7 +206,7 @@ export {
   RevisionofCRM,
   CRM_ReviewByKCA2,
   CRM_EndorsementatSenate,
-
+  CRM_Proposal,
   ///// 8
   PreparationofDokumenSemakan,
   DokumenReviewbyKCA,

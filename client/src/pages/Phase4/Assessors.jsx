@@ -92,6 +92,7 @@ const BoardofStudies = () => {
             title="Members"
             rows={NominationOfBoard2}
             route="nominationdata"
+            form='Form1'
           />
         </div>
         <div className="table">
@@ -102,6 +103,7 @@ const BoardofStudies = () => {
             title="Endorsement in Senate"
             rows={EndorsementOfSenate2}
             route="endorsementdata"
+            form='Form3'
           />
         </div>
       </div>

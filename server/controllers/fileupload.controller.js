@@ -30,6 +30,7 @@ import {
   RevisionofCRM,
   CRM_ReviewByKCA2,
   CRM_EndorsementatSenate,
+  CRM_Proposal,
   ///// 8
   PreparationofDokumenSemakan,
   DokumenReviewbyKCA,
@@ -74,7 +75,7 @@ const addMembersData = async (req, res, Model) => {
 
 const createDocument = async (req, res, Model) => {
   try {
-    const { startDate, endDate, targetDate, comment } = req.body;
+    const { startDate, endDate, targetDate, actualDate, comment } = req.body;
     const file = req.file;
     console.log("req.body", req.body);
     console.log("file", req.file);
@@ -82,6 +83,7 @@ const createDocument = async (req, res, Model) => {
       startDate,
       endDate,
       targetDate,
+      actualDate,
       comment: comment || "",
       displayName: file?.originalname,
       file: file?.filename,
@@ -179,6 +181,9 @@ export const addCRM_ReviewByKCA2Data = async (req, res) => {
 };
 export const addCRM_EndorsementatSenateData = async (req, res) => {
   await createDocument(req, res, CRM_EndorsementatSenate);
+};
+export const addCRM_ProposalData = async (req, res) => {
+  await createDocument(req, res, CRM_Proposal);
 };
 
 ///// 8

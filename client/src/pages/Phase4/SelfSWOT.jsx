@@ -93,6 +93,7 @@ const SelfSWOT = () => {
             title="Preparation of self-review report"
             rows={SelfReviewReport}
             route="selfreviewreport"
+            form="Form2"
           />
         </div>
         <div className="table">
@@ -103,6 +104,7 @@ const SelfSWOT = () => {
             title="Preparation of SWOT analysis"
             rows={SubmissionOfSelfReviewReport}
             route="submissionofselfreviewreport"
+            form="Form2"
           />
         </div>
         <div className="table">
@@ -113,6 +115,7 @@ const SelfSWOT = () => {
             title="Submission of self-review report to assessor"
             rows={AssessorFeedbackReport}
             route="assessorfeedbackreport"
+            form="Form2"
           />
         </div>
         <div className="table">
@@ -123,6 +126,7 @@ const SelfSWOT = () => {
             title="Receipt of assessor feedback report"
             rows={ReceiptofAssessorFeedbackReport}
             route="receiptofassessorfeedback"
+            form="Form2"
           />
         </div>
       </div>

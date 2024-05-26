@@ -91,6 +91,7 @@ const ProgrammeCurriculum = () => {
             rows={Workshop1}
             route="workshop1"
             descInput={true}
+            form="Form2"
           />
         </div>
         <div className="table">
@@ -102,6 +103,7 @@ const ProgrammeCurriculum = () => {
             rows={Workshop2}
             descInput={true}
             route="workshop2"
+            form="Form2"
           />
         </div>
         <div className="table">
@@ -113,6 +115,7 @@ const ProgrammeCurriculum = () => {
             rows={Workshop3}
             descInput={true}
             route="workshop3"
+            form="Form2"
           />
         </div>
       </div>

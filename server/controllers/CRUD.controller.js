@@ -30,6 +30,7 @@ import {
   RevisionofCRM,
   CRM_ReviewByKCA2,
   CRM_EndorsementatSenate,
+  CRM_Proposal,
   ///// 8
   PreparationofDokumenSemakan,
   DokumenReviewbyKCA,
@@ -355,6 +356,7 @@ const curriculumReviewModels = [
   RevisionofCRM,
   CRM_ReviewByKCA2,
   CRM_EndorsementatSenate,
+  CRM_Proposal,
 ];
 export const getCurriculumReviewData = async (req, res) => {
   await getAllData(req, res, curriculumReviewModels);
