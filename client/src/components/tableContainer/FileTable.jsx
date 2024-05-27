@@ -24,7 +24,7 @@ const FileTable = ({
         <TableRow>
           <TableCell align="center">Download</TableCell>
           <TableCell align="center">File Name</TableCell>
-          {userInfo.role === "admin" && (
+          {userInfo.role === "admin" && pageSection !== "tcr" && (
             <>
               <TableCell align="center">Delete</TableCell>{" "}
             </>
@@ -48,7 +48,7 @@ const FileTable = ({
               />
             </TableCell>
             <TableCell align="center">{row.displayName}</TableCell>
-            {userInfo.role === "admin" && (
+            {userInfo.role === "admin" && pageSection !== "tcr" && (
               <>
                 <TableCell align="center">
                   <ConfirmationModal

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TableContainer from "@mui/material/TableContainer";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import { useSelector } from "react-redux";
 import FormModal from "../Modals/FormModal.jsx";
+import { useLocation } from "react-router-dom";
 import "./DataTable.css";
 import Table1 from "./Table1.jsx";
 import Table2 from "./Table2.jsx";
@@ -22,6 +23,7 @@ const DataTable = ({
   descInput,
   form,
 }) => {
+  const currentroute = useLocation().pathname;
   const { userInfo } = useSelector((state) => state.auth);
   const handleDelete = (id) => {
     onDelete(id);
@@ -30,6 +32,10 @@ const DataTable = ({
     onDownload(id, downlaodname);
   };
 
+  const pageSection = currentroute.split("/")[1].toLowerCase();
+  useEffect(() => {
+    console.log(pageSection);
+  }, []);
   function desiredTable(form) {
     switch (form) {
       case "Form1":
@@ -42,6 +48,7 @@ const DataTable = ({
             title={title}
             handleDelete={handleDelete}
             handleGet={handleGet}
+            pageSection={pageSection}
           />
         );
       case "Form2":
@@ -54,6 +61,7 @@ const DataTable = ({
             title={title}
             handleDelete={handleDelete}
             handleGet={handleGet}
+            pageSection={pageSection}
           />
         );
       case "Form3":
@@ -66,9 +74,10 @@ const DataTable = ({
             title={title}
             handleDelete={handleDelete}
             handleGet={handleGet}
+            pageSection={pageSection}
           />
         );
-        case "LocForm":
+      case "LocForm":
         return (
           <LocTable
             userInfo={userInfo}
@@ -78,6 +87,7 @@ const DataTable = ({
             title={title}
             handleDelete={handleDelete}
             handleGet={handleGet}
+            pageSection={pageSection}
           />
         );
       case "FileForm":
@@ -90,6 +100,7 @@ const DataTable = ({
             title={title}
             handleDelete={handleDelete}
             handleGet={handleGet}
+            pageSection={pageSection}
           />
         );
       default:

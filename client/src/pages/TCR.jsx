@@ -2,11 +2,16 @@ import { useEffect, useState } from "react";
 import "../layout/TCR.css";
 import React from "react";
 import DataTable from "../components/tableContainer/DataTable";
+import { useLocation } from "react-router-dom";
 
 const TCR = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const route = useLocation();
+  const { pathname } = route;
+  const location = pathname.split("/").slice(1).toString().toLowerCase();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -65,7 +70,6 @@ const TCR = () => {
     return <div>Error: {error}</div>;
   }
 
-  console.log(data);
 
   const { assessorsData, programCurriculumData, selfSwotData, crmData } = data;
 
@@ -174,37 +178,37 @@ const TCR = () => {
           form="Form2"
         />
         <DataTable
-        page="crm"
-        title="Scope 7: Review By KCA1"
-        rows={crmData.CRM_ReviewByKCA1}
-        route="workshop1"
-        descInput={true}
-        form="Form2"
-      />
-      <DataTable
-        page="crm"
-        title="Scope 7: Review By KCA2"
-        rows={crmData.CRM_ReviewByKCA2}
-        route="workshop1"
-        descInput={true}
-        form="Form2"
-      />
-      <DataTable
-        page="crm"
-        title="Scope 7: Endorsementat AQAC DCM"
-        rows={crmData.EndorsementatAQAC_DCM}
-        route="workshop1"
-        descInput={true}
-        form="Form2"
-      />
-      <DataTable
-        page="crm"
-        title="Scope 7: Revision of CRM"
-        rows={crmData.RevisionofCRM}
-        route="workshop1"
-        descInput={true}
-        form="Form2"
-      />
+          page="crm"
+          title="Scope 7: Review By KCA1"
+          rows={crmData.CRM_ReviewByKCA1}
+          route="workshop1"
+          descInput={true}
+          form="Form2"
+        />
+        <DataTable
+          page="crm"
+          title="Scope 7: Review By KCA2"
+          rows={crmData.CRM_ReviewByKCA2}
+          route="workshop1"
+          descInput={true}
+          form="Form2"
+        />
+        <DataTable
+          page="crm"
+          title="Scope 7: Endorsementat AQAC DCM"
+          rows={crmData.EndorsementatAQAC_DCM}
+          route="workshop1"
+          descInput={true}
+          form="Form2"
+        />
+        <DataTable
+          page="crm"
+          title="Scope 7: Revision of CRM"
+          rows={crmData.RevisionofCRM}
+          route="workshop1"
+          descInput={true}
+          form="Form2"
+        />
       </div>
     </>
   );

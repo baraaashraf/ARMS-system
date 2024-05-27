@@ -17,6 +17,7 @@ const Table1 = ({
   title,
   handleDelete,
   handleGet,
+  pageSection,
 }) => {
   return (
     <Table sx={{ minWidth: 250 }} aria-label="simple table">
@@ -30,7 +31,7 @@ const Table1 = ({
           <TableCell align="center">Issue date</TableCell>
           <TableCell align="center">Start date</TableCell>
           <TableCell align="center">End date</TableCell>
-          {userInfo.role === "admin" && (
+          {userInfo.role === "admin" && pageSection !== "tcr" && (
             <>
               <TableCell align="center">Edit</TableCell>
               <TableCell align="center">Delete</TableCell>
@@ -53,7 +54,7 @@ const Table1 = ({
             <TableCell align="center">{row.appointment_start_date}</TableCell>
             <TableCell align="center">{row.appointment_end_date}</TableCell>
 
-            {userInfo.role === "admin" && (
+            {userInfo.role === "admin" && pageSection !== "tcr" && (
               <>
                 <TableCell align="center">
                   <EditFormModal

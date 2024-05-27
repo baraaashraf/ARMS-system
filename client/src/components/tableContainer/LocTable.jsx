@@ -27,7 +27,7 @@ const LocTable = ({
           <TableCell align="center">start date</TableCell>
           <TableCell align="center">end date</TableCell>
 
-          {userInfo.role === "admin" && (
+          {userInfo.role === "admin" && pageSection !== "tcr" && (
             <>
               <TableCell align="center">Edit</TableCell>
               <TableCell align="center">Delete</TableCell>{" "}
@@ -46,7 +46,7 @@ const LocTable = ({
             <TableCell align="center">{row.startDate}</TableCell>
             <TableCell align="center">{row.endDate}</TableCell>
 
-            {userInfo.role === "admin" && (
+            {userInfo.role === "admin" && pageSection !== "tcr" && (
               <>
                 <TableCell align="center">
                   <EditFormModal
