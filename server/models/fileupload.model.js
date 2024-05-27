@@ -1,5 +1,26 @@
 import mongoose from "mongoose";
 
+const InstitutionVisitSchema = mongoose.Schema(
+  {
+    targetDate: {
+      type: String,
+    },
+    startDate: {
+      type: String,
+    },
+    endDate: {
+      type: String,
+    },
+    location: {
+      type: String,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+
 const FileSchema = mongoose.Schema(
   {
     file: {
@@ -101,7 +122,7 @@ const BenchmarkingAnalysis = mongoose.model(
   "BenchmarkingAnalysis",
   FileandDateSchema
 );
-const InstitutionVisit = mongoose.model("InstitutionVisit", FileandDateSchema);
+const InstitutionVisit = mongoose.model("InstitutionVisit", InstitutionVisitSchema);
 
 ////////////// 5 Program Curriculum//////////////////////
 

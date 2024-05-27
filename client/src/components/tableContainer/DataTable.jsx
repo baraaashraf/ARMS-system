@@ -10,6 +10,7 @@ import Table2 from "./Table2.jsx";
 import Table3 from "./Table3.jsx";
 
 import FileTable from "./FileTable.jsx";
+import LocTable from "./LocTable.jsx";
 
 const DataTable = ({
   title,
@@ -58,6 +59,18 @@ const DataTable = ({
       case "Form3":
         return (
           <Table3
+            userInfo={userInfo}
+            rows={rows}
+            page={page}
+            route={route}
+            title={title}
+            handleDelete={handleDelete}
+            handleGet={handleGet}
+          />
+        );
+        case "LocForm":
+        return (
+          <LocTable
             userInfo={userInfo}
             rows={rows}
             page={page}

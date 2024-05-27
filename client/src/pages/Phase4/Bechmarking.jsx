@@ -90,7 +90,7 @@ const ProgrammeCurriculum = () => {
             title="Visit to selected institution(s)"
             rows={InstitutionVisit}
             route="institutionvisitdata"
-            form='Form4'
+            form='LocForm'
           />
         </div>
         <div className="table">

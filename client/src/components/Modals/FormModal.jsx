@@ -12,6 +12,7 @@ import Form1 from "./FormTypes/Form1";
 import Form2 from "./FormTypes/Form2";
 import Form3 from "./FormTypes/Form3";
 import FileForm from "./FormTypes/FileForm";
+import LocationForm from "./FormTypes/LocationForm";
 
 const style = {
   position: "absolute",
@@ -55,6 +56,15 @@ const FormModal = ({ title, route, page, descInput, form }) => {
             onClose={handleClose}
           />
         );
+        case "LocForm":
+          return (
+            <LocationForm
+              route={route}
+              page={page}
+              descInput={descInput}
+              onClose={handleClose}
+            />
+          );
       case "FileForm":
         return <FileForm route={route} page={page} onClose={handleClose} />;
       default:
