@@ -71,6 +71,7 @@ const TCR = () => {
   }
 
 
+
   const { assessorsData, programCurriculumData, selfSwotData, crmData } = data;
 
   return (

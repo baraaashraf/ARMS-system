@@ -23,11 +23,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #0c0a09;
+}
+#table-title-form{
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  background-color: white;
 }
 
 .icon-button {
   cursor: pointer;
-  color: black;
   transition: all 0.3s ease-in-out;
 }
 .add-icon {

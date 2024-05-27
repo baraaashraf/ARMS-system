@@ -20,7 +20,7 @@ const LocTable = ({
 }) => {
   return (
     <Table sx={{ minWidth: 250 }} aria-label="simple table">
-      <TableHead>
+      <TableHead sx={{ backgroundColor: "#f5f5f4" }}>
         <TableRow>
           <TableCell align="center">Location</TableCell>
           <TableCell align="center">target date</TableCell>

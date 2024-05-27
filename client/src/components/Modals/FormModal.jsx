@@ -84,7 +84,7 @@ const FormModal = ({ title, route, page, descInput, form }) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <div className="table-title">
+          <div id="table-title-form">
             <Typography id="modal-modal-title" variant="h6" component="h2">
               Add {title.toLowerCase()}
             </Typography>

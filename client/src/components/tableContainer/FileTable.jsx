@@ -17,10 +17,11 @@ const FileTable = ({
   title,
   handleDelete,
   handleGet,
+  pageSection,
 }) => {
   return (
     <Table sx={{ minWidth: 250 }} aria-label="simple table">
-      <TableHead>
+      <TableHead sx={{ backgroundColor: "#f5f5f4" }}>
         <TableRow>
           <TableCell align="center">Download</TableCell>
           <TableCell align="center">File Name</TableCell>

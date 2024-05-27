@@ -14,7 +14,6 @@ const style = {
   width: "20%",
   maxWidth: 500,
   minWidth: 300,
-  height: "25%",
   bgcolor: "background.paper",
   border: "0px solid #000",
   borderRadius: "10px",
@@ -35,6 +34,7 @@ const ConfirmationModal = ({ icon, onConfirm }) => {
     <div>
       <Button sx={{ color: "black" }} onClick={handleOpen}>
         <FontAwesomeIcon
+          style={{ color: "black" }}
           className={`icon-button trash-icon fa-lg`}
           icon={icon}
         />
@@ -46,13 +46,10 @@ const ConfirmationModal = ({ icon, onConfirm }) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <div className="table-title">
+          <div id="table-title-form">
             <Typography id="modal-modal-title" variant="h6" component="h2">
               Are you sure you to item
             </Typography>
-            <button onClick={handleClose}>
-              <FontAwesomeIcon icon={faCircleXmark} />
-            </button>
           </div>
 
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>

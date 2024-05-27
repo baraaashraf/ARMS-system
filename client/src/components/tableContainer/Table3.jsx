@@ -21,7 +21,7 @@ const Table3 = ({
 }) => {
   return (
     <Table sx={{ minWidth: 250 }} aria-label="simple table">
-      <TableHead>
+      <TableHead sx={{ backgroundColor: "#f5f5f4" }}>
         <TableRow>
           <TableCell align="center">Download</TableCell>
           <TableCell align="center">File Name</TableCell>
@@ -47,6 +47,7 @@ const Table3 = ({
                 onClick={() => {
                   handleGet(row._id, row.displayName);
                 }}
+                style={{color:"black"}}
                 className="icon-button fa-lg edit-icon"
                 icon={faDownload}
               />

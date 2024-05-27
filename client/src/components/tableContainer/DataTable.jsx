@@ -111,20 +111,22 @@ const DataTable = ({
     <>
       <TableContainer sx={{ margin: 1 }} component={Paper}>
         <div className="table-title">
-          <Typography sx={{ padding: 2 }} color="inherit" variant="h5">
+          <Typography sx={{ padding: 2, color: "white" }} variant="h5">
             {title}
           </Typography>
-          {userInfo.role === "admin" && (
-            <>
-              <FormModal
-                descInput={descInput}
-                page={page}
-                title={title}
-                route={route}
-                form={form}
-              />
-            </>
-          )}
+          {userInfo.role === "admin" &&
+            pageSection !==
+              "tcr" && (
+                <>
+                  <FormModal
+                    descInput={descInput}
+                    page={page}
+                    title={title}
+                    route={route}
+                    form={form}
+                  />
+                </>
+              )}
         </div>
 
         {desiredTable(form)}

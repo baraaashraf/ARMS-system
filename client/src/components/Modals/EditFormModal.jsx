@@ -12,7 +12,6 @@ import "../tableContainer/DataTable.css";
 import "./FormModal.css";
 
 import EditForm1 from "./FormTypes/EditForm1";
-import EditForm2 from "./FormTypes/EditForm2";
 
 const style = {
   position: "absolute",
@@ -38,6 +37,7 @@ const EditFormModal = ({ title, route, page, rowID }) => {
     <div>
       <Button sx={{ color: "black" }} onClick={handleOpen}>
         <FontAwesomeIcon
+          style={{color:"black"}}
           className="icon-button fa-lg edit-icon"
           icon={faPenToSquare}
         />
@@ -49,8 +49,12 @@ const EditFormModal = ({ title, route, page, rowID }) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <div className="table-title">
-            <Typography id="modal-modal-title" variant="h6" component="h2">
+          <div id="table-title-form">
+            <Typography
+              id="modal-modal-title"
+              variant="h6"
+              component="h2"
+            >
               Update {title.toLowerCase()} row
             </Typography>
             <button onClick={handleClose}>

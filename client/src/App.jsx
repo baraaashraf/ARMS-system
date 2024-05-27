@@ -29,6 +29,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import BIT from "./pages/BIT";
 import BCS from "./pages/BCS";
+import Admins from "./pages/Admins";
 
 function App() {
   return (
@@ -70,6 +71,7 @@ function App() {
                       <Route path="/TCR" element={<TCR />} />
                       <Route path="/account" element={<AccountPage />} />
                       <Route path="/about_us" element={<About_us_page />} />
+                      <Route path="/admins" element={<Admins />} />
                       <Route path="*" element={<h1>Page Not Found !!</h1>} />
                     </Routes>
                   </div>

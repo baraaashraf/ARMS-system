@@ -117,7 +117,8 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     user.name = req.body.name || user.name;
     user.email = req.body.email || user.email;
     user.country = req.body.country || user.country;
-    user.maritalStatus = req.body.maritalStatus.toLowerCase() || user.maritalStatus.toLowerCase();
+    user.maritalStatus =
+      req.body.maritalStatus.toLowerCase() || user.maritalStatus.toLowerCase();
     user.identityCardOrPassportNo =
       req.body.identityCardOrPassportNo || user.identityCardOrPassportNo;
     user.gender = req.body.gender.toLowerCase() || user.gender.toLowerCase();
@@ -148,10 +149,38 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
+const getAdmins = asyncHandler(async (req, res) => {
+  try {
+    const admins = await User.find({ role: "admin" });
+    res.json(admins);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: errorMessage });
+  }
+});
+
+const deleteAdminById = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  try {
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    await User.findByIdAndDelete(id);
+    return res.status(200).json({ message: "User deleted successfully" });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+
 export {
   authUser,
   registerUser,
   logoutUser,
   getUserProfile,
   updateUserProfile,
+  getAdmins,
+  deleteAdminById,
 };

@@ -21,7 +21,7 @@ const Table1 = ({
 }) => {
   return (
     <Table sx={{ minWidth: 250 }} aria-label="simple table">
-      <TableHead>
+      <TableHead sx={{ backgroundColor: "#f5f5f4" }}>
         <TableRow>
           <TableCell align="center">Name</TableCell>
           <TableCell align="center">position</TableCell>
@@ -66,6 +66,7 @@ const Table1 = ({
                 </TableCell>
                 <TableCell align="center">
                   <ConfirmationModal
+                  
                     classIcon="trash-icon"
                     icon={faTrash}
                     onConfirm={() => {
