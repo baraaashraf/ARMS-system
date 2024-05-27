@@ -11,6 +11,7 @@ import {
   addAlumniSurveyData,
   addEmployerSurveyData,
   addStudentSurveyData,
+  addAnalysisReportData,
 } from "../../controllers/fileupload.controller.js";
 import upload from "../../utils/upload.js";
 
@@ -23,6 +24,8 @@ router.post("/alumnidata", upload.single("file"), addAlumniSurveyData);
 router.post("/employerdata", upload.single("file"), addEmployerSurveyData);
 
 router.post("/studentdata", upload.single("file"), addStudentSurveyData);
+
+router.post("/analysisdata", upload.single("file"), addAnalysisReportData);
 
 router.get("/download/:id", DownloadSurveyFile);
 router.get("/:id", getSurveyRow);

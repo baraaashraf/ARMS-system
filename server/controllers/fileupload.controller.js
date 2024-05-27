@@ -8,6 +8,7 @@ import {
   AlumniSurvey,
   EmployerSurvey,
   StudentSurvey,
+  AnalysisReportSurvey,
   ///////////////////// 4
   BenchmarkingAnalysis,
   InstitutionVisit,
@@ -126,6 +127,10 @@ export const addEmployerSurveyData = async (req, res) => {
 };
 export const addStudentSurveyData = async (req, res) => {
   await createDocument(req, res, StudentSurvey);
+};
+
+export const addAnalysisReportData = async (req, res) => {
+  await createDocument(req, res, AnalysisReportSurvey);
 };
 
 ///////////////////// 4

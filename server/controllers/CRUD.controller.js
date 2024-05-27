@@ -8,6 +8,7 @@ import {
   AlumniSurvey,
   EmployerSurvey,
   StudentSurvey,
+  AnalysisReportSurvey,
   ///////////////////// 4
   BenchmarkingAnalysis,
   InstitutionVisit,
@@ -262,7 +263,12 @@ export const DownloadAssessorsFile = async (req, res) => {
 };
 
 /////////////////// 3
-const surveyModels = [AlumniSurvey, EmployerSurvey, StudentSurvey];
+const surveyModels = [
+  AlumniSurvey,
+  EmployerSurvey,
+  StudentSurvey,
+  AnalysisReportSurvey,
+];
 export const getSurveyData = async (req, res) => {
   await getAllData(req, res, surveyModels);
 };

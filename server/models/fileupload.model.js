@@ -115,6 +115,7 @@ const AppointmentDuration2 = mongoose.model(
 const AlumniSurvey = mongoose.model("Alumni", FileandDateSchema);
 const EmployerSurvey = mongoose.model("Employer", FileandDateSchema);
 const StudentSurvey = mongoose.model("Student", FileandDateSchema);
+const AnalysisReportSurvey = mongoose.model("AnalysisReportSurvey", FileSchema);
 
 /////////////// 4 Benchmarking//////////////////////////
 
@@ -205,6 +206,7 @@ export {
   AlumniSurvey,
   EmployerSurvey,
   StudentSurvey,
+  AnalysisReportSurvey,
   ///////////////////// 4
   BenchmarkingAnalysis,
   InstitutionVisit,

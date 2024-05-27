@@ -34,7 +34,7 @@ const Survey = () => {
   if (error) {
     return <div>Error: {error}</div>;
   }
-  const { Alumni, Employer, Student } = data;
+  const { Alumni, Employer, Student, AnalysisReportSurvey } = data;
 
   const handleDelete = async (id) => {
     try {
@@ -119,8 +119,8 @@ const Survey = () => {
             onDelete={handleDelete}
             onDownload={handleDownload}
             title="Analysis Report"
-            rows={Student}
-            route="studentdata"
+            rows={AnalysisReportSurvey}
+            route="analysisdata"
             form="FileForm"
           />
         </div>
