@@ -174,6 +174,41 @@ const deleteAdminById = asyncHandler(async (req, res) => {
   }
 });
 
+const addAdmin = asyncHandler(async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
+
+    // Check if the user already exists
+    const userExists = await User.findOne({ email });
+
+    if (userExists) {
+      res.status(400).json({ message: "User already exists" });
+      return;
+    }
+
+    // Create a new user
+    const user = await User.create({
+      name,
+      email,
+      password, // Remember to hash the password before saving it
+      role:"admin",
+      country: "",
+      maritalStatus: "unspecified",
+      identityCardOrPassportNo: "",
+      gender: "unspecified",
+      address: "",
+      birthday: "",
+      religion: "",
+      mobile: "",
+    });
+
+    res.status(201).json({ message: "Admin created successfully", user });
+  } catch (error) {
+    console.error("Error adding admin:", error);
+    res.status(500).json({ message: "Failed to add admin" });
+  }
+});
+
 
 export {
   authUser,
@@ -183,4 +218,5 @@ export {
   updateUserProfile,
   getAdmins,
   deleteAdminById,
+  addAdmin
 };

@@ -7,7 +7,10 @@ import "react-toastify/dist/ReactToastify.css";
 import Sidebar from "./layout/Sidebar/Sidebar";
 import Main from "./components/Main/Main";
 import TopBar from "./components/TopBar/TopBar";
+
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import SadminRoute from "./components/PrivateRoute/SadminRoute";
+
 
 import Phase4 from "./components/BITPhases/Phase4";
 
@@ -71,7 +74,10 @@ function App() {
                       <Route path="/TCR" element={<TCR />} />
                       <Route path="/account" element={<AccountPage />} />
                       <Route path="/about_us" element={<About_us_page />} />
-                      <Route path="/admins" element={<Admins />} />
+                      <Route path="" element={<SadminRoute />}>
+                        <Route path="/admins" element={<Admins />} />
+                      </Route>
+                      
                       <Route path="*" element={<h1>Page Not Found !!</h1>} />
                     </Routes>
                   </div>

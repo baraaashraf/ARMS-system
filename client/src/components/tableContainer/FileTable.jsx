@@ -19,13 +19,16 @@ const FileTable = ({
   handleGet,
   pageSection,
 }) => {
+  const adminAccess = () => {
+    return userInfo.role === "admin" || userInfo.role === "superadmin";
+  };
   return (
     <Table sx={{ minWidth: 250 }} aria-label="simple table">
       <TableHead sx={{ backgroundColor: "#f5f5f4" }}>
         <TableRow>
           <TableCell align="center">Download</TableCell>
           <TableCell align="center">File Name</TableCell>
-          {userInfo.role === "admin" && pageSection !== "tcr" && (
+          {adminAccess && pageSection !== "tcr" && (
             <>
               <TableCell align="center">Delete</TableCell>{" "}
             </>
@@ -49,7 +52,7 @@ const FileTable = ({
               />
             </TableCell>
             <TableCell align="center">{row.displayName}</TableCell>
-            {userInfo.role === "admin" && pageSection !== "tcr" && (
+            {adminAccess && pageSection !== "tcr" && (
               <>
                 <TableCell align="center">
                   <ConfirmationModal

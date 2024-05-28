@@ -19,6 +19,10 @@ const Table2 = ({
   handleGet,
   pageSection,
 }) => {
+  const adminAccess = () => {
+    return userInfo.role === "admin" || userInfo.role === "superadmin";
+  };
+
   return (
     <Table sx={{ minWidth: 250 }} aria-label="simple table">
       <TableHead sx={{ backgroundColor: "#f5f5f4" }}>
@@ -28,7 +32,7 @@ const Table2 = ({
           <TableCell align="center">target date</TableCell>
           <TableCell align="center">start date</TableCell>
           <TableCell align="center">end date</TableCell>
-          {userInfo.role === "admin" && pageSection !== "tcr" && (
+          {adminAccess && pageSection !== "tcr" && (
             <>
               <TableCell align="center">Edit</TableCell>
               <TableCell align="center">Delete</TableCell>
@@ -48,7 +52,7 @@ const Table2 = ({
                 onClick={() => {
                   handleGet(row._id, row.displayName);
                 }}
-                style={{color:"black"}}
+                style={{ color: "black" }}
                 className="icon-button fa-lg edit-icon"
                 icon={faDownload}
               />
@@ -58,7 +62,7 @@ const Table2 = ({
             <TableCell align="center">{row.startDate}</TableCell>
             <TableCell align="center">{row.endDate}</TableCell>
 
-            {userInfo.role === "admin" && pageSection !== "tcr" && (
+            {adminAccess && pageSection !== "tcr" && (
               <>
                 <TableCell align="center">
                   <EditFormModal
