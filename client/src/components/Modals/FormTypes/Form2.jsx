@@ -41,7 +41,7 @@ const Form2 = ({ route, onClose, page, descInput }) => {
       .then((response) => response.json())
       .then((data) => {
         if (data.message) {
-          toast.error(data.message);
+          toast.success(data.message);
           return;
         }
         console.log("Success:", data);

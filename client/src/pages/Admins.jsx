@@ -100,7 +100,7 @@ const Admins = () => {
   async function handleDeleteAdmin(id) {
     try {
       const response = await fetch(
-        `http//localhost:5000/api/users/admins/${id}`,
+        `http://localhost:5000/api/users/admins/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -123,7 +123,12 @@ const Admins = () => {
   return (
     <div>
       <Button
-        sx={{ backgroundColor: "#00928f", color: "white", borderRadius: 2, my: 2 }}
+        sx={{
+          backgroundColor: "#00928f",
+          color: "white",
+          borderRadius: 2,
+          my: 2,
+        }}
         onClick={handleOpen}
       >
         Add Admin

@@ -17,6 +17,7 @@ const LocTable = ({
   title,
   handleDelete,
   handleGet,
+  pageSection
 }) => {
   const adminAccess = () => {
     return userInfo.role === "admin" || userInfo.role === "superadmin";
