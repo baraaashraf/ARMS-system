@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { faPlus, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { faSquarePlus, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../tableContainer/DataTable.css";
 import "./FormModal.css";
@@ -75,7 +75,7 @@ const FormModal = ({ title, route, page, descInput, form }) => {
   return (
     <div>
       <Button sx={{ color: "black" }} onClick={handleOpen}>
-        <FontAwesomeIcon className="icon-button add-icon" icon={faPlus} />
+        <FontAwesomeIcon className="icon-button add-icon" icon={faSquarePlus} />
       </Button>
       <Modal
         open={open}

@@ -1,9 +1,13 @@
 import React from "react";
 import "./AnnouncmentCard.css";
-import iium from "../../assets/images/iium-logo-photo.jpg";
-const AnnouncmentCard = ({ title, date, content, image }) => {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+
+const AnnouncmentCard = ({ title, date, content, image, isAdmin }) => {
   return (
     <div className="card-container">
+
+      {isAdmin && <FontAwesomeIcon className="anon-trash" icon={faCircleXmark} />}
       <img className="card-image" src={image} />
 
       <main className="card-main-content">

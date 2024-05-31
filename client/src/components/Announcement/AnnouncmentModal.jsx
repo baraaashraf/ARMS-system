@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
+import { faSquarePlus, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
 
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -36,6 +32,9 @@ const AnnouncmentModal = () => {
 
   const [formData, setFormData] = useState({});
   const [file, setFile] = useState(null);
+
+  const { userInfo } = useSelector((state) => state.auth);
+
 
   ////apply changes to form
   const handleChange = (e) => {
@@ -91,7 +90,7 @@ const AnnouncmentModal = () => {
         }}
         onClick={handleOpen}
       >
-        Add Announcement
+        <FontAwesomeIcon icon={faSquarePlus} />
       </Button>
       <Modal
         open={open}

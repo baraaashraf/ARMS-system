@@ -25,6 +25,7 @@
 }
 
 .card-container {
+  position: relative;
   width: 100%;
   max-width: 250px;
   height: 350px;
@@ -35,3 +36,15 @@
   padding: 1rem;
 }
 
+.anon-trash{
+  color: #111827;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  transition: 0.3s;
+}
+
+.anon-trash:hover{
+  color: red;
+  cursor: pointer;
+}

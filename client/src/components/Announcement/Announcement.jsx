@@ -2,11 +2,13 @@ import "./Announcement.css";
 import AnnouncmentCard from "../AnnouncmentCard/AnnouncmentCard";
 import { useState, useEffect } from "react";
 import AnnouncmentModal from "./AnnouncmentModal";
+import { useSelector } from "react-redux";
 
 const Announcement = () => {
   const [announcements, setAnnouncements] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { userInfo } = useSelector((state) => state.auth);
 
   useEffect(() => {
     const fetchAnnouncements = async () => {
@@ -36,12 +38,15 @@ const Announcement = () => {
   if (error) {
     return <div>Error: {error}</div>;
   }
+  const isAdmin = () => {
+    return userInfo.role === "admin" || userInfo.role === "superadmin";
+  };
 
   return (
     <div className="grid-two-item grid-common grid-c4">
       <div className="grid-c-title">
         <h3 className="grid-c-title-text">Announcements</h3>
-        <AnnouncmentModal />
+        {isAdmin && <AnnouncmentModal />}
       </div>
       <div className="announcement-container">
         {announcements.map((anon) => (
@@ -51,6 +56,7 @@ const Announcement = () => {
             date={anon.createdAt.split("T")[0]}
             content={anon.content}
             image={`http://localhost:5000/${anon.image}`}
+            isAdmin={isAdmin}
           />
         ))}
       </div>
