@@ -11,14 +11,16 @@ const Timeline = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/dashboard/timeline");
+        const response = await fetch(
+          "http://localhost:5000/api/dashboard/timeline"
+        );
         if (!response.ok) {
           throw new Error("Failed to fetch Timeline data");
         }
         const fetchedData = await response.json();
 
         setTimelineData(fetchedData);
-        console.log(fetchedData)
+        console.log(fetchedData);
         setLoading(false);
       } catch (error) {
         setError(error.message);
@@ -44,18 +46,22 @@ const Timeline = () => {
       </div>
       <div className="grid-c3-content">
         <ul className="data-list">
-          {TimelineData.map((item, index) => (
-            <div className="data-list-item" key={index}>
-              <h3>{item.endDate}</h3>
-              <li>
-                <span>
-                  <img src={iconsImgs.rightArrow} width={15} />
-                </span>
-                {item.fileName}
-              </li>
-              <p>{item.scopeName}</p>
-            </div>
-          ))}
+          {TimelineData <= 0 ? (
+            <h3>No Timeline Data</h3>
+          ) : (
+            TimelineData.map((item, index) => (
+              <div className="data-list-item" key={index}>
+                <h3>{item.endDate}</h3>
+                <li>
+                  <span>
+                    <img src={iconsImgs.rightArrow} width={15} />
+                  </span>
+                  {item.fileName}
+                </li>
+                <p>{item.scopeName}</p>
+              </div>
+            ))
+          )}
         </ul>
       </div>
     </div>

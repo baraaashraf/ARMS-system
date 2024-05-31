@@ -75,6 +75,7 @@ const addMembersData = async (req, res, Model, scope) => {
       fileName: file?.originalname,
       endDate: appointment_end_date,
       scopeName: scope,
+      mainDataID: newData._id,
     });
     res.status(201).json({ newData, newTimeline });
   } catch (error) {
@@ -101,11 +102,23 @@ const createDocument = async (req, res, Model, scope) => {
       displayName: file?.originalname,
       file: file?.filename,
     });
-    const newTimeline = TimelineSchema.create({
-      fileName: file?.originalname,
-      endDate,
-      scopeName: scope,
-    });
+    let newTimeline;
+    if (endDate && file) {
+      newTimeline = TimelineSchema.create({
+        fileName: file?.originalname,
+        endDate,
+        scopeName: scope,
+        mainDataID: newData._id,
+      });
+    }
+    if (actualDate && file) {
+      newTimeline = TimelineSchema.create({
+        fileName: file?.originalname,
+        endDate: actualDate,
+        scopeName: scope,
+        mainDataID: newData._id,
+      });
+    }
 
     res.status(201).json({ newData, newTimeline });
   } catch (error) {

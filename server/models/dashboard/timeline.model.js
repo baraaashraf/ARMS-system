@@ -14,6 +14,10 @@ const timelineSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    mainDataID:{
+      type: String,
+      required: true,
+    }
   },
   {
     timestamps: true,

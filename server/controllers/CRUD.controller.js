@@ -43,6 +43,8 @@ import {
   NominationOfBoard2,
 } from "../models/members.model.js";
 
+import { TimelineSchema } from "../models/dashboard/timeline.model.js";
+
 import fs from "fs";
 import path from "path";
 
@@ -70,6 +72,7 @@ const updateDataById = async (req, res, collections) => {
     const { id } = req.params;
     const updateData = req.body;
     let documentFound = false;
+    console.log("updateData", updateData);
 
     for (const collection of collections) {
       const document = await collection.findById(id);
@@ -80,7 +83,31 @@ const updateDataById = async (req, res, collections) => {
           collection === NominationOfBoard2
         ) {
           await collection.findByIdAndUpdate(id, updateData);
+          await TimelineSchema.findOneAndUpdate(
+            {
+              mainDataID: id,
+            },
+            {
+              endDate:
+                updateData.endDate ||
+                updateData.actualDate ||
+                updateData.appointment_end_date ||
+                endDate,
+            }
+          );
         } else {
+          await TimelineSchema.findOneAndUpdate(
+            {
+              mainDataID: id,
+            },
+            {
+              endDate:
+                updateData.endDate ||
+                updateData.actualDate ||
+                updateData.appointment_end_date ||
+                endDate,
+            }
+          );
           // Update the document properties from req.body
           Object.assign(document, updateData);
           await document.save();
@@ -155,6 +182,7 @@ const deleteDataById = async (req, res, collections) => {
           collection === NominationOfBoard2
         ) {
           await collection.findByIdAndDelete(id);
+          await TimelineSchema.findOneAndDelete({ mainDataID: id });
         } else {
           if (document.file) {
             const filePath = path.join("./uploads", document.file);
@@ -165,6 +193,7 @@ const deleteDataById = async (req, res, collections) => {
             }
           }
           await collection.findByIdAndDelete(id);
+          await TimelineSchema.findOneAndDelete({ mainDataID: id });
         }
         documentFound = true;
         break;

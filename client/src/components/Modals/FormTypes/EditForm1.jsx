@@ -69,6 +69,10 @@ const EditForm1 = ({ route, page, onClose, rowID }) => {
     endDate: "date",
     targetDate: "date",
     actualDate: "date",
+    email: "email",
+    appointment_issue_date: "date",
+    appointment_start_date: "date",
+    appointment_end_date: "date",
     comment: "text",
   };
 
