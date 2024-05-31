@@ -48,12 +48,12 @@ const ConfirmationModal = ({ icon, onConfirm, anonStyle }) => {
         <Box sx={style}>
           <div id="table-title-form">
             <Typography id="modal-modal-title" variant="h6" component="h2">
-              Are you sure you to item
+              Confirmation Alert
             </Typography>
           </div>
 
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Are you sure you want to perform this action?
+            Are you sure you want to delete this item?
           </Typography>
           <Box
             style={{

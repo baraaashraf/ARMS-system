@@ -69,6 +69,7 @@ const registerUser = asyncHandler(async (req, res) => {
       birthday: user.birthday,
       religion: user.religion,
       mobile: user.mobile,
+      role: user.role,
     });
   } else {
     res.status(400);

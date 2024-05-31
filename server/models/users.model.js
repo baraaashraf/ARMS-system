@@ -5,8 +5,8 @@ const userSchema = mongoose.Schema(
   {
     role: {
       type: String,
-      enum: ['user', 'admin','superadmin'],
-      default: 'user',
+      enum: ["user", "admin", "superadmin"],
+      default: "user",
       required: true,
     },
     name: {
@@ -27,14 +27,14 @@ const userSchema = mongoose.Schema(
     },
     maritalStatus: {
       type: String,
-      enum: ['single', 'married', 'divorced', 'widowed', 'unspecified'],
+      enum: ["single", "married", "divorced", "widowed", "unspecified"],
     },
     identityCardOrPassportNo: {
       type: String,
     },
     gender: {
       type: String,
-      enum: ['male', 'female', 'unspecified'],
+      enum: ["male", "female", "unspecified"],
     },
     address: {
       type: String,
@@ -46,6 +46,9 @@ const userSchema = mongoose.Schema(
       type: String,
     },
     mobile: {
+      type: String,
+    },
+    picture: {
       type: String,
     },
   },

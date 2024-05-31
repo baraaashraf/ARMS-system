@@ -46,7 +46,7 @@ const Announcement = () => {
     <div className="grid-two-item grid-common grid-c4">
       <div className="grid-c-title">
         <h3 className="grid-c-title-text">Announcements</h3>
-        {isAdmin && <AnnouncmentModal />}
+        {isAdmin() && <AnnouncmentModal />}
       </div>
       <hr className="dashbaord-line" />
       <div className="announcement-container">
@@ -58,7 +58,7 @@ const Announcement = () => {
             date={anon.createdAt.split("T")[0]}
             content={anon.content}
             image={`http://localhost:5000/${anon.image}`}
-            isAdmin={isAdmin}
+            isAdmin={isAdmin()}
           />
         ))}
       </div>
