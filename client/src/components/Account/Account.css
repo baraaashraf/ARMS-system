@@ -10,6 +10,8 @@
 
 .profile-img {
   border-radius: 50%;
+  aspect-ratio: 1;
+  width: 300px;
 }
 /* ------------------------------------------------- */
 .personal-info-container {
@@ -34,6 +36,13 @@
   border-radius: 5px;
   font-size: 16px;
   border-style: none;
+}
+
+#image-input{
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 

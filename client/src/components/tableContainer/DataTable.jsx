@@ -36,7 +36,7 @@ const DataTable = ({
   useEffect(() => {
     console.log(pageSection);
   }, []);
-  const adminAccess = () => {
+  const isAdmin = () => {
     return userInfo.role === "admin" || userInfo.role === "superadmin";
   };
   function desiredTable(form) {
@@ -117,7 +117,7 @@ const DataTable = ({
           <Typography sx={{ padding: 2, color: "black" }} variant="h5">
             {title}
           </Typography>
-          {adminAccess &&
+          {isAdmin() &&
             pageSection !==
               "tcr" && (
                 <>

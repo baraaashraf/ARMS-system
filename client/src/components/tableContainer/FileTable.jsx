@@ -19,7 +19,7 @@ const FileTable = ({
   handleGet,
   pageSection,
 }) => {
-  const adminAccess = () => {
+  const isAdmin = () => {
     return userInfo.role === "admin" || userInfo.role === "superadmin";
   };
   return (
@@ -28,7 +28,7 @@ const FileTable = ({
         <TableRow>
           <TableCell align="center">Download</TableCell>
           <TableCell align="center">File Name</TableCell>
-          {adminAccess && pageSection !== "tcr" && (
+          {isAdmin() && pageSection !== "tcr" && (
             <>
               <TableCell align="center">Delete</TableCell>{" "}
             </>
@@ -52,7 +52,7 @@ const FileTable = ({
               />
             </TableCell>
             <TableCell align="center">{row.displayName}</TableCell>
-            {adminAccess && pageSection !== "tcr" && (
+            {isAdmin() && pageSection !== "tcr" && (
               <>
                 <TableCell align="center">
                   <ConfirmationModal

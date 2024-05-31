@@ -1,5 +1,5 @@
 import "./TopBar.css";
-import IIUMlogo from "../../assets/images/person_one.jpg";
+import DefaultIMG from "../../assets/images/userProfilePic.jpg";
 import { useContext } from "react";
 import { SidebarContext } from "../../context/sidebarContext";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -9,7 +9,7 @@ import { useLogoutMutation } from "../../slices/usersApiSlice";
 import logoutIcon from "../../assets/icons/logout.png";
 import { logout } from "../../slices/authSlice";
 const TopBar = () => {
-  const { userInfo } = useSelector((state) => state.auth) 
+  const { userInfo } = useSelector((state) => state.auth);
   const route = useLocation();
   const { pathname } = route;
   const location = pathname.split("/").slice(-1).toString().toUpperCase();
@@ -40,13 +40,22 @@ const TopBar = () => {
         >
           <img src={menuIcon} alt="" />
         </button>
-        <h3 className="content-top-title">{location === "HOME" ? "Academic Review Managment System" : location}</h3>
+        <h3 className="content-top-title">
+          {location === "HOME" ? "Academic Review Managment System" : location}
+        </h3>
       </div>
       <div className="user-logo">
         <span className="user-name">{userInfo.name}</span>
         <div className="user-img img-fit-cover">
           <a href="/account">
-            <img src={IIUMlogo} alt="profile image" />
+            <img
+              src={
+                userInfo.profilePic
+                  ? `http://localhost:5000/${userInfo.profilePic}`
+                  : DefaultIMG
+              }
+              alt="profile image"
+            />
           </a>
         </div>
         <img

@@ -1,7 +1,7 @@
 import asyncHandler from "express-async-handler";
 import User from "../models/users.model.js";
 import generateToken from "../utils/generateToken.js";
-
+import fs from "fs";
 // AUTH-- POST /api/users/auth
 const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
@@ -24,6 +24,7 @@ const authUser = asyncHandler(async (req, res) => {
       birthday: user.birthday,
       religion: user.religion,
       mobile: user.mobile,
+      profilePic: user.profilePic,
     });
   } else {
     res.status(401);
@@ -103,6 +104,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
       birthday: user.birthday,
       religion: user.religion,
       mobile: user.mobile,
+      profilePic: user.profilePic,
     });
   } else {
     res.status(404);
@@ -114,22 +116,30 @@ const getUserProfile = asyncHandler(async (req, res) => {
 const updateUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.body._id);
 
-  if (user) {
-    user.name = req.body.name || user.name;
-    user.email = req.body.email || user.email;
-    user.country = req.body.country || user.country;
-    user.maritalStatus =
-      req.body.maritalStatus.toLowerCase() || user.maritalStatus.toLowerCase();
-    user.identityCardOrPassportNo =
-      req.body.identityCardOrPassportNo || user.identityCardOrPassportNo;
-    user.gender = req.body.gender.toLowerCase() || user.gender.toLowerCase();
-    user.address = req.body.address || user.address;
-    user.birthday = req.body.birthday || user.birthday;
-    user.religion = req.body.religion || user.religion;
-    user.mobile = req.body.mobile || user.mobile;
+  if (!user) {
+    res.status(404).json({ error: "User not found" });
+    return;
+  }
 
+  if (req.file) {
+    // Handle profile picture upload
+    user.profilePic = req.file.path;
+  }
+
+  user.name = req.body.name || user.name;
+  user.email = req.body.email || user.email;
+  user.country = req.body.country || user.country;
+  user.maritalStatus = req.body.maritalStatus || user.maritalStatus;
+  user.identityCardOrPassportNo =
+    req.body.identityCardOrPassportNo || user.identityCardOrPassportNo;
+  user.gender = req.body.gender || user.gender;
+  user.address = req.body.address || user.address;
+  user.birthday = req.body.birthday || user.birthday;
+  user.religion = req.body.religion || user.religion;
+  user.mobile = req.body.mobile || user.mobile;
+
+  try {
     const updatedUser = await user.save();
-
     res.json({
       _id: updatedUser._id,
       name: updatedUser.name,
@@ -143,10 +153,42 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       birthday: updatedUser.birthday,
       religion: updatedUser.religion,
       mobile: updatedUser.mobile,
+      profilePic: user.profilePic,
     });
-  } else {
-    res.status(404);
-    throw new Error("User not found");
+  } catch (error) {
+    res.status(500).json({ error: "Could not update user profile" });
+  }
+});
+
+const updateUserProfileImage = asyncHandler(async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    if (req.file) {
+      // If user has an existing profile picture, delete it
+      if (user.profilePic) {
+        fs.unlinkSync(user.profilePic);
+      }
+
+      // Handle profile picture upload
+      user.profilePic = req.file.path;
+
+      // Save the updated user object
+      await user.save();
+
+      return res.json({
+        message: "Profile picture updated successfully",
+        profilePic: user.profilePic,
+      });
+    } else {
+      return res.status(400).json({ error: "No file uploaded" });
+    }
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: "Could not update profile picture" });
   }
 });
 
@@ -192,7 +234,7 @@ const addAdmin = asyncHandler(async (req, res) => {
       name,
       email,
       password, // Remember to hash the password before saving it
-      role:"admin",
+      role: "admin",
       country: "",
       maritalStatus: "unspecified",
       identityCardOrPassportNo: "",
@@ -210,7 +252,6 @@ const addAdmin = asyncHandler(async (req, res) => {
   }
 });
 
-
 export {
   authUser,
   registerUser,
@@ -219,5 +260,6 @@ export {
   updateUserProfile,
   getAdmins,
   deleteAdminById,
-  addAdmin
+  addAdmin,
+  updateUserProfileImage,
 };

@@ -17,9 +17,9 @@ const LocTable = ({
   title,
   handleDelete,
   handleGet,
-  pageSection
+  pageSection,
 }) => {
-  const adminAccess = () => {
+  const isAdmin = () => {
     return userInfo.role === "admin" || userInfo.role === "superadmin";
   };
   return (
@@ -31,7 +31,7 @@ const LocTable = ({
           <TableCell align="center">start date</TableCell>
           <TableCell align="center">end date</TableCell>
 
-          {adminAccess && pageSection !== "tcr" && (
+          {isAdmin() && pageSection !== "tcr" && (
             <>
               <TableCell align="center">Edit</TableCell>
               <TableCell align="center">Delete</TableCell>{" "}
@@ -50,7 +50,7 @@ const LocTable = ({
             <TableCell align="center">{row.startDate}</TableCell>
             <TableCell align="center">{row.endDate}</TableCell>
 
-            {adminAccess && pageSection !== "tcr" && (
+            {isAdmin() && pageSection !== "tcr" && (
               <>
                 <TableCell align="center">
                   <EditFormModal

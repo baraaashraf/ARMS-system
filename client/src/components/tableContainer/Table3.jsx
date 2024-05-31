@@ -19,7 +19,7 @@ const Table3 = ({
   handleGet,
   pageSection,
 }) => {
-  const adminAccess = () => {
+  const isAdmin = () => {
     return userInfo.role === "admin" || userInfo.role === "superadmin";
   };
   return (
@@ -30,7 +30,7 @@ const Table3 = ({
           <TableCell align="center">File Name</TableCell>
           <TableCell align="center">target date</TableCell>
           <TableCell align="center">actual date</TableCell>
-          {adminAccess && pageSection !== "tcr" && (
+          {isAdmin() && pageSection !== "tcr" && (
             <>
               <TableCell align="center">Edit</TableCell>
               <TableCell align="center">Delete</TableCell>{" "}
@@ -58,7 +58,7 @@ const Table3 = ({
             <TableCell align="center">{row.displayName}</TableCell>
             <TableCell align="center">{row.targetDate}</TableCell>
             <TableCell align="center">{row.actualDate}</TableCell>
-            {adminAccess && pageSection !== "tcr" && (
+            {isAdmin() && pageSection !== "tcr" && (
               <>
                 <TableCell align="center">
                   <EditFormModal

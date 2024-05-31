@@ -48,9 +48,10 @@ const userSchema = mongoose.Schema(
     mobile: {
       type: String,
     },
-    picture: {
+    profilePic: {
       type: String,
     },
+
   },
   {
     timestamps: true,

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import personOne from "../../assets/images/person_one.jpg";
+import DefaultIMG from "../../assets/images/userProfilePic.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { useUpdateUserMutation } from "../../slices/usersApiSlice";
 import "./Account.css";
@@ -7,7 +7,7 @@ import FormInput from "./FormInput";
 import { setCredentials } from "../../slices/authSlice";
 import Loader from "../Loader.jsx/Loader";
 import { toast } from "react-toastify";
-
+import AccountModal from "./AccountModal";
 const Account = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -22,9 +22,9 @@ const Account = () => {
   const [mobile, setMobile] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [profilePic, setProfilePic] = useState("");
 
   const { userInfo } = useSelector((state) => state.auth);
-
   const dispatch = useDispatch();
 
   const [updateProfile, { isLoading }] = useUpdateUserMutation();
@@ -43,6 +43,7 @@ const Account = () => {
         birthday,
         religion,
         mobile,
+        profilePic,
       } = userInfo;
 
       setName(name || "");
@@ -56,6 +57,7 @@ const Account = () => {
       setBirthday(birthday || "");
       setReligion(religion || "");
       setMobile(mobile || "");
+      setProfilePic(profilePic || "");
     }
   }, [userInfo]);
   const submitHandler = async (e) => {
@@ -87,11 +89,21 @@ const Account = () => {
     }
   };
 
+  console.log("profilePic", profilePic);
   return (
     <div>
       <h1>Profile</h1>
       <div className="profile-info-container">
-        <img className="profile-img" src={personOne} alt="" />
+        <div className="profile-info-container">
+          <img
+            className="profile-img"
+            src={
+              profilePic ? `http://localhost:5000/${profilePic}` : DefaultIMG
+            }
+          />
+          <AccountModal id={userInfo._id} />
+        </div>
+
         <ul>
           <li>Username: {name}</li>
           <li>User role: {role}</li>

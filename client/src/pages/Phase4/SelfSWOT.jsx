@@ -43,7 +43,7 @@ const SelfSWOT = () => {
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://localhost:5000/api/bit/selfswot/download/${id}`, {
+      await fetch(`http://localhost:5000/api/bit/selfswot/${id}`, {
         method: "DELETE",
       });
       toast.success("Item Deleted Successfully");
