@@ -114,7 +114,7 @@ const DataTable = ({
     <>
       <TableContainer sx={{ margin: 1 }} component={Paper}>
         <div className="table-title">
-          <Typography sx={{ padding: 2, color: "white" }} variant="h5">
+          <Typography sx={{ padding: 2, color: "black" }} variant="h5">
             {title}
           </Typography>
           {adminAccess &&

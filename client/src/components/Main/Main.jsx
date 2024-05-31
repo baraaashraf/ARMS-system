@@ -5,15 +5,11 @@ import Announcement from "../Announcement/Announcement";
 import Timeline from "../Timeline/Timeline";
 import Notifcations from "../Notifcations/Notifcations";
 
-
-
-
 const Main = () => {
   return (
     <div className="main-content-holder">
       <div className="content-grid-one">
         <Dashboard />
-        <Notifcations />
       </div>
       <div className="content-grid-two">
         <Announcement />

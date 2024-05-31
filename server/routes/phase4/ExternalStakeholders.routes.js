@@ -18,7 +18,7 @@ import {
 const router = express.Router();
 
 /////////////////////////////////////////////
-router.post("/nominationdata", addNominationData);
+router.post("/nominationdata", upload.single("file"), addNominationData);
 router.post("/endorsementdata", upload.single("file"), addEndorsementData);
 router.post("/analysisdata", upload.single("file"), addAnalysisData);
 

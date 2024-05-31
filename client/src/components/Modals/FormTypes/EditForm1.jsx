@@ -49,7 +49,7 @@ const EditForm1 = ({ route, page, onClose, rowID }) => {
       if (!response.ok) {
         throw new Error("Failed to update data");
       }
-      toast.success("row edited successfully")
+      toast.success("row edited successfully");
       onClose();
     } catch (err) {
       toast.error(err.message);
@@ -68,6 +68,7 @@ const EditForm1 = ({ route, page, onClose, rowID }) => {
     startDate: "date",
     endDate: "date",
     targetDate: "date",
+    actualDate: "date",
     comment: "text",
   };
 
@@ -78,7 +79,7 @@ const EditForm1 = ({ route, page, onClose, rowID }) => {
       onSubmit={handleSubmit}
     >
       {Object.keys(data).map((key, index) => {
-        if (key !== "_id" && key !== "displayName" &&  key !== "file") {
+        if (key !== "_id" && key !== "displayName" && key !== "file") {
           return (
             <div key={index}>
               <label htmlFor={key}>{key}</label>

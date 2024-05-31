@@ -2,14 +2,8 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../FormModal.css";
-const Form1 = ({ route, onClose,page }) => {
-  const [formData, setFormData] = useState({
-    name: "",
-    position: "",
-    company: "",
-    mobileno: "",
-    email: "",
-  });
+const Form1 = ({ route, onClose, page }) => {
+  const [formData, setFormData] = useState({});
 
   const [file, setFile] = useState(null);
 
@@ -20,22 +14,41 @@ const Form1 = ({ route, onClose,page }) => {
       [name]: value,
     }));
   };
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(route);
+    console.log("formData", formData);
+    const formDataObj = new FormData();
 
+    formDataObj.append("name", formData.name);
+    formDataObj.append("position", formData.position);
+    formDataObj.append("company", formData.company);
+    formDataObj.append("mobileno", formData.mobileno);
+    formDataObj.append("email", formData.email);
+    formDataObj.append(
+      "appointment_issue_date",
+      formData.appointment_issue_date
+    );
+    formDataObj.append(
+      "appointment_start_date",
+      formData.appointment_start_date
+    );
+    formDataObj.append("appointment_end_date", formData.appointment_end_date);
+
+    formDataObj.append("file", file); // Append selected file
+    console.log(formDataObj);
     fetch(`http://localhost:5000/api/bit/${page}/${route}`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
+      body: formDataObj,
     })
       .then((response) => response.json())
       .then((data) => {
         if (data.message) {
-          toast.error("\nPlease fill all elements");
+          toast.error(data.message);
           return;
         }
         console.log("Success:", data);
@@ -49,8 +62,11 @@ const Form1 = ({ route, onClose,page }) => {
   };
 
   return (
-    <form className="modal-form" onSubmit={handleSubmit}>
-    
+    <form
+      encType="multipart/form-data"
+      className="modal-form"
+      onSubmit={handleSubmit}
+    >
       <label htmlFor="name">Name:</label>
       <br />
       <input
@@ -133,6 +149,17 @@ const Form1 = ({ route, onClose,page }) => {
         onChange={handleChange}
       />
       <br />
+      <label htmlFor="file">Upload CV:</label>
+      <br />
+      <input
+        type="file"
+        accept=".doc,.docx,.pdf"
+        id="file"
+        name="file"
+        onChange={handleFileChange}
+      />
+      <br />
+
       <input id="form-submit-button" type="submit" value="Submit" />
     </form>
   );

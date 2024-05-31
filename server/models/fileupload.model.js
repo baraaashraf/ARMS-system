@@ -121,7 +121,7 @@ const AnalysisReportSurvey = mongoose.model("AnalysisReportSurvey", FileSchema);
 
 const BenchmarkingAnalysis = mongoose.model(
   "BenchmarkingAnalysis",
-  FileandDateSchema
+  FileSchema
 );
 const InstitutionVisit = mongoose.model("InstitutionVisit", InstitutionVisitSchema);
 

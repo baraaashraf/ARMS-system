@@ -171,7 +171,7 @@ const CurriculumReviewProposal = () => {
             page="crm"
             onDelete={handleDelete}
             onDownload={handleDownload}
-            title="Proposal"
+            title="Endorsed Proposal"
             rows={CRM_Proposal}
             route="proposal"
             form="FileForm"

@@ -211,7 +211,7 @@ export const BITphase4_1 = [
     page:"programcurriculum"
   },
   {
-    title: "Self-review SWOT analysis",
+    title: "Self-review and SWOT analysis",
     percentage:21,
     page:"selfswot"
   },

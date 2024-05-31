@@ -1,6 +1,10 @@
 import express from "express";
 import multer from "multer";
-import { addAnnouncement,getAllAnnouncements } from "../controllers/dashboard.controllers.js";
+import {
+  addAnnouncement,
+  getAllAnnouncements,
+  getAllTimeline,
+} from "../controllers/dashboard.controllers.js";
 const router = express.Router();
 
 // Multer configuration for handling file uploads
@@ -15,10 +19,10 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-
-
 // Route to add a new announcement with image upload
 router.post("/announcements", upload.single("image"), addAnnouncement);
-router.get('/announcements', getAllAnnouncements);
+router.get("/announcements", getAllAnnouncements);
+
+router.get("/timeline", getAllTimeline);
 
 export default router;

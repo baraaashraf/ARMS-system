@@ -1,5 +1,5 @@
 import { AnnouncementSchema } from "../models/dashboard/announcement.model.js";
-
+import { TimelineSchema } from "../models/dashboard/timeline.model.js";
 const addAnnouncement = async (req, res) => {
   const { title, content } = req.body;
   const image = req.file ? req.file.path : null;
@@ -37,4 +37,16 @@ const getAllAnnouncements = async (req, res) => {
   }
 };
 
-export { addAnnouncement, getAllAnnouncements };
+const getAllTimeline = async (req, res) => {
+  try {
+    const timelineList = await TimelineSchema.find();
+    res.status(200).json(timelineList);
+  } catch (error) {
+    console.error("Error fetching timeline data:", error);
+    res
+      .status(500)
+      .json({ error: "An error occurred while fetching timeline data" });
+  }
+};
+
+export { addAnnouncement, getAllAnnouncements, getAllTimeline };

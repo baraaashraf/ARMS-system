@@ -4,18 +4,15 @@ const MembersSchema = mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
     },
     position: {
       type: String,
     },
     company: {
       type: String,
-      required: true,
     },
     mobileno: {
       type: String,
-      required: true,
     },
     appointment_issue_date: {
       type: String,
@@ -28,7 +25,6 @@ const MembersSchema = mongoose.Schema(
     },
     email: {
       type: String,
-      required: true,
       validate: {
         validator: function (v) {
           return /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i.test(v);

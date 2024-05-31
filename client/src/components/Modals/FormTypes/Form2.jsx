@@ -4,11 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "../FormModal.css";
 
 const Form2 = ({ route, onClose, page, descInput }) => {
-  const [formData, setFormData] = useState({
-    startDate: "",
-    endDate: "",
-    targetDate: "",
-  });
+  const [formData, setFormData] = useState({});
 
   const [file, setFile] = useState(null);
 
