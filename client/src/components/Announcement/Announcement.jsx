@@ -48,10 +48,12 @@ const Announcement = () => {
         <h3 className="grid-c-title-text">Announcements</h3>
         {isAdmin && <AnnouncmentModal />}
       </div>
+      <hr className="dashbaord-line" />
       <div className="announcement-container">
         {announcements.map((anon) => (
           <AnnouncmentCard
             key={anon._id}
+            anonid={anon._id}
             title={anon.title}
             date={anon.createdAt.split("T")[0]}
             content={anon.content}

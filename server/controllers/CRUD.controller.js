@@ -435,3 +435,70 @@ export const deleteDokumenSemakanElement = async (req, res) => {
 export const DownloadDokumenSemakanFile = async (req, res) => {
   await getFileById(req, res, dokumenSemakanModels);
 };
+
+///////////////////////////////////////////
+const allModels = [
+  ///////////// 1
+  EndorsementOfSenate,
+  AnalysisReport,
+  ///////////////// 2
+  EndorsementOfSenate2,
+  /////////////////// 3
+  AlumniSurvey,
+  EmployerSurvey,
+  StudentSurvey,
+  AnalysisReportSurvey,
+  ///////////////////// 4
+  BenchmarkingAnalysis,
+  InstitutionVisit,
+  //////////////////// 5
+  Workshop1,
+  Workshop2,
+  Workshop3,
+
+  ///// 6
+  SelfReviewReport,
+  SubmissionOfSelfReviewReport,
+  assessorFeedbackReport,
+  ReceiptofAssessorFeedbackReport,
+
+  /////7
+  CRM_PreperationProposal,
+  CRM_EndorsementatKulliyyah,
+  CRM_ReviewByKCA1,
+  EndorsementatAQAC_DCM,
+  RevisionofCRM,
+  CRM_ReviewByKCA2,
+  CRM_EndorsementatSenate,
+  CRM_Proposal,
+  ///// 8
+  PreparationofDokumenSemakan,
+  DokumenReviewbyKCA,
+  EndorsementatJKPT,
+];
+
+export const getAllPhase4 = async (req, res) => {
+  try {
+    const allData = async (modelNames) => {
+      let dataObject = {};
+      for (const model of modelNames) {
+        dataObject[model.modelName] = await model.find();
+      }
+      return dataObject;
+    };
+    const dataObject = await allData(allModels);
+
+    let firstObjects = {};
+    for (const modelName in dataObject) {
+      const dataArray = dataObject[modelName];
+      if (dataArray.length > 0) {
+        firstObjects[modelName] = dataArray[0]; // Store the first object
+      }
+    }
+
+    res.json(firstObjects);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};

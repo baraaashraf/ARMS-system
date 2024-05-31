@@ -37,6 +37,28 @@ const getAllAnnouncements = async (req, res) => {
   }
 };
 
+const deleteAnnouncementById = async (req, res) => {
+  const announcementId = req.params.id;
+  try {
+    const deletedAnnouncement = await AnnouncementSchema.findByIdAndDelete(
+      announcementId
+    );
+
+    if (!deletedAnnouncement) {
+      return res.status(404).json({ error: "Announcement not found" });
+    }
+    res.status(200).json({
+      message: "Announcement deleted successfully",
+      deletedAnnouncement,
+    });
+  } catch (error) {
+    console.error("Error deleting announcement:", error);
+    res
+      .status(500)
+      .json({ error: "An error occurred while deleting the announcement" });
+  }
+};
+
 const getAllTimeline = async (req, res) => {
   try {
     const timelineList = await TimelineSchema.find();
@@ -49,4 +71,9 @@ const getAllTimeline = async (req, res) => {
   }
 };
 
-export { addAnnouncement, getAllAnnouncements, getAllTimeline };
+export {
+  addAnnouncement,
+  getAllAnnouncements,
+  deleteAnnouncementById,
+  getAllTimeline,
+};

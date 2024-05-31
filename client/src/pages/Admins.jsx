@@ -17,6 +17,8 @@ import Paper from "@mui/material/Paper";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import ConfirmationModal from "../components/Modals/ConfirmationModal";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -219,12 +221,11 @@ const Admins = () => {
                   {row.mobile || "Unavailable"}
                 </TableCell>
                 <TableCell align="center">
-                  <FontAwesomeIcon
-                    className="fa-lg trash-icon icon-button"
-                    onClick={() => {
+                  <ConfirmationModal
+                    icon={faTrash}
+                    onConfirm={() => {
                       handleDeleteAdmin(row._id);
                     }}
-                    icon={faTrash}
                   />
                 </TableCell>
               </TableRow>

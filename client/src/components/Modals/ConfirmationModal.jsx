@@ -3,8 +3,8 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import "./FormModal.css";
 const style = {
   position: "absolute",
@@ -21,7 +21,7 @@ const style = {
   p: 4,
 };
 
-const ConfirmationModal = ({ icon, onConfirm }) => {
+const ConfirmationModal = ({ icon, onConfirm, anonStyle }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -31,7 +31,7 @@ const ConfirmationModal = ({ icon, onConfirm }) => {
     handleClose();
   };
   return (
-    <div>
+    <div className={` ${anonStyle ? " anon-trash" : ""}`}>
       <Button sx={{ color: "black" }} onClick={handleOpen}>
         <FontAwesomeIcon
           style={{ color: "black" }}

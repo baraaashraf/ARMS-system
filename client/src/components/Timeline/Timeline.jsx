@@ -2,6 +2,7 @@ import "./Timeline.css";
 // import { TimelineData } from "../../data/data";
 import { iconsImgs } from "../../utils/images";
 import { useEffect, useState } from "react";
+import '../../App.css'
 
 const Timeline = () => {
   const [TimelineData, setTimelineData] = useState(null);
@@ -42,8 +43,8 @@ const Timeline = () => {
     <div className="subgrid-two-item grid-one-item grid-common grid-c7">
       <div className="grid-c-title">
         <h3 className="grid-c-title-text">Timeline</h3>
-        <button className="grid-c-title-icon"></button>
       </div>
+      <hr className="dashbaord-line" />
       <div className="grid-c3-content">
         <ul className="data-list">
           {TimelineData <= 0 ? (

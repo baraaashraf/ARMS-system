@@ -20,7 +20,7 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .arms-name {
-  font-size: 24px;
+  font-size: 2rem;
   color: var(--clr-white);
   text-transform: uppercase;
   font-weight: 800;

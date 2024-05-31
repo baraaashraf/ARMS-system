@@ -39,8 +39,8 @@
 .anon-trash{
   color: #111827;
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 5px;
+  right: -10px;
   transition: 0.3s;
 }
 
