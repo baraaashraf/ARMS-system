@@ -93,7 +93,6 @@ const TCR = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Success:", data);
         toast.success("Template Created Successfully");
         handleClose();
       })

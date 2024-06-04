@@ -15,7 +15,6 @@ const Dashboard = () => {
         }
         const jsonData = await response.json();
         setpercentages(jsonData);
-        console.log(percentages);
       } catch (error) {
         console.log(error);
       }
