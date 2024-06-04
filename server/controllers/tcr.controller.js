@@ -1,4 +1,6 @@
 import { tcrTemplate } from "../models/tcr.model.js";
+import path from "path";
+import fs from "fs";
 
 const getAllTemplates = async (req, res) => {
   try {
@@ -11,13 +13,30 @@ const getAllTemplates = async (req, res) => {
 
 const getTemplateById = async (req, res) => {
   try {
-    const template = await tcrTemplate.findById(req.params.id);
-    if (!template) {
-      return res.status(404).json({ message: "Template not found" });
+    const { id } = req.params;
+    const document = await tcrTemplate.findById(id);
+    if (!document) {
+      res.status(404).json({ message: "File Not Found" });
     }
-    res.json(template);
+    if (document) {
+      const filePath = path.join("./uploads/templates", document.file);
+      console.log("document.file", document.file);
+      if (fs.existsSync(filePath)) {
+        console.log(filePath, "File is here");
+        res.setHeader(
+          "Content-Disposition",
+          `attachment; filename=${document.file}`
+        );
+        res.setHeader("Content-Type", "application/octet-stream");
+        const fileStream = fs.createReadStream(filePath);
+        fileStream.pipe(res);
+      } else {
+        console.log("cannot find ", filePath);
+      }
+    }
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
   }
 };
 
